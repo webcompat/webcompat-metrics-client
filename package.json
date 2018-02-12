@@ -1,0 +1,29 @@
+{
+  "name": "webcompat-metrics",
+  "version": "1.0.0",
+  "description": "An application to power metrics for webcompat.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcompat/webcompat-metrics.git"
+  },
+  "keywords": [
+    "webcompat",
+    "hamburgers"
+  ],
+  "author": "webcompat",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/webcompat/webcompat-metrics/issues"
+  },
+  "homepage": "https://github.com/webcompat/webcompat-metrics#readme",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.10.2"
+  }
+}
