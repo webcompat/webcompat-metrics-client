@@ -2,9 +2,9 @@
   "name": "webcompat-metrics",
   "version": "1.0.0",
   "description": "An application to power metrics for webcompat.com",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "DEBUG=webcompat-metrics:server node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,15 @@
     "url": "https://github.com/webcompat/webcompat-metrics/issues"
   },
   "homepage": "https://github.com/webcompat/webcompat-metrics#readme",
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "hbs": "~4.0.1",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  },
   "devDependencies": {
     "eslint": "^4.17.0",
     "eslint-config-prettier": "^2.9.0",
