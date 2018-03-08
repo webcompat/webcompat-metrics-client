@@ -4,13 +4,13 @@
   "description": "An application to power metrics for webcompat.com",
   "private": true,
   "scripts": {
-    "build:client": "npm run clean && cd client; NODE_ENV=production ./node_modules/.bin/webpack --progress --colors",
+    "build:client": "npm run clean && cd client; ./node_modules/.bin/webpack --env.NODE_ENV=production --progress --colors",
     "clean": "rm -rf client/public && mkdir client/public",
     "client": "cd client; npm install",
     "init": "npm install && npm run client",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "start:server": "DEBUG=webcompat-metrics:server node ./bin/www",
-    "start:client": "cd client; NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --colors"
+    "start:client": "cd client; ./node_modules/.bin/webpack-dev-server --env.NODE_ENV=development --progress --colors"
   },
   "repository": {
     "type": "git",
