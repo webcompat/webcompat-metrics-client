@@ -4,7 +4,13 @@
   "description": "An application to power metrics for webcompat.com",
   "private": true,
   "scripts": {
-    "start": "DEBUG=webcompat-metrics:server node ./bin/www"
+    "build:client": "npm run clean && cd client; ./node_modules/.bin/webpack --env.NODE_ENV=production --progress --colors",
+    "clean": "shx rm -rf client/public && shx mkdir client/public",
+    "client": "cd client; npm install",
+    "init": "npm install && npm run client",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "DEBUG=webcompat-metrics:server node ./bin/www",
+    "start:client": "cd client; ./node_modules/.bin/webpack-dev-server --env.NODE_ENV=development --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -30,9 +36,11 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "concurrently": "^3.5.1",
     "eslint": "^4.17.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
-    "prettier": "^1.10.2"
+    "prettier": "^1.10.2",
+    "shx": "^0.2.2"
   }
 }
