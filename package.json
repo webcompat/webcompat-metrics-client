@@ -8,6 +8,12 @@
     "clean": "shx rm -rf client/public && shx mkdir client/public",
     "client": "cd client; npm install",
     "init": "npm install && npm run client",
+    "lint": "npm run lint:JS && npm run lint:CSS",
+    "lint:JS": "eslint ./client/src ./routes",
+    "lint:CSS": "stylelint './client/src/**/*.css'",
+    "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
+    "lint:fix:JS": "npm run lint:JS -- --fix",
+    "lint:fix:CSS": "npm run lint:CSS -- --fix",
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
     "start:server": "DEBUG=webcompat-metrics:server node ./bin/www",
     "start:client": "cd client; ./node_modules/.bin/webpack-dev-server --env.NODE_ENV=development --progress --colors"
@@ -36,11 +42,16 @@
     "serve-favicon": "~2.4.5"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "concurrently": "^3.5.1",
-    "eslint": "^4.17.0",
+    "eslint": "^4.18.2",
+    "eslint-config-i-am-meticulous": "^8.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "prettier": "^1.10.2",
-    "shx": "^0.2.2"
+    "shx": "^0.2.2",
+    "stylelint": "^9.1.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }
