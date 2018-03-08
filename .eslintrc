@@ -5,10 +5,16 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended"
+    "prettier",
+    "prettier/react",
+    "eslint-config-i-am-meticulous/react",
   ],
   "globals": {
   },
+  "plugins": [
+    "prettier",
+    "react"
+  ],
   "rules": {
     "comma-dangle": 0,
     "curly": [2, "all"],
@@ -30,6 +36,19 @@
     "space-before-blocks": 2,
     "space-before-function-paren": [2, "never"],
     "space-infix-ops": 2,
-    "space-unary-ops": 2
+    "space-unary-ops": 2,
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "ignoreRefs": true,
+        "allowArrowFunctions": true,
+        "allowFunctions": true,
+        "allowBind": true
+      }
+    ],
+    "react/jsx-no-literals": 0
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
