@@ -2,11 +2,12 @@
 const webpack = require("webpack");
 const path = require("path");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
 const PUBLIC_DIRECTORY = path.resolve(__dirname, "public");
+const RESOURCES_DIRECTORY = path.resolve(__dirname, "src/resources");
 
 module.exports = env => {
   const DEBUG = env.NODE_ENV === "development";
@@ -21,7 +22,7 @@ module.exports = env => {
       ],
     },
     output: {
-      filename: "[name].js",
+      filename: "[name].[chunkhash:8]js",
       path: PUBLIC_DIRECTORY,
       publicPath: "/"
     },
@@ -38,32 +39,29 @@ module.exports = env => {
         },
         {
           test: /styles(-[a-z]+)?\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: "style-loader",
-            use: [
-              {
-                loader: "css-loader",
-                options: {
-                  modules: true,
-                  localIdentName: "[local]--[hash:base64:5]",
-                  minimize: PROD,
-                  sourceMap: !PROD
-                }
-              },
-              {
-                loader: "postcss-loader",
-                options: {
-                  ident: "postcss",
-                  plugins: loader => [
-                    require("postcss-import")(),
-                    require("postcss-url")(),
-                    require("postcss-cssnext")({}),
-                    require("postcss-reporter")()
-                  ]
-                }
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                modules: true,
+                localIdentName: "[local]--[hash:base64:5]",
+                minimize: PROD,
+                sourceMap: !PROD
               }
-            ]
-          })
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                ident: "postcss",
+                plugins: loader => [
+                  require("postcss-import")(),
+                  require("postcss-url")(),
+                  require("postcss-cssnext")({}),
+                  require("postcss-reporter")()
+                ]
+              }
+            }
+          ]
         }
       ]
     },
@@ -83,10 +81,10 @@ module.exports = env => {
       }
     },
     plugins: [
-      new CopyWebpackPlugin([{
-        from: path.resolve(SRC_DIRECTORY, "resources"),
-        to: path.resolve(PUBLIC_DIRECTORY)
-      }]),
+      new HtmlWebpackPlugin({
+        inject: true,
+        template: path.resolve(RESOURCES_DIRECTORY, "index.html"),
+      })
     ],
     devServer: {
       contentBase: PUBLIC_DIRECTORY,
