@@ -14,13 +14,16 @@
     "copy-webpack-plugin": "^4.5.0",
     "css-loader": "^0.28.10",
     "extract-text-webpack-plugin": "^3.0.2",
+    "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.8.0",
+    "jest": "^22.4.2",
     "postcss": "^6.0.19",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.1",
     "postcss-reporter": "^5.0.0",
+    "react-test-renderer": "^16.2.0",
     "style-loader": "^0.20.2",
     "uglifyjs-webpack-plugin": "^1.2.2",
     "webpack": "^4.1.1",
@@ -35,7 +38,13 @@
           "env"
         ]
       },
-      "production": {
+      "test": {
+        "presets": [
+          "react",
+          "env"
+        ]
+      },
+      "prodcution": {
         "presets": [
           "react",
           "env"
@@ -50,5 +59,24 @@
         ]
       }
     }
+  },
+  "jest": {
+    "verbose": true,
+    "notify": true,
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    },
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/public/"
+    ]
   }
 }

@@ -1,4 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-ReactDOM.render(<div>Hello</div>, document.getElementById("appMountPoint"));
+import Hello from "./components/Hello"
+
+ReactDOM.render(<Hello />, document.getElementById("appMountPoint"));
