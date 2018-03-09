@@ -14,7 +14,11 @@ module.exports = env => {
 
   return {
     entry: {
-      index: path.resolve(SRC_DIRECTORY, "index.js")
+      index: path.resolve(SRC_DIRECTORY, "index.js"),
+      vendor: [
+        "react",
+        "react-dom"
+      ],
     },
     output: {
       filename: "[name].js",
@@ -66,14 +70,23 @@ module.exports = env => {
     stats: {
       children: false
     },
-    devtool: DEBUG ? "source-map" : "hidden-source-map",
-    plugins: [
-      new CopyWebpackPlugin([
-        {
-          from: path.resolve(SRC_DIRECTORY, "resources"),
-          to: path.resolve(PUBLIC_DIRECTORY)
+    optimization: {
+      splitChunks: {
+        chunks: "all",
+        cacheGroups: {
+          vendor: {
+            name: "vendor",
+            test: "vendor",
+            enforce: true,
+          }
         }
-      ])
+      }
+    },
+    plugins: [
+      new CopyWebpackPlugin([{
+        from: path.resolve(SRC_DIRECTORY, "resources"),
+        to: path.resolve(PUBLIC_DIRECTORY)
+      }]),
     ],
     devServer: {
       contentBase: PUBLIC_DIRECTORY,
