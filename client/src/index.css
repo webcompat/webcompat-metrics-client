@@ -1,0 +1,40 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ 
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  font-family: var(--fontFamily);
+  font-weight: 400;
+  text-size-adjust: none;
+  background-color: #fff;
+  color: var(--colorDark);
+}
+main {
+  display: flex;
+  min-height: 100vh;
+}
+
+html {box-sizing: border-box}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {border-collapse: collapse}
+* {border-collapse: inherit}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

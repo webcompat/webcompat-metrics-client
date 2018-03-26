@@ -1,0 +1,33 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+.component {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  background-color: transparent;
+  transition: background-color .1s linear 0s;
+  color: #ccc;
+}
+
+.component:hover {
+  color: #fff;
+  background-color: #6f6565;
+}
+
+.icon {
+  margin: 0 .6em 0 0;
+}
+
+.icon > * {
+  fill: #fff;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  overflow: hidden;
+}
+
+.text {
+  font-size: .875em;
+}

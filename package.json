@@ -7,7 +7,6 @@
     "build:client": "npm run clean && cd client; ./node_modules/.bin/webpack --env.NODE_ENV=production --progress --colors",
     "clean": "shx rm -rf client/public && shx mkdir client/public",
     "client": "cd client; npm install",
-    "init": "npm install && npm run client",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./client/src ./routes",
     "lint:CSS": "stylelint './client/src/**/*.css'",

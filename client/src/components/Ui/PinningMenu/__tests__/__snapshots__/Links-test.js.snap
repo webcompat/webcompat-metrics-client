@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Links default correctly 1`] = `
+<nav
+  className="links"
+  role="navigation"
+>
+  <span>
+    content
+  </span>
+</nav>
+`;

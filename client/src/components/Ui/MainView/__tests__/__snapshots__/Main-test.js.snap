@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MainView default correctly 1`] = `
+<main
+  className="component"
+  role="main"
+>
+  <span>
+    content
+  </span>
+</main>
+`;

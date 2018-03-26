@@ -53,6 +53,9 @@
     "declaration-block-no-redundant-longhand-properties": [ true, {"ignoreShorthands": "font"} ],
     "no-eol-whitespace": true
   },
+  "ignoreFiles": [
+    "./client/src/index.css"
+  ],
   "ignoreShorthands": [
     "font"
   ]
