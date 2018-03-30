@@ -1,7 +1,8 @@
 {
   "env": {
     "node": true,
-    "es6": true
+    "es6": true,
+    "jest": true,
   },
   "extends": [
     "eslint:recommended",
@@ -46,7 +47,17 @@
         "allowBind": true
       }
     ],
-    "react/jsx-no-literals": 0
+    "react/jsx-no-literals": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": false,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": true,
+        "parser": "babylon"
+      }
+    ]
   },
   "parserOptions": {
     "sourceType": "module"

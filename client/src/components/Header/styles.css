@@ -1,0 +1,59 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+  --widthComponent: var(--widthMenu);
+  --colorBorderDark: var(--colorDark);
+}
+
+.component {
+  font-size: var(--fontSize);
+  display: flex;
+  align-items: center;
+  width: var(--widthComponent);
+  max-width: var(--widthComponent);
+  padding: 0 1em;
+  border-right: solid 1px var(--colorBorderDark);
+}
+
+.logo {
+  margin: 0 0 0 .625em;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: .875em;
+}
+
+.link:hover {
+  background-color: #deb418;
+}
+
+.baseline {
+  font-size: 1.0625em;
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.button {
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  margin: 0 2em 0 0;
+  padding: .875em;
+  cursor: pointer;
+  line-height: 0;
+  transition: background-color .16s linear 0s;
+}
+
+.button > * {
+  display: block;
+}
+
+.button:hover {
+  background-color: #deb418;
+}

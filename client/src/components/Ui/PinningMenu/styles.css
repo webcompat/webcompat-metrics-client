@@ -1,0 +1,80 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+  --widthComponent: var(--widthMenu);
+  --topComponent: var(--heightHeader);
+  --backgroundColor: var(--colorDark);
+  --heightFooter: 4.7em;
+}
+
+.component {
+  display: flex;
+  align-content: space-between;
+  font-size: var(--fontSize);
+  position: fixed;
+  left: 0;
+  top: var(--topComponent);
+  width: var(--widthComponent);
+  height: calc(100% - var(--heightHeader));
+  will-change: transform;
+  transform: translate(-100%);
+  transition: transform .16s linear 0s;
+}
+
+.component.isOpen {
+  transform: translateX(0);
+}
+
+@media all and (max-width: 42.5em) {
+  .component {
+    transform: translate(-100%);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: var(--backgroundColor);
+  color: #fff;
+}
+
+.links {
+  max-height: calc(100% - var(--heightFooter));
+  overflow-y: auto;
+  flex: 1;
+}
+
+.footer {
+  height: var(--heightFooter);
+  border-top: solid 1px;
+}
+
+.footerText {
+  font-size: .75em;
+  padding: 4px 10px;
+}
+
+.socials {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5em .675em;
+}
+
+.social {
+  transition: opacity .1s linear 0s;
+  opacity: .8;
+}
+
+.social + .social {
+  margin: 0 0 0 .675em;
+}
+
+.social:hover {
+  opacity: 1;
+}

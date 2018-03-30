@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NavigationContainer matchMedia return true 1`] = `
+Array [
+  <div
+    className="component"
+  >
+    <div
+      className="component"
+      role="banner"
+    >
+      <div
+        className="menu"
+      >
+        <button
+          className="button"
+          onClick={[Function]}
+        >
+          <span
+            className="SVGInline SVGInline--cleaned"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "test-file-stub",
+              }
+            }
+          />
+        </button>
+      </div>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        <div
+          className="link"
+        >
+          <div
+            className="baseline"
+          >
+            <div>
+              Webcompat
+            </div>
+            <div>
+              Metrics
+            </div>
+          </div>
+          <div
+            className="logo"
+          >
+            <span
+              className="SVGInline SVGInline--cleaned"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "test-file-stub",
+                }
+              }
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>,
+  <div
+    className="component "
+  >
+    <div
+      className="container"
+    >
+      <nav
+        className="links"
+        role="navigation"
+      >
+        <a
+          href="/needsdiagnosis"
+          onClick={[Function]}
+        >
+          <div
+            className="component"
+          >
+            <div
+              className="icon"
+            >
+              <span
+                className="SVGInline SVGInline--cleaned"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "test-file-stub",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="text"
+            >
+              NeedsDiagnosis
+            </div>
+          </div>
+        </a>
+      </nav>
+      <footer
+        className="footer"
+      >
+        <div
+          className="socials"
+        >
+          <a
+            className="social"
+            href="https://twitter.com/webcompat"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Twitter webcompat accounts"
+          >
+            <span
+              className="SVGInline SVGInline--cleaned"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "test-file-stub",
+                }
+              }
+            />
+          </a>
+          <a
+            className="social"
+            href="https://github.com/webcompat"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Github webcompat account"
+          >
+            <span
+              className="SVGInline SVGInline--cleaned"
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "test-file-stub",
+                }
+              }
+            />
+          </a>
+        </div>
+        <div
+          className="footerText"
+        >
+          <span>
+            Created and maintained by Webcompat
+          </span>
+        </div>
+      </footer>
+    </div>
+  </div>,
+]
+`;

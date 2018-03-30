@@ -4,6 +4,7 @@ const path = require("path");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const StylesVariables = require("./src/constants/StylesVariables")
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
 const PUBLIC_DIRECTORY = path.resolve(__dirname, "public");
@@ -22,9 +23,9 @@ module.exports = env => {
       ],
     },
     output: {
-      filename: "[name].[chunkhash:8]js",
+      filename: "[name].[chunkhash:8].js",
       path: PUBLIC_DIRECTORY,
-      publicPath: "/"
+      publicPath: ""
     },
     mode: env.NODE_ENV,
     resolve: {
@@ -38,13 +39,15 @@ module.exports = env => {
           loader: "babel-loader"
         },
         {
-          test: /styles(-[a-z]+)?\.css$/,
+          test: /\.css$/,
           use: [
+            "style-loader",
             {
               loader: "css-loader",
               options: {
                 modules: true,
-                localIdentName: "[local]--[hash:base64:5]",
+                localIdentName: "[path]-[local]--[hash:base64:5]",
+                importLoaders: 1,
                 minimize: PROD,
                 sourceMap: !PROD
               }
@@ -55,14 +58,27 @@ module.exports = env => {
                 ident: "postcss",
                 plugins: loader => [
                   require("postcss-import")(),
-                  require("postcss-url")(),
-                  require("postcss-cssnext")({}),
+                  require("postcss-cssnext")({
+                    features: {
+                      customProperties: {
+                        variables: StylesVariables,
+                      },
+                    },
+                  }),
                   require("postcss-reporter")()
                 ]
               }
             }
           ]
-        }
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: "raw-loader"
+            }
+          ]
+        },
       ]
     },
     stats: {
