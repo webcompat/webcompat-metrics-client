@@ -4,8 +4,11 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-svg-inline": "^2.1.0"
+    "react-svg-inline": "^2.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -30,6 +33,7 @@
     "postcss-reporter": "^5.0.0",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^16.2.0",
+    "redux-devtools-extension": "^2.13.2",
     "sinon": "^4.4.8",
     "style-loader": "^0.20.2",
     "webpack": "^4.1.1",
