@@ -9,7 +9,7 @@
  * @param  {Object} object A base javascript object : {}
  * @return {String} URL encoded query string
  */
-const toQueryString = (object, base) => {
+const toQueryString = (object = {}, base) => {
   const queryString = [];
 
   Object.keys(object).forEach(key => {

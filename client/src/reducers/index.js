@@ -1,3 +1,7 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+import needsDiagnosis from "./needsDiagnosis";
+
+export default combineReducers({
+  needsDiagnosis,
+});
