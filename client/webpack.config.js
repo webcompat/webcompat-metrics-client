@@ -103,6 +103,8 @@ module.exports = env => {
       })
     ],
     devServer: {
+      publicPath: "/",
+      historyApiFallback: true,
       contentBase: PUBLIC_DIRECTORY,
       port: 3001,
       compress: true,
