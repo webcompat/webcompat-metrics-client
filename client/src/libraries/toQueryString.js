@@ -1,3 +1,7 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
 /**
  * Simply encode a base js object as {a:2, d:[1,"two"], c: {foo: {bar:1}}}
  * And returns URL encoded string : a=2&d[0]=1&d[1]=two&c[foo][bar]=1"
