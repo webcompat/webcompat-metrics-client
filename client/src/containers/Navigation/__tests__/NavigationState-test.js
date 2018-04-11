@@ -14,7 +14,11 @@ it("NavigationContainer click button", () => {
       return { matches: true };
     }),
   });
-  const wrapper = shallow(<NavigationContainer />);
+  const wrapper = shallow(
+    <NavigationContainer>
+      <div>Content</div>
+    </NavigationContainer>,
+  );
   expect(wrapper.state("isOpen")).toBeFalsy();
   wrapper.find(Header).simulate("click");
   expect(wrapper.state("isOpen")).toBeTruthy();

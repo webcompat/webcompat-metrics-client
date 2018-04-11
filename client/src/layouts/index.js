@@ -5,7 +5,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import { Viewport, MainView } from "../components/Ui";
 import NavigationContainer from "../containers/Navigation";
 import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
 import HomePage from "../components/HomePage";
@@ -13,13 +12,10 @@ import HomePage from "../components/HomePage";
 const App = props => {
   return (
     <Router>
-      <Viewport>
-        <NavigationContainer />
-        <MainView>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
-        </MainView>
-      </Viewport>
+      <NavigationContainer>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
+      </NavigationContainer>
     </Router>
   );
 };

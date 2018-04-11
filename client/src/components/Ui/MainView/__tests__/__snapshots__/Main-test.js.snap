@@ -2,7 +2,7 @@
 
 exports[`renders MainView default correctly 1`] = `
 <main
-  className="component"
+  className="component isCollapase"
   role="main"
 >
   <span>

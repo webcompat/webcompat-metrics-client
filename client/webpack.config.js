@@ -4,7 +4,7 @@ const path = require("path");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const StylesVariables = require("./src/constants/StylesVariables")
+const StylesVariables = require("./src/constants/StylesVariables");
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
 const PUBLIC_DIRECTORY = path.resolve(__dirname, "public");
@@ -17,26 +17,23 @@ module.exports = env => {
   return {
     entry: {
       index: path.resolve(SRC_DIRECTORY, "index.js"),
-      vendor: [
-        "react",
-        "react-dom"
-      ],
+      vendor: ["react", "react-dom"],
     },
     output: {
       filename: "[name].[chunkhash:8].js",
       path: PUBLIC_DIRECTORY,
-      publicPath: ""
+      publicPath: "",
     },
     mode: env.NODE_ENV,
     resolve: {
-      extensions: [".js", ".css"]
+      extensions: [".js", ".css"],
     },
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
         {
           test: /\.css$/,
@@ -49,8 +46,8 @@ module.exports = env => {
                 localIdentName: "[path]-[local]--[hash:base64:5]",
                 importLoaders: 1,
                 minimize: PROD,
-                sourceMap: !PROD
-              }
+                sourceMap: !PROD,
+              },
             },
             {
               loader: "postcss-loader",
@@ -65,24 +62,24 @@ module.exports = env => {
                       },
                     },
                   }),
-                  require("postcss-reporter")()
-                ]
-              }
-            }
-          ]
+                  require("postcss-reporter")(),
+                ],
+              },
+            },
+          ],
         },
         {
           test: /\.svg$/,
           use: [
             {
-              loader: "raw-loader"
-            }
-          ]
+              loader: "raw-loader",
+            },
+          ],
         },
-      ]
+      ],
     },
     stats: {
-      children: false
+      children: false,
     },
     optimization: {
       splitChunks: {
@@ -92,15 +89,15 @@ module.exports = env => {
             name: "vendor",
             test: "vendor",
             enforce: true,
-          }
-        }
-      }
+          },
+        },
+      },
     },
     plugins: [
       new HtmlWebpackPlugin({
         inject: true,
         template: path.resolve(RESOURCES_DIRECTORY, "index.html"),
-      })
+      }),
     ],
     devServer: {
       publicPath: "/",
@@ -110,8 +107,12 @@ module.exports = env => {
       compress: true,
       open: true,
       proxy: {
-        "/api": "http://localhost:3000"
-      }
-    }
+        "/api": {
+          target: "http://la-grange.net/tmp/",
+          pathRewrite: { "^/api": "" },
+          changeOrigin: true,
+        },
+      },
+    },
   };
 };

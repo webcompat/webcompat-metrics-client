@@ -4,18 +4,18 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { Link as LinkRouter } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import classes from "./styles.css";
 
 const Link = ({ to, text, icon }) => {
   return (
-    <LinkRouter to={to}>
+    <NavLink activeClassName={classes.active} to={to}>
       <div className={classes.component}>
         {icon && <div className={classes.icon}>{icon}</div>}
         {text && <div className={classes.text}>{text}</div>}
       </div>
-    </LinkRouter>
+    </NavLink>
   );
 };
 

@@ -7,27 +7,54 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
-import { fetchNeedsDiagnosis } from "../../actions/needsDiagnosis";
+import { getNeedsDiagnosis } from "../../actions";
+import { ObjectNested } from "../../libraries";
+import LineChart from "../../components/LineChart";
+import { CHART_LINE } from "../../constants/Charts";
 
 class NeedsDiagnosis extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount() {
-    this.props.fetchNeedsDiagnosis();
+    const args = {
+      actionParameters: {
+        chartList: [CHART_LINE],
+      },
+    };
+    this.props.getNeedsDiagnosis(args);
   }
 
   render() {
-    return <div>NeedsDiagnosis</div>;
+    return (
+      <LineChart
+        label={"issues: "}
+        labels={ObjectNested.get(this.props.stats, `${CHART_LINE}.dates`, [])}
+        data={ObjectNested.get(
+          this.props.stats,
+          `${CHART_LINE}.openIssues`,
+          [],
+        )}
+      />
+    );
   }
 }
 
 NeedsDiagnosis.propTypes = {
-  fetchNeedsDiagnosis: PropTypes.func.isRequired,
+  getNeedsDiagnosis: PropTypes.func.isRequired,
+  stats: PropTypes.object,
 };
 
-export default connect(null, dispatch => ({
-  fetchNeedsDiagnosis: bindActionCreators(fetchNeedsDiagnosis, dispatch),
-}))(NeedsDiagnosis);
+NeedsDiagnosis.defaultProps = {
+  stats: {},
+};
+
+export default connect(
+  state => ({
+    stats: ObjectNested.get(state, "needsdiagnosis", {}),
+  }),
+  dispatch => ({
+    getNeedsDiagnosis: bindActionCreators(getNeedsDiagnosis, dispatch),
+  }),
+)(NeedsDiagnosis);

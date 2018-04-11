@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders NavigationContainer default correctly 1`] = `
-Array [
+<div
+  className="component"
+>
   <div
     className="component"
   >
@@ -58,7 +60,7 @@ Array [
         </div>
       </a>
     </div>
-  </div>,
+  </div>
   <div
     className="component isOpen"
   >
@@ -70,8 +72,11 @@ Array [
         role="navigation"
       >
         <a
+          aria-current={false}
+          className={undefined}
           href="/needsdiagnosis"
           onClick={[Function]}
+          style={undefined}
         >
           <div
             className="component"
@@ -144,6 +149,14 @@ Array [
         </div>
       </footer>
     </div>
-  </div>,
-]
+  </div>
+  <main
+    className="component "
+    role="main"
+  >
+    <div>
+      Content
+    </div>
+  </main>
+</div>
 `;
