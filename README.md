@@ -1,61 +1,52 @@
-# webcompat-metrics
-An application to power metrics for [webcompat.com](https://webcompat.com/)
+# [webcompat-metrics-client][website]
 
+[website]: https://webcompat.com/
 
-## Starting the app
+ [![PRs Welcome]][make-a-pull-request]
 
-`npm start`
+Webcompat metrics is an application to power metrics for [webcompat.com]
 
-## Install dependencies
+### Quick Setup
 
-Install using `yarn` or `npm`:
+```bash
+git clone https://github.com/webcompat/webcompat-metrics-client.git
 
-```
+cd webcompat-metrics-client
+
+yarn
+yarn start:dev
+# or
 npm install
-cd client
-npm install
-# or
-yarn install
-cd client
-yarn install
+npm run start:dev
+# Go to http://localhost:3001
 ```
 
-## Starting the app (dev mode)
+### Testing
 
-it starts the [express](https://expressjs.com/) server (port: 3000) and the client [React](https://reactjs.org/) server (port: 3001)
+For testing DOM, React component, and others JavaScript, we use [Jest], [Enzyme] and [Sinon.JS].
 
-```
-npm run start
-# or
-yarn start
-```
+For the linting JavaScript process, we use [Prettier] , [Eslint].
 
-You can start only client or server:
-
-```
-npm run start:client
-# or
-yarn start:client
-```
-
-```
-npm run start:server
-# or
-yarn start:server
-```
-
-## testing the app
-
-For testing DOM, React component, and others JavaScript, we use [Jest](https://facebook.github.io/jest/), [Enzyme](http://airbnb.io/enzyme/) and [Sinon.JS](http://sinonjs.org/).
-
-For the linting JavaScript process, we use [Prettier](https://prettier.io/) , [Eslint](https://eslint.org/).
-
-For the linting CSS process, we use [stylelint](https://stylelint.io/).
+For the linting CSS process, we use [stylelint].
 
 you can test application:
 
-```
+```bash
 npm run test
 # or
 yarn test
 ```
+
+### License
+
+[MPL 2](./LICENSE)
+
+[prs welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[make-a-pull-request]: http://makeapullrequest.com
+[Jest]: https://facebook.github.io/jest/
+[Enzyme]: http://airbnb.io/enzyme/
+[Sinon.JS]: http://sinonjs.org/
+[Prettier]: https://prettier.io/
+[Eslint]: https://eslint.org/
+[stylelint]: https://stylelint.io/
+[webcompat.com]: https://webcompat.com
