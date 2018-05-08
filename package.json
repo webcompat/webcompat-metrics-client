@@ -1,59 +1,149 @@
 {
-  "name": "webcompat-metrics",
-  "version": "1.0.0",
+  "name": "webcompat-metrics-client",
+  "version": "0.1.0",
   "description": "An application to power metrics for webcompat.com",
+  "license": "MPL-2.0",
   "private": true,
+  "author": "webcompat",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcompat/webcompat-metrics-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webcompat/webcompat-metrics-client/issues"
+  },
+  "homepage": "https://github.com/webcompat/webcompat-metrics-client#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
   "scripts": {
-    "build:client": "npm run clean && cd client; ./node_modules/.bin/webpack --env.NODE_ENV=production --progress --colors",
-    "clean": "shx rm -rf client/public && shx mkdir client/public",
-    "client": "cd client; npm install",
+    "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
+    "clean": "shx rm -rf public && shx mkdir public",
     "lint": "npm run lint:JS && npm run lint:CSS",
-    "lint:JS": "eslint ./client/src ./routes",
-    "lint:CSS": "stylelint './client/src/**/*.css'",
+    "lint:JS": "eslint ./src",
+    "lint:CSS": "stylelint './src/**/*.css'",
     "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
     "lint:fix:JS": "npm run lint:JS -- --fix",
     "lint:fix:CSS": "npm run lint:CSS -- --fix",
-    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "start:server": "DEBUG=webcompat-metrics:server node ./bin/www",
-    "start:client": "cd client; ./node_modules/.bin/webpack-dev-server --env.NODE_ENV=development --progress --colors",
+    "start:dev": "webpack-dev-server --env.NODE_ENV=development --progress --colors",
     "test": "npm run lint && npm run test:jest",
-    "test:jest": "cd client; NODE_ENV=test ./node_modules/.bin/jest --runInBand --coverage",
+    "test:jest": "NODE_ENV=test jest --runInBand --coverage",
     "test:watch": "npm run test:jest -- --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/webcompat/webcompat-metrics.git"
-  },
-  "keywords": [
-    "webcompat",
-    "hamburgers"
-  ],
-  "author": "webcompat",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/webcompat/webcompat-metrics/issues"
-  },
-  "homepage": "https://github.com/webcompat/webcompat-metrics#readme",
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "hbs": "~4.0.1",
-    "morgan": "~1.9.0",
-    "serve-favicon": "~2.4.5"
+    "chart.js": "^2.7.2",
+    "normalizr": "^3.2.4",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-chartjs-2": "^2.7.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-svg-inline": "^2.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "simple-json-fetch": "^1.0.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
-    "concurrently": "^3.5.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "copy-webpack-plugin": "^4.5.0",
+    "css-loader": "^0.28.10",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.2",
     "eslint-config-i-am-meticulous": "^8.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "html-webpack-plugin": "^3.0.6",
+    "identity-obj-proxy": "^3.0.0",
+    "imports-loader": "^0.8.0",
+    "jest": "^22.4.2",
     "prettier": "^1.10.2",
+    "postcss": "^6.0.19",
+    "postcss-browser-reporter": "^0.5.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-loader": "^2.1.1",
+    "postcss-reporter": "^5.0.0",
+    "raw-loader": "^0.5.1",
+    "react-test-renderer": "^16.2.0",
+    "redux-devtools-extension": "^2.13.2",
     "shx": "^0.2.2",
+    "sinon": "^4.4.8",
     "stylelint": "^9.1.1",
-    "stylelint-config-standard": "^18.2.0"
+    "stylelint-config-standard": "^18.2.0",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "react",
+          "env"
+        ],
+        "plugins": [
+          "transform-object-rest-spread"
+        ]
+      },
+      "test": {
+        "presets": [
+          "react",
+          "env"
+        ],
+        "plugins": [
+          "transform-object-rest-spread"
+        ]
+      },
+      "production": {
+        "presets": [
+          "react",
+          "env"
+        ],
+        "plugins": [
+          [
+            "transform-react-remove-prop-types",
+            {
+              "mode": "wrap"
+            }
+          ],
+          "transform-object-rest-spread"
+        ]
+      }
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "notify": true,
+    "coverageThreshold": {
+      "global": {
+        "statements": 80,
+        "branches": 80,
+        "functions": 80,
+        "lines": 80
+      }
+    },
+    "moduleNameMapper": {
+      "\\.(svg)$": "<rootDir>/scripts/__mocks__/fileMock.js",
+      "\\.(css)$": "identity-obj-proxy"
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/public/",
+      "<rootDir>/scripts/"
+    ],
+    "setupFiles": [
+      "<rootDir>/scripts/test-setup.js"
+    ]
   }
 }

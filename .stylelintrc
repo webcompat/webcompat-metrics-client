@@ -54,7 +54,7 @@
     "no-eol-whitespace": true
   },
   "ignoreFiles": [
-    "./client/src/index.css"
+    "./src/index.css"
   ],
   "ignoreShorthands": [
     "font"
