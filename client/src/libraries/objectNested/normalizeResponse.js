@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-const normalizeResponse = (value, defaultValue) => {
+const normalizeResponse = (value, defaultValue = null) => {
   let result = value;
   switch (typeof value) {
     case "string":
