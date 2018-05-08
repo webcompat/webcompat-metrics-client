@@ -62,7 +62,7 @@ exports[`renders Component default correctly 1`] = `
     </div>
   </div>
   <div
-    className="component isOpen"
+    className="component isOpened"
   >
     <div
       className="container"

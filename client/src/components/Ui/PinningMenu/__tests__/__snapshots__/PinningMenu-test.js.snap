@@ -2,7 +2,7 @@
 
 exports[`renders PinningMenu default correctly 1`] = `
 <div
-  className="component isOpen"
+  className="component isOpened"
 >
   <div
     className="container"

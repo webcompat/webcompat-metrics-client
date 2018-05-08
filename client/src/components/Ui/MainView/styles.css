@@ -15,6 +15,6 @@
   padding: calc(var(--paddingTop) + 1em) 2em 2em calc(var(--paddingLeft) + 1em);
 }
 
-.isCollapase {
-  padding-left: 0;
+.isCollapsed {
+  padding-left: 1em;
 }

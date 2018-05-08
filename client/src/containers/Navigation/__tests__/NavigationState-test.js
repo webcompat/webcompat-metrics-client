@@ -19,7 +19,7 @@ it("NavigationContainer click button", () => {
       <div>Content</div>
     </NavigationContainer>,
   );
-  expect(wrapper.state("isOpen")).toBeFalsy();
+  expect(wrapper.state("isOpened")).toBeFalsy();
   wrapper.find(Header).simulate("click");
-  expect(wrapper.state("isOpen")).toBeTruthy();
+  expect(wrapper.state("isOpened")).toBeTruthy();
 });

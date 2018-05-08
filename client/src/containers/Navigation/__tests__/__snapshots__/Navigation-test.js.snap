@@ -62,7 +62,7 @@ exports[`renders NavigationContainer default correctly 1`] = `
     </div>
   </div>
   <div
-    className="component isOpen"
+    className="component isOpened"
   >
     <div
       className="container"

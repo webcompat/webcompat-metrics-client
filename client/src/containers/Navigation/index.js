@@ -20,7 +20,7 @@ class NavigationContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true,
+      isOpened: true,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -33,13 +33,13 @@ class NavigationContainer extends React.Component {
 
   handleClick() {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpened: !this.state.isOpened,
     });
   }
 
   handleResize() {
     this.setState({
-      isOpen: !window.matchMedia("(max-width: 42.5em)").matches,
+      isOpened: !window.matchMedia("(max-width: 42.5em)").matches,
     });
   }
 
@@ -49,14 +49,14 @@ class NavigationContainer extends React.Component {
         <PinningHeader>
           <Header onClick={this.handleClick} />
         </PinningHeader>
-        <PinningMenu isOpen={this.state.isOpen}>
+        <PinningMenu isOpened={this.state.isOpened}>
           <Link
             to="/needsdiagnosis"
             text={"NeedsDiagnosis"}
             icon={<Svg svg={SVGBugdiagnosis} />}
           />
         </PinningMenu>
-        <MainView isCollapase={!this.state.isOpen}>
+        <MainView isCollapsed={!this.state.isOpened}>
           {this.props.children}
         </MainView>
       </Viewport>

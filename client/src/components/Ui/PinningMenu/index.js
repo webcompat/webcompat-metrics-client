@@ -9,9 +9,9 @@ import classes from "./styles.css";
 import Links from "./Links";
 import Footer from "./Footer";
 
-const PinningMenu = ({ children, isOpen }) => {
+const PinningMenu = ({ children, isOpened }) => {
   return (
-    <div className={`${classes.component} ${isOpen ? classes.isOpen : ""}`}>
+    <div className={`${classes.component} ${isOpened ? classes.isOpened : ""}`}>
       <div className={classes.container}>
         <Links>{children}</Links>
         <Footer />
@@ -22,11 +22,11 @@ const PinningMenu = ({ children, isOpen }) => {
 
 PinningMenu.propTypes = {
   children: PropTypes.node.isRequired,
-  isOpen: PropTypes.bool,
+  isOpened: PropTypes.bool,
 };
 
 PinningMenu.defaultProps = {
-  isOpen: true,
+  isOpened: true,
 };
 
 export default PinningMenu;

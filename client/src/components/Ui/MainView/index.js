@@ -7,11 +7,11 @@ import PropTypes from "prop-types";
 
 import classes from "./styles.css";
 
-const MainView = ({ children, isCollapase }) => {
+const MainView = ({ children, isCollapsed }) => {
   return (
     <main
       className={`${classes.component} ${
-        isCollapase ? classes.isCollapase : ""
+        isCollapsed ? classes.isCollapsed : ""
       }`}
       role="main">
       {children}
@@ -21,11 +21,11 @@ const MainView = ({ children, isCollapase }) => {
 
 MainView.propTypes = {
   children: PropTypes.node.isRequired,
-  isCollapase: PropTypes.bool,
+  isCollapsed: PropTypes.bool,
 };
 
 MainView.defaultProps = {
-  isCollapase: true,
+  isCollapsed: false,
 };
 
 export default MainView;

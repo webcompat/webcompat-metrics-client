@@ -24,7 +24,7 @@
   transition: transform .16s linear 0s;
 }
 
-.component.isOpen {
+.component.isOpened {
   transform: translateX(0);
 }
 

@@ -151,7 +151,7 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
     </div>
   </div>
   <main
-    className="component isCollapase"
+    className="component isCollapsed"
     role="main"
   >
     <div>

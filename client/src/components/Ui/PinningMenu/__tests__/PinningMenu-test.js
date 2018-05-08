@@ -21,7 +21,7 @@ it("renders PinningMenu default correctly", () => {
 it("renders PinningMenu mneu not opened correctly", () => {
   const tree = renderer
     .create(
-      <PinningMenu isOpen={false}>
+      <PinningMenu isOpened={false}>
         <span>content</span>
       </PinningMenu>,
     )
