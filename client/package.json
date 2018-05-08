@@ -1,8 +1,11 @@
 {
   "name": "webcompat-metrics-client",
   "dependencies": {
+    "chart.js": "^2.7.2",
+    "normalizr": "^3.2.4",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
+    "react-chartjs-2": "^2.7.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
@@ -14,6 +17,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
@@ -44,29 +48,23 @@
   "babel": {
     "env": {
       "development": {
-        "presets": [
-          "react",
-          "env"
-        ]
+        "presets": ["react", "env"],
+        "plugins": ["transform-object-rest-spread"]
       },
       "test": {
-        "presets": [
-          "react",
-          "env"
-        ]
+        "presets": ["react", "env"],
+        "plugins": ["transform-object-rest-spread"]
       },
-      "prodcution": {
-        "presets": [
-          "react",
-          "env"
-        ],
+      "production": {
+        "presets": ["react", "env"],
         "plugins": [
           [
             "transform-react-remove-prop-types",
             {
               "mode": "wrap"
             }
-          ]
+          ],
+          "transform-object-rest-spread"
         ]
       }
     }
@@ -86,12 +84,7 @@
       "\\.(svg)$": "<rootDir>/scripts/__mocks__/fileMock.js",
       "\\.(css)$": "identity-obj-proxy"
     },
-    "testPathIgnorePatterns": [
-      "<rootDir>/public/",
-      "<rootDir>/scripts/"
-    ],
-    "setupFiles": [
-      "<rootDir>/scripts/test-setup.js"
-    ]
+    "testPathIgnorePatterns": ["<rootDir>/public/", "<rootDir>/scripts/"],
+    "setupFiles": ["<rootDir>/scripts/test-setup.js"]
   }
 }

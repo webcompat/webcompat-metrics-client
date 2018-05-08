@@ -11,7 +11,8 @@
   color: #ccc;
 }
 
-.component:hover {
+.component:hover,
+.active .component {
   color: #fff;
   background-color: #6f6565;
 }

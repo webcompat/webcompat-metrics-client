@@ -7,9 +7,13 @@ import PropTypes from "prop-types";
 
 import classes from "./styles.css";
 
-const MainView = ({ children }) => {
+const MainView = ({ children, isCollapsed }) => {
   return (
-    <main className={classes.component} role="main">
+    <main
+      className={`${classes.component} ${
+        isCollapsed ? classes.isCollapsed : ""
+      }`}
+      role="main">
       {children}
     </main>
   );
@@ -17,6 +21,11 @@ const MainView = ({ children }) => {
 
 MainView.propTypes = {
   children: PropTypes.node.isRequired,
+  isCollapsed: PropTypes.bool,
+};
+
+MainView.defaultProps = {
+  isCollapsed: false,
 };
 
 export default MainView;

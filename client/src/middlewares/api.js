@@ -5,7 +5,7 @@
 /*  inspired by https://github.com/reactjs/redux/tree/master/examples/real-world */
 import jsonFetch from "simple-json-fetch";
 
-import { isEmptyObject, toQueryString } from "../libraries";
+import { isEmptyObject, toQueryString, ObjectNested } from "../libraries";
 import {
   CONFIG_API,
   API_BASE_URL,
@@ -24,7 +24,9 @@ export default store => next => action => {
   }
 
   /* init var */
-  const { types, endpoint, parameters, method } = actionConfig;
+  const { types, endpoint, method, args } = actionConfig;
+  const requestParameters = ObjectNested.get(args, "requestParameters", {});
+  const actionParameters = ObjectNested.get(args, "actionParameters", {});
   let requestUrl = `${API_BASE_URL}/${endpoint}`;
   let requestConfig = CONFIG_API;
 
@@ -51,20 +53,20 @@ export default store => next => action => {
     throw new Error("Expected method to be get or post.");
   }
 
-  if (GET === method && !isEmptyObject(parameters)) {
-    requestUrl = `${requestUrl}?${toQueryString(parameters)}`;
+  if (GET === method && !isEmptyObject(requestParameters)) {
+    requestUrl = `${requestUrl}?${toQueryString(requestParameters)}`;
   }
 
-  if (POST === method && !isEmptyObject(parameters)) {
+  if (POST === method && !isEmptyObject(requestParameters)) {
     const formData = new FormData();
-    Object.keys(parameters).forEach(key => {
+    Object.keys(requestParameters).forEach(key => {
       // Case array / object
-      if ("object" === typeof parameters[key]) {
-        for (const i in parameters[key]) {
-          formData.append(`${key}[${i}]`, parameters[key][i]);
+      if ("object" === typeof requestParameters[key]) {
+        for (const i in requestParameters[key]) {
+          formData.append(`${key}[${i}]`, requestParameters[key][i]);
         }
       } else {
-        formData.append(key, parameters[key]);
+        formData.append(key, requestParameters[key]);
       }
     });
 
@@ -90,6 +92,7 @@ export default store => next => action => {
         actionWith({
           response,
           type: successType,
+          actionParameters,
         }),
       ),
     response =>
@@ -97,6 +100,7 @@ export default store => next => action => {
         actionWith({
           response,
           type: failureType,
+          actionParameters,
         }),
       ),
   );

@@ -17,7 +17,9 @@ it("renders NavigationContainer default correctly", () => {
   const tree = renderer
     .create(
       <Router>
-        <NavigationContainer />
+        <NavigationContainer>
+          <div>Content</div>
+        </NavigationContainer>
       </Router>,
     )
     .toJSON();

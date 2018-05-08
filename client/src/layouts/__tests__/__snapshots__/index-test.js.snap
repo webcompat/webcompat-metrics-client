@@ -62,7 +62,7 @@ exports[`renders Component default correctly 1`] = `
     </div>
   </div>
   <div
-    className="component isOpen"
+    className="component isOpened"
   >
     <div
       className="container"
@@ -72,8 +72,11 @@ exports[`renders Component default correctly 1`] = `
         role="navigation"
       >
         <a
+          aria-current={false}
+          className={undefined}
           href="/needsdiagnosis"
           onClick={[Function]}
+          style={undefined}
         >
           <div
             className="component"
@@ -148,7 +151,7 @@ exports[`renders Component default correctly 1`] = `
     </div>
   </div>
   <main
-    className="component"
+    className="component "
     role="main"
   />
 </div>

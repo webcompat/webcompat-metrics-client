@@ -4,17 +4,17 @@
 :root {
   --fontSize: var(--fontSize);
   --marginLeftComponent: var(--widthMenu);
+  --paddingTop: var(--heightHeader);
+  --paddingLeft: var(--widthMenu);
 }
 
 .component {
   font-size: var(--fontSize);
   overflow-x: hidden;
   flex: 1;
-  padding: 1em;
+  padding: calc(var(--paddingTop) + 1em) 2em 2em calc(var(--paddingLeft) + 1em);
 }
 
-@media all (min-width: 42.5em) {
-  .component {
-    margin: 0 0 0 var(--marginLeftComponent);
-  }
+.isCollapsed {
+  padding-left: 1em;
 }

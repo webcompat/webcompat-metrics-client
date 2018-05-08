@@ -2,9 +2,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import React, { Fragment } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 
-import { PinningMenu, PinningHeader } from "../../components/Ui";
+import {
+  PinningMenu,
+  PinningHeader,
+  MainView,
+  Viewport,
+} from "../../components/Ui";
 import Header from "../../components/Header";
 import { Link } from "../../components/Menu";
 import Svg from "../../components/Svg";
@@ -14,7 +20,7 @@ class NavigationContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true,
+      isOpened: true,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleResize = this.handleResize.bind(this);
@@ -27,32 +33,39 @@ class NavigationContainer extends React.Component {
 
   handleClick() {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isOpened: !this.state.isOpened,
     });
   }
 
   handleResize() {
     this.setState({
-      isOpen: !window.matchMedia("(max-width: 42.5em)").matches,
+      isOpened: !window.matchMedia("(max-width: 42.5em)").matches,
     });
   }
 
   render() {
     return (
-      <Fragment>
+      <Viewport>
         <PinningHeader>
           <Header onClick={this.handleClick} />
         </PinningHeader>
-        <PinningMenu isOpen={this.state.isOpen}>
+        <PinningMenu isOpened={this.state.isOpened}>
           <Link
             to="/needsdiagnosis"
             text={"NeedsDiagnosis"}
             icon={<Svg svg={SVGBugdiagnosis} />}
           />
         </PinningMenu>
-      </Fragment>
+        <MainView isCollapsed={!this.state.isOpened}>
+          {this.props.children}
+        </MainView>
+      </Viewport>
     );
   }
 }
+
+NavigationContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default NavigationContainer;
