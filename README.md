@@ -2,7 +2,8 @@
 
 [website]: https://webcompat.com/
 
- [![PRs Welcome]][make-a-pull-request]
+[![travis status]][travis-ci]
+[![PRs Welcome]][make-a-pull-request]
 
 Webcompat metrics is an application to power metrics for [webcompat.com]
 
@@ -42,11 +43,13 @@ yarn test
 [MPL 2](./LICENSE)
 
 [prs welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[travis status]: https://travis-ci.org/webcompat/webcompat-metrics-client.svg?branch=master
+[travis-ci]: https://travis-ci.org/webcompat/webcompat-metrics-client
 [make-a-pull-request]: http://makeapullrequest.com
-[Jest]: https://facebook.github.io/jest/
-[Enzyme]: http://airbnb.io/enzyme/
-[Sinon.JS]: http://sinonjs.org/
-[Prettier]: https://prettier.io/
-[Eslint]: https://eslint.org/
+[jest]: https://facebook.github.io/jest/
+[enzyme]: http://airbnb.io/enzyme/
+[sinon.js]: http://sinonjs.org/
+[prettier]: https://prettier.io/
+[eslint]: https://eslint.org/
 [stylelint]: https://stylelint.io/
 [webcompat.com]: https://webcompat.com
