@@ -5,7 +5,7 @@
 [![travis status]][travis-ci]
 [![PRs Welcome]][make-a-pull-request]
 
-Webcompat metrics is an application to power metrics for [webcompat.com]
+webcompat-metrics is a JavaScript application using [React] and [Redux] to power metrics for [webcompat.com]
 
 ### Quick Setup
 
@@ -53,3 +53,5 @@ yarn test
 [eslint]: https://eslint.org/
 [stylelint]: https://stylelint.io/
 [webcompat.com]: https://webcompat.com
+[react]: https://reactjs.org/
+[redux]: https://redux.js.org/
