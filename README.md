@@ -2,7 +2,7 @@
 
 [website]: https://webcompat.com/
 
-[![travis status]][travis-ci]
+[![CircleCI status]][circle-ci]
 [![PRs Welcome]][make-a-pull-request]
 
 webcompat-metrics is a JavaScript application using [React] and [Redux] to power metrics for [webcompat.com]
@@ -43,8 +43,8 @@ yarn test
 [MPL 2](./LICENSE)
 
 [prs welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[travis status]: https://travis-ci.org/webcompat/webcompat-metrics-client.svg?branch=master
-[travis-ci]: https://travis-ci.org/webcompat/webcompat-metrics-client
+[circleci status]: https://circleci.com/gh/webcompat/webcompat-metrics-client/tree/master.svg?style=svg
+[circle-ci]: https://circleci.com/gh/webcompat/webcompat-metrics-client/tree/master
 [make-a-pull-request]: http://makeapullrequest.com
 [jest]: https://facebook.github.io/jest/
 [enzyme]: http://airbnb.io/enzyme/
