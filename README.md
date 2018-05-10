@@ -40,6 +40,10 @@ npm run test
 yarn test
 ```
 
+### [Code of Conduct]
+
+Webcompat has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text] so that you can understand what actions will and will not be tolerated.
+
 ### License
 
 [MPL 2](./LICENSE)
@@ -61,3 +65,5 @@ yarn test
 [webcompat.com]: https://webcompat.com
 [react]: https://reactjs.org/
 [redux]: https://redux.js.org/
+[code of conduct]: https://github.com/webcompat/webcompat-metrics-client/blob/master/CODE_OF_CONDUCT.md
+[the full text]: https://github.com/webcompat/webcompat-metrics-client/blob/master/CODE_OF_CONDUCT.md
