@@ -45,7 +45,7 @@ yarn test
 [MPL 2](./LICENSE)
 
 [prs welcome]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[circleci status]: https://circleci.com/gh/webcompat/webcompat-metrics-client/tree/master.svg?style=svg
+[circleci status]: https://circleci.com/gh/webcompat/webcompat-metrics-client/tree/master.svg?style=shield
 [circle-ci]: https://circleci.com/gh/webcompat/webcompat-metrics-client/tree/master
 [travis status]: https://travis-ci.org/webcompat/webcompat-metrics-client.svg?branch=master
 [travis-ci]: https://travis-ci.org/webcompat/webcompat-metrics-client
