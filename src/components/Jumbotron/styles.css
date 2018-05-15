@@ -1,0 +1,26 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+}
+
+.component {
+  font-size: var(--fontSize);
+  padding: 1.5em;
+  border-bottom: 1px solid #dee5e7;
+  color: #58666e;
+  margin: 0 0 1em 0;
+}
+
+.title {
+  margin: 0;
+  font-weight: 300;
+}
+
+.subtitle {
+  font-size: 1em;
+  margin: 0;
+  font-weight: 300;
+}

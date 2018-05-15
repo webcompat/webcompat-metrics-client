@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Jumbotron default correctly with a style props 1`] = `
+<div
+  className="component"
+  style={
+    Object {
+      "fontSize": "2rem",
+    }
+  }
+>
+  <h2
+    className="title"
+  >
+    Jumbotron title
+  </h2>
+  <h3
+    className="subtitle"
+  >
+    Jumbotron subtitle
+  </h3>
+</div>
+`;
+
+exports[`renders Jumbotron default correctly with a title 1`] = `
+<div
+  className="component"
+  style={Object {}}
+>
+  <h2
+    className="title"
+  >
+    Jumbotron title
+  </h2>
+</div>
+`;
+
+exports[`renders Jumbotron default correctly with a title and a subtitle 1`] = `
+<div
+  className="component"
+  style={Object {}}
+>
+  <h2
+    className="title"
+  >
+    Jumbotron title
+  </h2>
+  <h3
+    className="subtitle"
+  >
+    Jumbotron subtitle
+  </h3>
+</div>
+`;
