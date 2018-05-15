@@ -5,6 +5,3 @@
 export { default as toQueryString } from "./toQueryString";
 export { default as isEmptyObject } from "./isEmptyObject";
 export { default as ObjectNested } from "./objectNested";
-export { default as getMonth } from "./getMonth";
-export { default as getDate } from "./getDate";
-export { default as normalizDate } from "./normalizDate";
