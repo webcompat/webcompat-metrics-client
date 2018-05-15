@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import dayjs from "dayjs";
+
 import {
   NEEDS_DIAGNOSIS_REQUEST,
   NEEDS_DIAGNOSIS_SUCCESS,
@@ -9,7 +11,8 @@ import {
 } from "../../constants/ActionTypes";
 import { CALL_API, GET } from "../../constants/Api";
 import { CHART_LINE } from "../../constants/Charts";
-import { ObjectNested, isEmptyObject, normalizDate } from "../../libraries";
+import { ObjectNested, isEmptyObject } from "../../libraries";
+
 /* name of reducer */
 export const STATE_KEY = "needsdiagnosis";
 
@@ -88,8 +91,9 @@ const normalize = (stats = {}, chartList = []) => {
           (accumulator, currentValue) => {
             const stat = stats[currentValue];
             accumulator.openIssues.push(stat.count);
-            const date = new Date(stat.timestamp);
-            accumulator.dates.push(normalizDate(date, "-"));
+            accumulator.dates.push(
+              dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+            );
             return accumulator;
           },
           {
