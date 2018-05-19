@@ -1,5 +1,7 @@
 # [webcompat-metrics-client][website]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/webcompat/webcompat-metrics-client.svg)](https://greenkeeper.io/)
+
 [website]: https://webcompat.com/
 
 [![CircleCI status]][circle-ci]
