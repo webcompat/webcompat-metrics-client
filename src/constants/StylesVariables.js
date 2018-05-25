@@ -9,7 +9,7 @@ const StylesVariables = {
   colorMain: "#ffc900",
   colorDark: "#404040",
   widthMenu: "16em",
-  heightHeader: "5em",
+  heightHeader: "4.75em",
 };
 
 module.exports = StylesVariables;
