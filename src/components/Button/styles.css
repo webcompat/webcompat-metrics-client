@@ -1,0 +1,35 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+  --fontFamily: var(--fontFamily);
+  --backgroundColor: var(--colorMain);
+}
+
+.component {
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
+  font-weight: 300;
+  background-color: var(--backgroundColor);
+  border-color: #dee5e7;
+  border-style: solid;
+  border-width: 1px;
+  color: #404040;
+  cursor: pointer;
+  display: inline-block;
+  line-height: normal;
+  padding: .6em .75em;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  white-space: normal;
+  vertical-align: middle;
+  opacity: 1;
+  transition: opacity .16s linear 0s;
+}
+
+.component:hover {
+  opacity: .85;
+}

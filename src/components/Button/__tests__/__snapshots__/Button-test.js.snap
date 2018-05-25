@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Button default correctly 1`] = `
+<button
+  className="component"
+  onBlur={[Function]}
+  onClick={[Function]}
+  style={Object {}}
+  type="button"
+>
+  I'm a Button
+</button>
+`;
