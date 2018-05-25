@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders PinningHeader default correctly 1`] = `
-<div
+<header
   className="component"
+  role="banner"
 >
   <span>
     content
   </span>
-</div>
+</header>
 `;
