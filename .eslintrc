@@ -47,6 +47,12 @@
         "allowBind": true
       }
     ],
+    "import/max-dependencies": [
+        "error",
+        {
+          "max": 25
+        }
+    ],
     "react/jsx-no-literals": 0,
     "prettier/prettier": [
       "error",
