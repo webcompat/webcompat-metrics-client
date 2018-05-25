@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Input default correctly 1`] = `
+<input
+  className="component"
+  name="input"
+  onChange={[Function]}
+  style={undefined}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders Input required 1`] = `
+<input
+  className="component"
+  name="input"
+  onChange={[Function]}
+  required={true}
+  style={undefined}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders Input with defaultValue 1`] = `
+<input
+  className="component"
+  name="input"
+  onChange={[Function]}
+  style={undefined}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders Input with style injected 1`] = `
+<input
+  className="component"
+  name="input"
+  onChange={[Function]}
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+  type="text"
+  value=""
+/>
+`;
