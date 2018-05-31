@@ -37,7 +37,7 @@ class Input extends React.Component {
     return (
       <input
         className={classes.component}
-        style={style}
+        {...(style ? { style } : undefined)}
         {...(required ? { required: true } : undefined)}
         value={this.state.value}
         {...attrs}
@@ -57,7 +57,6 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  style: {},
   type: "text",
   defaultValue: "",
   required: false,
