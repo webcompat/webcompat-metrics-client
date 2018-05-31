@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Container default correctly 1`] = `
+<article
+  className="container"
+  style={
+    Object {
+      "color": "green",
+    }
+  }
+>
+  <div
+    className="wrapper"
+  >
+    <h3
+      className="title"
+    >
+      I'm a title
+    </h3>
+    <div>
+      <div>
+        container
+      </div>
+    </div>
+  </div>
+</article>
+`;
+
+exports[`renders Container without style 1`] = `
+<article
+  className="container"
+>
+  <div
+    className="wrapper"
+  >
+    <h3
+      className="title"
+    >
+      I'm a title
+    </h3>
+    <div>
+      <span>
+        container
+      </span>
+    </div>
+  </div>
+</article>
+`;

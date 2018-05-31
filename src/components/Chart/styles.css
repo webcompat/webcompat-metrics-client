@@ -6,7 +6,7 @@
   --fontSize: var(--fontSize);
 }
 
-.component {
+.container {
   font-size: var(--fontSize);
   padding: 2em;
   color: #58666e;
@@ -24,4 +24,28 @@
 .title {
   font-size: 1em;
   font-weight: 300;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+
+.headerTitle {
+  font-size: 1.25em;
+  font-weight: 300;
+  margin: 0;
+}
+
+.fetch {
+  text-align: center;
+}
+
+.fetchTitle {
+  font-size: 1.5em;
+  font-weight: 300;
+  text-shadow: 0 1px 1px #0003;
+  margin-top: 10px;
 }
