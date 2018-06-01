@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Line } from "react-chartjs-2";
 
+import { Container } from "../Chart";
+
 const LineChart = props => {
   const data = {
     labels: props.labels,
@@ -29,10 +31,16 @@ const LineChart = props => {
       },
     ],
   };
-  return <Line data={data} />;
+  return (
+    <Container title={props.title} subtitle={props.subtitle}>
+      <Line data={data} />
+    </Container>
+  );
 };
 
 LineChart.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   labels: PropTypes.array.isRequired,
   label: PropTypes.string,
   fill: PropTypes.bool,
