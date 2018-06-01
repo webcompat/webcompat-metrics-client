@@ -1,9 +1,11 @@
 // webpack.config.js
-const webpack = require("webpack");
 const path = require("path");
+
+const webpack = require("webpack");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 const StylesVariables = require("./src/constants/StylesVariables");
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
@@ -108,7 +110,7 @@ module.exports = env => {
       open: true,
       proxy: {
         "/api": {
-          target: "http://la-grange.net/tmp/",
+          target: "https://webcompat-metrics.herokuapp.com/data/",
           pathRewrite: { "^/api": "" },
           changeOrigin: true,
         },
