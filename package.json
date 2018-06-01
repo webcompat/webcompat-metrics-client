@@ -18,7 +18,8 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
+    "build":
+      "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
     "clean": "shx rm -rf public && shx mkdir public",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./src",
@@ -26,7 +27,8 @@
     "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
     "lint:fix:JS": "npm run lint:JS -- --fix",
     "lint:fix:CSS": "npm run lint:CSS -- --fix",
-    "start:dev": "webpack-dev-server --env.NODE_ENV=development --progress --colors",
+    "start:dev":
+      "webpack-dev-server --env.NODE_ENV=development --progress --colors",
     "test": "npm run lint && npm run test:jest",
     "test:jest": "jest --runInBand --coverage",
     "test:watch": "npm run test:jest -- --watch"
@@ -68,13 +70,14 @@
     "identity-obj-proxy": "^3.0.0",
     "imports-loader": "^0.8.0",
     "jest": "^22.4.2",
-    "prettier": "^1.10.2",
+    "jest-fetch-mock": "^1.6.2",
     "postcss": "^6.0.19",
     "postcss-browser-reporter": "^0.5.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.1",
     "postcss-reporter": "^5.0.0",
+    "prettier": "^1.10.2",
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^16.2.0",
     "redux-devtools-extension": "^2.13.2",
@@ -82,7 +85,7 @@
     "sinon": "^5.0.7",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.2.0",
-    "style-loader": "^0.21.0",
+    "style-loader": "^0.20.2",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.0"
@@ -90,28 +93,15 @@
   "babel": {
     "env": {
       "development": {
-        "presets": [
-          "react",
-          "env"
-        ],
-        "plugins": [
-          "transform-object-rest-spread"
-        ]
+        "presets": ["react", "env"],
+        "plugins": ["transform-object-rest-spread"]
       },
       "test": {
-        "presets": [
-          "react",
-          "env"
-        ],
-        "plugins": [
-          "transform-object-rest-spread"
-        ]
+        "presets": ["react", "env"],
+        "plugins": ["transform-object-rest-spread"]
       },
       "production": {
-        "presets": [
-          "react",
-          "env"
-        ],
+        "presets": ["react", "env"],
         "plugins": [
           [
             "transform-react-remove-prop-types",
@@ -139,12 +129,8 @@
       "\\.(svg)$": "<rootDir>/scripts/__mocks__/fileMock.js",
       "\\.(css)$": "identity-obj-proxy"
     },
-    "testPathIgnorePatterns": [
-      "<rootDir>/public/",
-      "<rootDir>/scripts/"
-    ],
-    "setupFiles": [
-      "<rootDir>/scripts/test-setup.js"
-    ]
+    "testPathIgnorePatterns": ["<rootDir>/public/", "<rootDir>/scripts/"],
+    "setupFiles": ["<rootDir>/scripts/test-setup.js"],
+    "testURL": "http://localhost:3001/?from=2018-04-25&to=2018-05-25"
   }
 }
