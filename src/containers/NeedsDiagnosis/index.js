@@ -81,8 +81,8 @@ class NeedsDiagnosis extends React.Component {
     return (
       <section>
         <Jumbotron
-          title="Need diagnosis dashboard"
-          subtitle="Track needsdiagnosis burndown"
+          title="Needs diagnosis dashboard"
+          subtitle="Tracking issue diagnosis burndown rate"
         />
         <Header title={`${from} - ${to}`}>
           <form onSubmit={this.handleSubmit}>
@@ -107,13 +107,14 @@ class NeedsDiagnosis extends React.Component {
           <Fetch />
         ) : (
           <LineChart
-            title={"Number of need diagnosis issues by day"}
-            label={"issues: "}
+            title={"Open issues in needsdiagnosis milestone"}
+            label={""}
             labels={ObjectNested.get(
               this.props.stats,
               `${CHART_LINE}.dates`,
               [],
             )}
+            legend={{ display: false }}
             data={ObjectNested.get(
               this.props.stats,
               `${CHART_LINE}.openIssues`,

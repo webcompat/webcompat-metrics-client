@@ -44,7 +44,7 @@ exports[`renders Footer default correctly 1`] = `
     className="footerText"
   >
     <span>
-      Created and maintained by Webcompat
+      Created and maintained by webcompat
     </span>
   </div>
 </footer>

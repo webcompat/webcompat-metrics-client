@@ -145,7 +145,7 @@ exports[`renders Component default correctly 1`] = `
           className="footerText"
         >
           <span>
-            Created and maintained by Webcompat
+            Created and maintained by webcompat
           </span>
         </div>
       </footer>
@@ -163,12 +163,12 @@ exports[`renders Component default correctly 1`] = `
         <h2
           className="title"
         >
-          Need diagnosis dashboard
+          Needs diagnosis dashboard
         </h2>
         <h3
           className="subtitle"
         >
-          Track needsdiagnosis burndown
+          Tracking issue diagnosis burndown rate
         </h3>
       </div>
       <header

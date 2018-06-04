@@ -7,6 +7,7 @@ import { Container } from "../Chart";
 const LineChart = props => {
   const data = {
     labels: props.labels,
+
     datasets: [
       {
         label: props.label,
@@ -33,7 +34,7 @@ const LineChart = props => {
   };
   return (
     <Container title={props.title} subtitle={props.subtitle}>
-      <Line data={data} />
+      <Line data={data} legend={props.legend} />
     </Container>
   );
 };
@@ -61,6 +62,7 @@ LineChart.propTypes = {
   pointRadius: PropTypes.number,
   pointHitRadius: PropTypes.number,
   data: PropTypes.array.isRequired,
+  legend: PropTypes.object,
 };
 
 LineChart.defaultProps = {
