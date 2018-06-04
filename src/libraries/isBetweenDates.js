@@ -10,9 +10,8 @@ import dayjs from "dayjs";
  * @param  {string} date
  * @param {string} from
  * @param {string} to
- * @param {string} format for all dates
  */
-const isBetweenDates = (date, from, to, format = "YYYY-MM-DD") => {
+const isBetweenDates = (date, from, to) => {
   /* test params*/
   if ("string" !== typeof date) {
     throw new Error("Specify a string date");
@@ -25,9 +24,9 @@ const isBetweenDates = (date, from, to, format = "YYYY-MM-DD") => {
   }
 
   /* init value */
-  const dateDayjs = dayjs(date, format);
-  const fromDayjs = dayjs(from, format);
-  const toDayjs = dayjs(to, format);
+  const dateDayjs = dayjs(date);
+  const fromDayjs = dayjs(from);
+  const toDayjs = dayjs(to);
 
   /* test date */
   if (dateDayjs.isSame(fromDayjs)) {
