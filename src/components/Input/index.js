@@ -6,40 +6,28 @@ import classes from "./styles.css";
 class Input extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      value: props.defaultValue,
-    };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.defaultValue !== this.props.defaultValue) {
-      this.setState({ value: nextProps.defaultValue });
-    }
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.value !== this.props.value;
   }
 
   handleChange(e) {
-    this.setState({
-      value: e.target.value,
-    });
-
     this.props.onChange(e);
   }
 
   render() {
-    const { required, style, ...attrs } = this.props;
+    const { required, style, value, ...attrs } = this.props;
 
     delete attrs.value;
-    delete attrs.defaultValue;
 
     return (
       <input
         className={classes.component}
         {...(style ? { style } : undefined)}
         {...(required ? { required: true } : undefined)}
-        value={this.state.value}
+        value={value}
         {...attrs}
         onChange={this.handleChange}
       />
@@ -51,14 +39,14 @@ Input.propTypes = {
   style: PropTypes.object,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
-  defaultValue: PropTypes.string,
+  value: PropTypes.string,
   required: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
 Input.defaultProps = {
   type: "text",
-  defaultValue: "",
+  value: "",
   required: false,
   onChange() {},
 };

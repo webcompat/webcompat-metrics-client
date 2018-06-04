@@ -27,7 +27,7 @@ exports[`renders Input with defaultValue 1`] = `
   name="input"
   onChange={[Function]}
   type="text"
-  value=""
+  value="my name"
 />
 `;
 

@@ -36,7 +36,7 @@ class NeedsDiagnosis extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     /* merge filters from url and local filters */
     const filters = {
       ...this.state,
@@ -90,14 +90,14 @@ class NeedsDiagnosis extends React.Component {
               type="date"
               name="from"
               placeholder="From"
-              defaultValue={ObjectNested.get(this.state, "from", "")}
+              value={ObjectNested.get(this.state, "from", "")}
               onChange={this.handleChange}
             />
             <Input
               type="date"
               name="to"
               placeholder="To"
-              defaultValue={ObjectNested.get(this.state, "to", "")}
+              value={ObjectNested.get(this.state, "to", "")}
               onChange={this.handleChange}
             />
             <Button type="submit">Filtered</Button>

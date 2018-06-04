@@ -40,12 +40,8 @@ it("renders Input: simulates onChange events", () => {
 });
 
 it("renders Input with a prop update", () => {
-  const spy = sinon.spy(Input.prototype, "componentWillReceiveProps");
   const wrapper = shallow(<Input name="input" />);
-  expect(spy.calledOnce).toEqual(false);
-  wrapper.setProps({ defaultValue: "new value" });
-  expect(wrapper.state().value).toEqual("new value");
-  expect(spy.calledOnce).toEqual(true);
-  wrapper.setProps({ defaultValue: "new value" });
-  expect(spy.calledOnce).toEqual(false);
+  wrapper.setProps({ value: "new value" });
+  expect(wrapper.props().value).toEqual("new value");
+  wrapper.setProps({ value: "new value" });
 });
