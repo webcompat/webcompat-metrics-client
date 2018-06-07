@@ -9,7 +9,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StylesVariables = require("./src/constants/StylesVariables");
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
-const PUBLIC_DIRECTORY = path.resolve(__dirname, "public");
+const BUILD_DIRECTORY = path.resolve(__dirname, "build");
 const RESOURCES_DIRECTORY = path.resolve(__dirname, "src/resources");
 
 module.exports = env => {
@@ -19,11 +19,10 @@ module.exports = env => {
   return {
     entry: {
       index: path.resolve(SRC_DIRECTORY, "index.js"),
-      vendor: ["react", "react-dom"],
     },
     output: {
       filename: "[name].[chunkhash:8].js",
-      path: PUBLIC_DIRECTORY,
+      path: BUILD_DIRECTORY,
       publicPath: "",
     },
     mode: env.NODE_ENV,
@@ -85,12 +84,11 @@ module.exports = env => {
     },
     optimization: {
       splitChunks: {
-        chunks: "all",
         cacheGroups: {
-          vendor: {
-            name: "vendor",
-            test: "vendor",
-            enforce: true,
+          commons: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
           },
         },
       },
@@ -104,7 +102,7 @@ module.exports = env => {
     devServer: {
       publicPath: "/",
       historyApiFallback: true,
-      contentBase: PUBLIC_DIRECTORY,
+      contentBase: BUILD_DIRECTORY,
       port: 3001,
       compress: true,
       open: true,

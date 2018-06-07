@@ -4,29 +4,47 @@
 #
 version: 2
 jobs:
-  build:
+  build-job:
+    branches:
+      ignore: gh-pages
     docker:
       # specify the version you desire here
       - image: circleci/node:8.11.1
-      
     working_directory: ~/repo
-
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-
-      - run: npm install
-
+      - run:
+        name: Install dependencies
+        command: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
-      - run: npm run test
+      - run:
+        name: Run tests
+        command: npm test
+      - run:
+        name: Run build
+        command: npm build
+  deploy-job:
+    steps:
+      - deploy:
+        name: Deploy
+        commands: ./scripts/deploy.sh build
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job
+      - deploy-job:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master

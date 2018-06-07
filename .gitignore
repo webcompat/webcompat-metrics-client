@@ -63,4 +63,4 @@ typings/
 
 # client
 
-/client/public
+/build
