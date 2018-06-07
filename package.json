@@ -61,7 +61,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.2",
-    "eslint-config-i-am-meticulous": "^8.0.0",
+    "eslint-config-i-am-meticulous": "^9.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
