@@ -78,7 +78,7 @@
     "raw-loader": "^0.5.1",
     "react-test-renderer": "^16.2.0",
     "redux-devtools-extension": "^2.13.2",
-    "shx": "^0.2.2",
+    "shx": "^0.3.0",
     "sinon": "^5.0.7",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.2.0",
