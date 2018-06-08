@@ -73,7 +73,7 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
         role="navigation"
       >
         <a
-          aria-current={false}
+          aria-current={null}
           className={undefined}
           href="/needsdiagnosis"
           onClick={[Function]}
