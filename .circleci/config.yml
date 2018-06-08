@@ -38,10 +38,10 @@ jobs:
     steps:
       - run:
           name: Chmod
-          command: chmod +x ./scripts/deploy.sh
+          commands: chmod +x ./scripts/deploy.sh
       - run:
           name: Deploy
-          command: ./scripts/deploy.sh build/
+          command: ./scripts/deploy.sh build
 workflows:
   version: 2
   build_and_deploy:
