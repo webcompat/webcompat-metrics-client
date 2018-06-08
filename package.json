@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
-    "clean": "shx rm -rf public && shx mkdir public",
+    "clean": "shx rm -rf build && shx mkdir build",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./src",
     "lint:CSS": "stylelint './src/**/*.css'",
@@ -80,11 +80,11 @@
     "redux-devtools-extension": "^2.13.2",
     "shx": "^0.3.0",
     "sinon": "^5.0.7",
+    "style-loader": "^0.20.2",
     "stylelint": "^9.1.1",
     "stylelint-config-standard": "^18.2.0",
-    "style-loader": "^0.20.2",
     "webpack": "^4.1.1",
-    "webpack-cli": "^3.0.0",
+    "webpack-cli": "^3.0.3",
     "webpack-dev-server": "^3.1.0"
   },
   "babel": {

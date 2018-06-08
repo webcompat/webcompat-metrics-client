@@ -4,13 +4,10 @@
 #
 version: 2
 jobs:
-  build-job:
-    branches:
-      ignore: gh-pages
+  build:
     docker:
       # specify the version you desire here
       - image: circleci/node:8.11.1
-    working_directory: ~/repo
     steps:
       - checkout
       # Download and cache dependencies
@@ -20,31 +17,54 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
       - run:
-        name: Install dependencies
-        command: npm install
+          name: Install dependencies
+          command: npm install
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run:
-        name: Run tests
-        command: npm test
+          name: Run tests
+          command: npm run test
       - run:
-        name: Run build
-        command: npm build
-  deploy-job:
+          name: Run build
+          command: npm run build
+  deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.11.1
     steps:
-      - deploy:
-        name: Deploy
-        commands: ./scripts/deploy.sh build
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Run build
+          command: npm run build
+      - run:
+          name: Chmod
+          command: chmod +x ./scripts/deploy.sh
+      - run:
+          name: Deploy
+          command: ./scripts/deploy.sh build
 workflows:
   version: 2
-  build-deploy:
+  build_and_deploy:
     jobs:
-      - build-job
-      - deploy-job:
+      - build
+      - deploy:
           requires:
-            - build-job
+            - build
           filters:
             branches:
               only: master
