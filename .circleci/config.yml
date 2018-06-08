@@ -37,9 +37,6 @@ jobs:
     working_directory: ~/repo
     steps:
       - run:
-          name: Chmod
-          commands: chmod +x ./scripts/deploy.sh
-      - run:
           name: Deploy
           command: ./scripts/deploy.sh build
 workflows:
