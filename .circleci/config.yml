@@ -43,12 +43,11 @@ jobs:
       - run:
         name: Deploy
         command: bash ./scripts/deploy.sh build
-
 workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
+      - build:
         filters:
           branches:
             ignore: gh-pages
@@ -57,5 +56,4 @@ workflows:
             - build
           filters:
             branches:
-              only:
-                - master
+              only: master
