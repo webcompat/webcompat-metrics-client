@@ -36,7 +36,6 @@ jobs:
       - image: circleci/node:8.11.1
     working_directory: ~/repo
     steps:
-      - checkout
       - run:
           name: Chmod
           command: chmod +x ./scripts/deploy.sh

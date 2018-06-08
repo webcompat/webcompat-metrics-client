@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
-    "clean": "shx rm -rf public && shx mkdir public",
+    "clean": "shx rm -rf build && shx mkdir build",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./src",
     "lint:CSS": "stylelint './src/**/*.css'",
