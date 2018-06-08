@@ -33,6 +33,10 @@ jobs:
         name: Run build
         command: npm run build
   deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.11.1
+    working_directory: ~/repo
     steps:
       - run:
         name: Chmod
@@ -42,7 +46,7 @@ jobs:
         command: ./scripts/deploy.sh docs/dist
 workflows:
   version: 2
-  build-and-deploy:
+  build_and_deploy:
     jobs:
       - build
       - deploy:
