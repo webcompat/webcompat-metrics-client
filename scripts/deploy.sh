@@ -17,7 +17,7 @@ then
     exit 1
 fi
 
-# make a directory to put the gp-pages branch
+# make a directory to put the gh-pages branch
 mkdir gh-pages-branch
 cd gh-pages-branch
 # now lets setup a new repo so we can update the gh-pages branch
@@ -26,7 +26,7 @@ git config --global user.name "$GH_NAME" > /dev/null 2>&1
 git init
 git remote add --fetch origin "$remote"
 
-# switch into the the gh-pages branch
+# switch into the gh-pages branch
 if git rev-parse --verify origin/gh-pages > /dev/null 2>&1
 then
     git checkout gh-pages
