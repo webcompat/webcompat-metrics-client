@@ -58,7 +58,7 @@ exports[`renders PinningMenu default correctly 1`] = `
         className="footerText"
       >
         <span>
-          Created and maintained by Webcompat
+          Created and maintained by webcompat
         </span>
       </div>
     </footer>
@@ -124,7 +124,7 @@ exports[`renders PinningMenu mneu not opened correctly 1`] = `
         className="footerText"
       >
         <span>
-          Created and maintained by Webcompat
+          Created and maintained by webcompat
         </span>
       </div>
     </footer>

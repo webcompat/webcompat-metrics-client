@@ -38,6 +38,7 @@
     "space-before-function-paren": [2, "never"],
     "space-infix-ops": 2,
     "space-unary-ops": 2,
+    "react/no-did-mount-set-state": 0,
     "react/jsx-no-bind": [
       "error",
       {
@@ -46,6 +47,12 @@
         "allowFunctions": true,
         "allowBind": true
       }
+    ],
+    "import/max-dependencies": [
+        "error",
+        {
+          "max": 25
+        }
     ],
     "react/jsx-no-literals": 0,
     "prettier/prettier": [

@@ -4,20 +4,23 @@
 
 :root {
   --fontSize: var(--fontSize);
-  --marginLeftComponent: var(--widthMenu);
-  --paddingTop: var(--heightHeader);
-  --paddingLeft: var(--widthMenu);
 }
 
 .component {
   font-size: var(--fontSize);
-  overflow-x: hidden;
-  flex: 1;
-  flex-direction: column;
-  padding: var(--paddingTop) 0 0 var(--paddingLeft);
-  background-color: #f6f8f8;
+  padding: 1.5em;
+  border-bottom: 1px solid #dee5e7;
+  color: #58666e;
+  margin: 0 0 2em 0;
 }
 
-.isCollapsed {
-  padding-left: 1em;
+.title {
+  margin: 0;
+  font-weight: 300;
+}
+
+.subtitle {
+  font-size: 1em;
+  margin: 0;
+  font-weight: 300;
 }

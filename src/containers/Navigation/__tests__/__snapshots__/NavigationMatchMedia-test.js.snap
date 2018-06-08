@@ -4,8 +4,9 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
 <div
   className="component"
 >
-  <div
+  <header
     className="component"
+    role="banner"
   >
     <div
       className="component"
@@ -60,7 +61,7 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
         </div>
       </a>
     </div>
-  </div>
+  </header>
   <div
     className="component "
   >
@@ -144,7 +145,7 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
           className="footerText"
         >
           <span>
-            Created and maintained by Webcompat
+            Created and maintained by webcompat
           </span>
         </div>
       </footer>

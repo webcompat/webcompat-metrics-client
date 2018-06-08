@@ -3,9 +3,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import React from "react";
+import renderer from "react-test-renderer";
 
-const HomePage = props => {
-  return <div>HomePage</div>;
-};
+import { Fetch } from "../";
 
-export default HomePage;
+it("renders Fetch default correctly", () => {
+  const tree = renderer.create(<Fetch />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

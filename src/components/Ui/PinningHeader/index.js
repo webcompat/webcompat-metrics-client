@@ -8,7 +8,11 @@ import PropTypes from "prop-types";
 import classes from "./styles.css";
 
 const PinningHeader = ({ children }) => {
-  return <div className={classes.component}>{children}</div>;
+  return (
+    <header className={classes.component} role="banner">
+      {children}
+    </header>
+  );
 };
 
 PinningHeader.propTypes = {

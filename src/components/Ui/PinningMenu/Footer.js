@@ -32,7 +32,7 @@ const Footer = props => {
         </a>
       </div>
       <div className={classes.footerText}>
-        <span>Created and maintained by Webcompat</span>
+        <span>Created and maintained by webcompat</span>
       </div>
     </footer>
   );

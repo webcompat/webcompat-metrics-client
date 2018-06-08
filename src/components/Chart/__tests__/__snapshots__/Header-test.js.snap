@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Header default correctly 1`] = `
+<header
+  className="header"
+  style={
+    Object {
+      "color": "green",
+    }
+  }
+>
+  <section>
+    <h3
+      className="headerTitle"
+    >
+      I'm a title
+    </h3>
+  </section>
+  <section>
+    <div>
+      Header
+    </div>
+  </section>
+</header>
+`;
+
+exports[`renders Header without children 1`] = `
+<header
+  className="header"
+  style={Object {}}
+>
+  <section>
+    <h3
+      className="headerTitle"
+    >
+      I'm a title
+    </h3>
+  </section>
+</header>
+`;
+
+exports[`renders Header without style 1`] = `
+<header
+  className="header"
+  style={Object {}}
+>
+  <section>
+    <h3
+      className="headerTitle"
+    >
+      I'm a title
+    </h3>
+  </section>
+  <section>
+    <span>
+      Header
+    </span>
+  </section>
+</header>
+`;

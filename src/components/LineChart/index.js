@@ -2,9 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Line } from "react-chartjs-2";
 
+import { Container } from "../Chart";
+
 const LineChart = props => {
   const data = {
     labels: props.labels,
+
     datasets: [
       {
         label: props.label,
@@ -29,10 +32,16 @@ const LineChart = props => {
       },
     ],
   };
-  return <Line data={data} />;
+  return (
+    <Container title={props.title} subtitle={props.subtitle}>
+      <Line data={data} legend={props.legend} />
+    </Container>
+  );
 };
 
 LineChart.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   labels: PropTypes.array.isRequired,
   label: PropTypes.string,
   fill: PropTypes.bool,
@@ -53,6 +62,7 @@ LineChart.propTypes = {
   pointRadius: PropTypes.number,
   pointHitRadius: PropTypes.number,
   data: PropTypes.array.isRequired,
+  legend: PropTypes.object,
 };
 
 LineChart.defaultProps = {

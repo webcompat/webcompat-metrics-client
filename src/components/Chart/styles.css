@@ -1,0 +1,51 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+}
+
+.container {
+  font-size: var(--fontSize);
+  padding: 2em;
+  color: #58666e;
+  margin: 0 0 .5em 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+.wrapper {
+  border: 1px solid #f7f7f7;
+  padding: 1.875em;
+  background-color: #fff;
+}
+
+.title {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em;
+}
+
+.headerTitle {
+  font-size: 1.25em;
+  font-weight: 300;
+  margin: 0;
+}
+
+.fetch {
+  text-align: center;
+}
+
+.fetchTitle {
+  font-size: 1.5em;
+  font-weight: 300;
+  text-shadow: 0 1px 1px #0003;
+  margin-top: 10px;
+}

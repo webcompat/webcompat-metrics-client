@@ -7,13 +7,12 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import NavigationContainer from "../containers/Navigation";
 import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
-import HomePage from "../components/HomePage";
 
 const App = props => {
   return (
     <Router>
       <NavigationContainer>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
       </NavigationContainer>
     </Router>

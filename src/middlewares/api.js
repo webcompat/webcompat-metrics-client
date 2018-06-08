@@ -93,6 +93,7 @@ export default store => next => action => {
           response,
           type: successType,
           actionParameters,
+          requestParameters,
         }),
       ),
     response =>
@@ -101,6 +102,7 @@ export default store => next => action => {
           response,
           type: failureType,
           actionParameters,
+          requestParameters,
         }),
       ),
   );

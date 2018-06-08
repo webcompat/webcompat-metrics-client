@@ -2,9 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import getMonth from "../getMonth";
+import getFiltersFromUrl from "../getFiltersFromUrl";
 
-test("return a month in 2 digit format ", () => {
-  const date = new Date("2018-02-08T13:12:16Z");
-  expect(getMonth(date)).toBe("02");
+test("getFiltersFromUrl", () => {
+  expect(getFiltersFromUrl()).toBe("?from=2018-04-25&to=2018-05-25");
 });

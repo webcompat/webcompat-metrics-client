@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+import dayjs from "dayjs";
+
 import {
   NEEDS_DIAGNOSIS_REQUEST,
   NEEDS_DIAGNOSIS_SUCCESS,
@@ -9,7 +11,8 @@ import {
 } from "../../constants/ActionTypes";
 import { CALL_API, GET } from "../../constants/Api";
 import { CHART_LINE } from "../../constants/Charts";
-import { ObjectNested, isEmptyObject, normalizDate } from "../../libraries";
+import { ObjectNested, isEmptyObject, isBetweenDates } from "../../libraries";
+
 /* name of reducer */
 export const STATE_KEY = "needsdiagnosis";
 
@@ -26,24 +29,28 @@ export default function reducer(state = initialState, action) {
         ...normalize(
           ObjectNested.get(action, "response.json.timeline", {}),
           ObjectNested.get(action, "actionParameters.chartList"),
+          ObjectNested.get(action, "requestParameters"),
         ),
+        isFetching: false,
       };
     }
 
     case NEEDS_DIAGNOSIS_REQUEST: {
       return {
         ...state,
+        isFetching: true,
       };
     }
 
     case NEEDS_DIAGNOSIS_FAILURE: {
       return {
         ...state,
+        isFetching: false,
       };
     }
 
     default: {
-      return initialState.stats;
+      return state;
     }
   }
 }
@@ -68,11 +75,12 @@ export const getNeedsDiagnosis = args => ({
  * @param {chartList} array
  * @return {object}
  */
-const normalize = (stats = {}, chartList = []) => {
+const normalize = (stats = {}, chartList = [], filters = {}) => {
+  const statsFiltered = filtering(stats, filters);
   const data = {
     ...initialState.stats,
   };
-  if (isEmptyObject(stats)) {
+  if (isEmptyObject(statsFiltered)) {
     return data;
   }
   if (chartList.length <= 0) {
@@ -84,12 +92,13 @@ const normalize = (stats = {}, chartList = []) => {
     switch (chart) {
       /* normalize every type of chart relay on data */
       case CHART_LINE:
-        statsByChart[CHART_LINE] = Object.keys(stats).reduce(
+        statsByChart[CHART_LINE] = Object.keys(statsFiltered).reduce(
           (accumulator, currentValue) => {
-            const stat = stats[currentValue];
+            const stat = statsFiltered[currentValue];
             accumulator.openIssues.push(stat.count);
-            const date = new Date(stat.timestamp);
-            accumulator.dates.push(normalizDate(date, "-"));
+            accumulator.dates.push(
+              dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+            );
             return accumulator;
           },
           {
@@ -102,4 +111,34 @@ const normalize = (stats = {}, chartList = []) => {
     }
   }
   return statsByChart;
+};
+
+/**
+ * filtering data, it's temporary until API does it
+ * @param {stats} object
+ * @param {filters} object
+ * @return {object}
+ */
+const filtering = (stats = {}, filters = {}) => {
+  if (isEmptyObject(filters)) {
+    return stats;
+  }
+  const from = ObjectNested.get(filters, "from", null);
+  const to = ObjectNested.get(filters, "to", null);
+  if (null == from || null === to) {
+    return stats;
+  }
+  return Object.keys(stats).reduce((accumulator, currentValue) => {
+    const stat = stats[currentValue];
+    if (
+      isBetweenDates(
+        dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+        from,
+        to,
+      )
+    ) {
+      accumulator.push(stat);
+    }
+    return accumulator;
+  }, []);
 };

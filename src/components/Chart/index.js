@@ -2,9 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import getDate from "../getDate";
-
-test("return a day in 2 digit format ", () => {
-  const date = new Date("2018-02-08T13:12:16Z");
-  expect(getDate(date)).toBe("08");
-});
+export { default as Container } from "./Container";
+export { default as Header } from "./Header";
+export { default as Fetch } from "./Fetch";
