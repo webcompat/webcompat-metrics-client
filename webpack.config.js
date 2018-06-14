@@ -108,7 +108,6 @@ module.exports = env => {
       open: true,
       proxy: {
         "/api": {
-          target: "https://webcompat-metrics.herokuapp.com/data/",
           pathRewrite: { "^/api": "" },
           changeOrigin: true,
         },

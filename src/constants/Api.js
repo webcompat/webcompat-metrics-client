@@ -1,12 +1,12 @@
 /* default Config api */
 export const CONFIG_API = {
-  method: "get",
   credentials: "include",
+  method: "GET",
   mode: "cors",
 };
 
 /* base API url */
-export const API_BASE_URL = "/api";
+export const API_BASE_URL = "https://webcompat-metrics.herokuapp.com/data";
 
 /* Action key that carries API call info interpreted by this Redux middleware. */
 export const CALL_API = "Call API";
