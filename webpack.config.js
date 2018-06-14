@@ -100,7 +100,7 @@ module.exports = env => {
       }),
     ],
     devServer: {
-      publicPath: "/",
+      publicPath: "/webcompat-metrics-client",
       historyApiFallback: true,
       contentBase: BUILD_DIRECTORY,
       port: 3001,

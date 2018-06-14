@@ -30,7 +30,7 @@ exports[`renders Component default correctly 1`] = `
         </button>
       </div>
       <a
-        href="/"
+        href="/webcompat-metrics-client/"
         onClick={[Function]}
       >
         <div
@@ -75,7 +75,7 @@ exports[`renders Component default correctly 1`] = `
         <a
           aria-current={null}
           className={undefined}
-          href="/needsdiagnosis"
+          href="/webcompat-metrics-client/needsdiagnosis"
           onClick={[Function]}
           style={undefined}
         >
