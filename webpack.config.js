@@ -100,7 +100,7 @@ module.exports = env => {
       }),
     ],
     devServer: {
-      publicPath: "/",
+      publicPath: "/webcompat-metrics-client",
       historyApiFallback: true,
       contentBase: BUILD_DIRECTORY,
       port: 3001,
@@ -108,7 +108,6 @@ module.exports = env => {
       open: true,
       proxy: {
         "/api": {
-          target: "https://webcompat-metrics.herokuapp.com/data/",
           pathRewrite: { "^/api": "" },
           changeOrigin: true,
         },
