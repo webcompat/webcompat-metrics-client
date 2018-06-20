@@ -15,10 +15,22 @@
   max-width: 100%;
 }
 
+@media all and (max-width: 42.5em) {
+  .container {
+    padding: 2em .625em;
+  }
+}
+
 .wrapper {
   border: 1px solid #f7f7f7;
   padding: 1.875em;
   background-color: #fff;
+}
+
+@media all and (max-width: 42.5em) {
+  .wrapper {
+    padding: 1.875em .625em;
+  }
 }
 
 .title {
@@ -31,6 +43,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2em;
+  flex-wrap: wrap;
+}
+
+@media all and (max-width: 42.5em) {
+  .header {
+    padding: 0 .625em;
+  }
 }
 
 .headerTitle {
