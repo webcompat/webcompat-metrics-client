@@ -18,6 +18,14 @@
   background-color: #f6f8f8;
 }
 
-.isCollapsed {
-  padding-left: 1em;
+@media all and (min-width: 42.51em) {
+  .isCollapsed {
+    padding-left: 1em;
+  }
+}
+
+@media all and (max-width: 42.5em) {
+  .isCollapsed {
+    padding-left: 0;
+  }
 }
