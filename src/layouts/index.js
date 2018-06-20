@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import NavigationContainer from "../containers/Navigation";
 import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
-import { BASE_URL } from "../constants/Api";
 
 const App = props => {
   return (
-    <Router basename={BASE_URL}>
+    /* eslint-disable-next-line no-undef */
+    <Router basename={BASENAME}>
       <NavigationContainer>
         <Route exact path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
