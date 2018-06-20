@@ -11,6 +11,7 @@ const StylesVariables = require("./src/constants/StylesVariables");
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
 const BUILD_DIRECTORY = path.resolve(__dirname, "build");
 const RESOURCES_DIRECTORY = path.resolve(__dirname, "src/resources");
+const PUBLIC_PATH = "/"
 
 module.exports = env => {
   const DEBUG = env.NODE_ENV === "development";
@@ -94,13 +95,16 @@ module.exports = env => {
       },
     },
     plugins: [
+      new webpack.DefinePlugin({
+        BASENAME: JSON.stringify(DEBUG ? PUBLIC_PATH : "/webcompat-metrics-client"),
+      }),
       new HtmlWebpackPlugin({
         inject: true,
         template: path.resolve(RESOURCES_DIRECTORY, "index.html"),
       }),
     ],
     devServer: {
-      publicPath: "/webcompat-metrics-client",
+      publicPath: PUBLIC_PATH,
       historyApiFallback: true,
       contentBase: BUILD_DIRECTORY,
       port: 3001,
