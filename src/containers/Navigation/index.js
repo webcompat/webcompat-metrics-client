@@ -54,6 +54,7 @@ class NavigationContainer extends React.Component {
             to="/needsdiagnosis"
             text={"NeedsDiagnosis"}
             icon={<Svg svg={SVGBugdiagnosis} />}
+            onClick={this.handleResize}
           />
         </PinningMenu>
         <MainView isCollapsed={!this.state.isOpened}>

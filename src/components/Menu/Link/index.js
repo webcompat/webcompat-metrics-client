@@ -8,9 +8,9 @@ import { NavLink } from "react-router-dom";
 
 import classes from "./styles.css";
 
-const Link = ({ to, text, icon }) => {
+const Link = ({ to, text, icon, onClick }) => {
   return (
-    <NavLink activeClassName={classes.active} to={to}>
+    <NavLink onClick={onClick} activeClassName={classes.active} to={to}>
       <div className={classes.component}>
         {icon && <div className={classes.icon}>{icon}</div>}
         {text && <div className={classes.text}>{text}</div>}
@@ -23,6 +23,7 @@ Link.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+  onClick: PropTypes.func.isRequired,
 };
 
 Link.defaultProps = {
