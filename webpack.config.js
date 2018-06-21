@@ -48,7 +48,6 @@ module.exports = env => {
                 localIdentName: "[path]-[local]--[hash:base64:5]",
                 importLoaders: 1,
                 minimize: PROD,
-                sourceMap: !PROD,
               },
             },
             {
