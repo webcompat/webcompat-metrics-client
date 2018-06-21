@@ -32,6 +32,7 @@ export default function reducer(state = initialState, action) {
           ObjectNested.get(action, "requestParameters"),
         ),
         isFetching: false,
+        error: {},
       };
     }
 
@@ -39,12 +40,18 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         isFetching: true,
+        error: {},
       };
     }
 
     case NEEDS_DIAGNOSIS_FAILURE: {
       return {
         ...state,
+        error: {
+          message: ObjectNested.get(action, "response.json.message"),
+          errors: ObjectNested.get(action, "response.json.errors", []),
+          code: ObjectNested.get(action, "response.json.code"),
+        },
         isFetching: false,
       };
     }
