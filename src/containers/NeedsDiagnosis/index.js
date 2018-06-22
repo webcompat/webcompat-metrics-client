@@ -15,10 +15,11 @@ import {
   toQueryObject,
   pushFiltersToUrl,
   toQueryString,
+  isEmptyObject,
 } from "../../libraries";
 import LineChart from "../../components/LineChart";
 import Jumbotron from "../../components/Jumbotron";
-import { Header, Fetch } from "../../components/Chart";
+import { Header, Fetch, Error } from "../../components/Chart";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { CHART_LINE } from "../../constants/Charts";
@@ -105,7 +106,7 @@ class NeedsDiagnosis extends React.Component {
         </Header>
         {ObjectNested.get(this.props.stats, "isFetching", true) ? (
           <Fetch />
-        ) : (
+        ) : isEmptyObject(this.props.error) ? (
           <LineChart
             title={"Open issues in needsdiagnosis milestone"}
             label={""}
@@ -121,6 +122,8 @@ class NeedsDiagnosis extends React.Component {
               [],
             )}
           />
+        ) : (
+          <Error message={this.props.error.message} />
         )}
       </section>
     );
@@ -130,15 +133,18 @@ class NeedsDiagnosis extends React.Component {
 NeedsDiagnosis.propTypes = {
   getNeedsDiagnosis: PropTypes.func.isRequired,
   stats: PropTypes.object,
+  error: PropTypes.object,
 };
 
 NeedsDiagnosis.defaultProps = {
   stats: {},
+  error: {},
 };
 
 export default connect(
   state => ({
     stats: ObjectNested.get(state, "needsdiagnosis", {}),
+    error: ObjectNested.get(state, "needsdiagnosis.error", {}),
   }),
   dispatch => ({
     getNeedsDiagnosis: bindActionCreators(getNeedsDiagnosis, dispatch),
