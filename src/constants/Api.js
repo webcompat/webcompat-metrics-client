@@ -1,6 +1,5 @@
 /* default Config api */
 export const CONFIG_API = {
-  credentials: "include",
   method: "GET",
   mode: "cors",
 };
