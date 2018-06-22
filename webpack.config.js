@@ -45,10 +45,9 @@ module.exports = env => {
               loader: "css-loader",
               options: {
                 modules: true,
-                localIdentName: "[path]-[local]--[hash:base64:5]",
+                localIdentName: PROD ? "[hash:base64:5]"  : "[path]-[local]--[hash:base64:5]",
                 importLoaders: 1,
                 minimize: PROD,
-                sourceMap: !PROD,
               },
             },
             {
