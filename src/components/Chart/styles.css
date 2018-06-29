@@ -34,8 +34,9 @@
 }
 
 .title {
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 300;
+  margin-top: 0;
 }
 
 .header {

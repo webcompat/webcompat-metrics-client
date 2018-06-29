@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders SimpleStat default correctly with custom style 1`] = `
+<div
+  className="stat"
+  style={
+    Object {
+      "color": "blue",
+    }
+  }
+>
+  <div>
+    Stat
+  </div>
+</div>
+`;
+
+exports[`renders Stat default correctly 1`] = `
+<div
+  className="stat"
+>
+  <div>
+    Stat
+  </div>
+</div>
+`;

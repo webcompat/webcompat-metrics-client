@@ -26,6 +26,9 @@ export default function reducer(state = initialState, action) {
     case NEEDS_DIAGNOSIS_SUCCESS: {
       return {
         ...state,
+        stats: mostAndLeast(
+          ObjectNested.get(action, "response.json.timeline", {}),
+        ),
         ...normalize(
           ObjectNested.get(action, "response.json.timeline", {}),
           ObjectNested.get(action, "actionParameters.chartList"),
@@ -148,4 +151,61 @@ const filtering = (stats = {}, filters = {}) => {
     }
     return accumulator;
   }, []);
+};
+
+/**
+ * Determines the most and the least issues
+ * @param {stats} object
+ * @return {object}
+ */
+const mostAndLeast = (stats = {}) => {
+  /* init default */
+  const obj = {
+    most: {
+      count: null,
+      date: null,
+    },
+    least: {
+      count: null,
+      date: null,
+    },
+  };
+  /* if no data */
+  if (isEmptyObject(stats)) {
+    return {};
+  }
+  return Object.keys(stats).reduce((accumulator, currentValue) => {
+    const stat = stats[currentValue];
+    const mostCount = ObjectNested.get(accumulator, "most.count");
+    const leastCount = ObjectNested.get(accumulator, "least.count");
+    let most = {};
+    let least = {};
+    /*
+     * stat.count
+     * stat.timestamp
+     */
+    if (null == mostCount || stat.count >= mostCount) {
+      most = {
+        count: stat.count,
+        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+      };
+    }
+    if (null == leastCount || stat.count < leastCount) {
+      least = {
+        count: stat.count,
+        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+      };
+    }
+
+    return {
+      most: {
+        ...accumulator.most,
+        ...most,
+      },
+      least: {
+        ...accumulator.least,
+        ...least,
+      },
+    };
+  }, obj);
 };
