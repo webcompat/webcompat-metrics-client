@@ -22,6 +22,7 @@ import Jumbotron from "../../components/Jumbotron";
 import { Header, Fetch, Error } from "../../components/Chart";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { SimpleStat, Stat } from "../../components/SimpleStat";
 import { CHART_LINE } from "../../constants/Charts";
 
 class NeedsDiagnosis extends React.Component {
@@ -78,6 +79,7 @@ class NeedsDiagnosis extends React.Component {
   render() {
     const from = dayjs(this.state.from).format("DD MMMM YYYY");
     const to = dayjs(this.state.to).format("DD MMMM YYYY");
+    const globalStats = ObjectNested.get(this.props.stats, "stats", {});
 
     return (
       <section>
@@ -107,21 +109,39 @@ class NeedsDiagnosis extends React.Component {
         {ObjectNested.get(this.props.stats, "isFetching", true) ? (
           <Fetch />
         ) : isEmptyObject(this.props.error) ? (
-          <LineChart
-            title={"Open issues in needsdiagnosis milestone"}
-            label={""}
-            labels={ObjectNested.get(
-              this.props.stats,
-              `${CHART_LINE}.dates`,
-              [],
+          <div style={{ position: "relative" }}>
+            {!isEmptyObject(globalStats) && (
+              <SimpleStat>
+                <Stat style={{ color: "#00bdb4" }}>
+                  {`Min: ${ObjectNested.get(
+                    globalStats,
+                    "least.count",
+                  )} (${ObjectNested.get(globalStats, "least.date")}) `}
+                </Stat>
+                <Stat style={{ color: "#fb3c59" }}>
+                  {`Max: ${ObjectNested.get(
+                    globalStats,
+                    "most.count",
+                  )} (${ObjectNested.get(globalStats, "most.date")}) `}
+                </Stat>
+              </SimpleStat>
             )}
-            legend={{ display: false }}
-            data={ObjectNested.get(
-              this.props.stats,
-              `${CHART_LINE}.openIssues`,
-              [],
-            )}
-          />
+            <LineChart
+              title={"Open issues in needsdiagnosis milestone"}
+              label={""}
+              labels={ObjectNested.get(
+                this.props.stats,
+                `${CHART_LINE}.dates`,
+                [],
+              )}
+              legend={{ display: false }}
+              data={ObjectNested.get(
+                this.props.stats,
+                `${CHART_LINE}.openIssues`,
+                [],
+              )}
+            />
+          </div>
         ) : (
           <Error message={this.props.error.message} />
         )}
