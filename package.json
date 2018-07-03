@@ -21,7 +21,7 @@
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
     "clean": "shx rm -rf build && shx mkdir build",
     "lint": "npm run lint:JS && npm run lint:CSS",
-    "lint:JS": "eslint ./src",
+    "lint:JS": "eslint ./webpack.config.js ./src ./scripts",
     "lint:CSS": "stylelint './src/**/*.css'",
     "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
     "lint:fix:JS": "npm run lint:JS -- --fix",
