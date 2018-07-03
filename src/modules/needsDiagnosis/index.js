@@ -11,7 +11,7 @@ import {
 } from "../../constants/ActionTypes";
 import { CALL_API, GET } from "../../constants/Api";
 import { CHART_LINE } from "../../constants/Charts";
-import { ObjectNested, isEmptyObject, isBetweenDates } from "../../libraries";
+import { ObjectNested, isEmptyObject } from "../../libraries";
 
 /* name of reducer */
 export const STATE_KEY = "needsdiagnosis";
@@ -86,11 +86,10 @@ export const getNeedsDiagnosis = args => ({
  * @return {object}
  */
 const normalize = (stats = {}, chartList = [], filters = {}) => {
-  const statsFiltered = filtering(stats, filters);
   const data = {
     ...initialState.stats,
   };
-  if (isEmptyObject(statsFiltered)) {
+  if (isEmptyObject(stats)) {
     return data;
   }
   if (chartList.length <= 0) {
@@ -102,9 +101,9 @@ const normalize = (stats = {}, chartList = [], filters = {}) => {
     switch (chart) {
       /* normalize every type of chart relay on data */
       case CHART_LINE:
-        statsByChart[CHART_LINE] = Object.keys(statsFiltered).reduce(
+        statsByChart[CHART_LINE] = Object.keys(stats).reduce(
           (accumulator, currentValue) => {
-            const stat = statsFiltered[currentValue];
+            const stat = stats[currentValue];
             accumulator.openIssues.push(stat.count);
             accumulator.dates.push(
               dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
@@ -121,36 +120,6 @@ const normalize = (stats = {}, chartList = [], filters = {}) => {
     }
   }
   return statsByChart;
-};
-
-/**
- * filtering data, it's temporary until API does it
- * @param {stats} object
- * @param {filters} object
- * @return {object}
- */
-const filtering = (stats = {}, filters = {}) => {
-  if (isEmptyObject(filters)) {
-    return stats;
-  }
-  const from = ObjectNested.get(filters, "from", null);
-  const to = ObjectNested.get(filters, "to", null);
-  if (null == from || null === to) {
-    return stats;
-  }
-  return Object.keys(stats).reduce((accumulator, currentValue) => {
-    const stat = stats[currentValue];
-    if (
-      isBetweenDates(
-        dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
-        from,
-        to,
-      )
-    ) {
-      accumulator.push(stat);
-    }
-    return accumulator;
-  }, []);
 };
 
 /**
