@@ -2,8 +2,6 @@
 const path = require("path");
 
 const webpack = require("webpack");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
@@ -21,23 +19,23 @@ module.exports = env => {
 
   return {
     entry: {
-      index: path.resolve(SRC_DIRECTORY, "index.js")
+      index: path.resolve(SRC_DIRECTORY, "index.js"),
     },
     output: {
       filename: "[name].[chunkhash:8].js",
       path: BUILD_DIRECTORY,
-      publicPath: ""
+      publicPath: "",
     },
     mode: env.NODE_ENV,
     resolve: {
-      extensions: [".js", ".css"]
+      extensions: [".js", ".css"],
     },
     module: {
       rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: "babel-loader"
+          loader: "babel-loader",
         },
         {
           test: /\.css$/,
@@ -51,8 +49,8 @@ module.exports = env => {
                   ? "[hash:base64:5]"
                   : "[path]-[local]--[hash:base64:5]",
                 importLoaders: 1,
-                minimize: PROD
-              }
+                minimize: PROD,
+              },
             },
             {
               loader: "postcss-loader",
@@ -63,28 +61,28 @@ module.exports = env => {
                   require("postcss-cssnext")({
                     features: {
                       customProperties: {
-                        variables: StylesVariables
-                      }
-                    }
+                        variables: StylesVariables,
+                      },
+                    },
                   }),
-                  require("postcss-reporter")()
-                ]
-              }
-            }
-          ]
+                  require("postcss-reporter")(),
+                ],
+              },
+            },
+          ],
         },
         {
           test: /\.svg$/,
           use: [
             {
-              loader: "raw-loader"
-            }
-          ]
-        }
-      ]
+              loader: "raw-loader",
+            },
+          ],
+        },
+      ],
     },
     stats: {
-      children: false
+      children: false,
     },
     optimization: {
       splitChunks: {
@@ -92,25 +90,25 @@ module.exports = env => {
           commons: {
             test: /[\\/]node_modules[\\/]/,
             name: "vendors",
-            chunks: "all"
-          }
-        }
-      }
+            chunks: "all",
+          },
+        },
+      },
     },
     plugins: [
       new webpack.DefinePlugin({
         BASENAME: JSON.stringify(
-          DEBUG ? PUBLIC_PATH : "/webcompat-metrics-client"
-        )
+          DEBUG ? PUBLIC_PATH : "/webcompat-metrics-client",
+        ),
       }),
       new HtmlWebpackPlugin({
         inject: true,
-        template: path.resolve(RESOURCES_DIRECTORY, "index.html")
+        template: path.resolve(RESOURCES_DIRECTORY, "index.html"),
       }),
       new FaviconsWebpackPlugin({
         logo: path.resolve(LOGO_DIRECTORY, "logo.png"),
-        inject: true
-      })
+        inject: true,
+      }),
     ],
     devServer: {
       publicPath: PUBLIC_PATH,
@@ -122,9 +120,9 @@ module.exports = env => {
       proxy: {
         "/api": {
           pathRewrite: { "^/api": "" },
-          changeOrigin: true
-        }
-      }
-    }
+          changeOrigin: true,
+        },
+      },
+    },
   };
 };
