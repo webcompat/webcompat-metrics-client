@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import PinningHeader from "../";
+import PinningHeader from "..";
 
 it("renders PinningHeader default correctly", () => {
   const tree = renderer

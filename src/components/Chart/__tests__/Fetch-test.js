@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Fetch } from "../";
+import { Fetch } from "..";
 
 it("renders Fetch default correctly", () => {
   const tree = renderer.create(<Fetch />).toJSON();

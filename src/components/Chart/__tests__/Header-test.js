@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Header } from "../";
+import { Header } from "..";
 
 it("renders Header default correctly", () => {
   const tree = renderer

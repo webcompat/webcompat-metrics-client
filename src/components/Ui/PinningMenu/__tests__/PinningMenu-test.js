@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import PinningMenu from "../";
+import PinningMenu from "..";
 
 it("renders PinningMenu default correctly", () => {
   const tree = renderer

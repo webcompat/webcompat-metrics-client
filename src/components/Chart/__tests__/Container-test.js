@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Container } from "../";
+import { Container } from "..";
 
 it("renders Container default correctly", () => {
   const tree = renderer

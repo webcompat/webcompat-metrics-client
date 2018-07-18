@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Error } from "../";
+import { Error } from "..";
 
 it("renders Error default correctly", () => {
   const tree = renderer.create(<Error message={"error message"} />).toJSON();

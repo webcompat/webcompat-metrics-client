@@ -7,7 +7,7 @@ import renderer from "react-test-renderer";
 import sinon from "sinon";
 import { shallow } from "enzyme";
 
-import Input from "../";
+import Input from "..";
 
 it("renders Input default correctly", () => {
   const tree = renderer.create(<Input name="input" />).toJSON();
@@ -20,7 +20,7 @@ it("renders Input with defaultValue", () => {
 });
 
 it("renders Input required", () => {
-  const tree = renderer.create(<Input name="input" required />).toJSON();
+  const tree = renderer.create(<Input name="input" required={true} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

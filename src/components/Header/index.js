@@ -6,7 +6,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import Svg from "../../components/Svg";
+import Svg from "../Svg";
 import SVGLogo from "../../assets/Logo/logo.svg";
 
 import SVGMenu from "./menu.svg";

@@ -8,7 +8,7 @@ import sinon from "sinon";
 import { shallow } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Header from "../";
+import Header from "..";
 
 it("renders Header default correctly", () => {
   const tree = renderer

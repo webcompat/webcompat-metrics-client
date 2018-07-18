@@ -6,7 +6,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import NavigationContainer from "../";
+import NavigationContainer from "..";
 
 it("renders NavigationContainer matchMedia return true", () => {
   Object.defineProperty(window, "matchMedia", {
