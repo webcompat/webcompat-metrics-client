@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { SimpleStat } from "../";
+import { SimpleStat } from "..";
 
 it("renders SimpleStat default correctly", () => {
   const tree = renderer

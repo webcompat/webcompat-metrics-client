@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Jumbotron from "../";
+import Jumbotron from "..";
 
 it("renders Jumbotron default correctly with a title", () => {
   const tree = renderer.create(<Jumbotron title="Jumbotron title" />).toJSON();

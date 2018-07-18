@@ -5,7 +5,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Svg from "../";
+import Svg from "..";
+
 import SVGTest from "../../../assets/svg/Bugdiagnosis.svg";
 
 it("renders Svg default correctly", () => {

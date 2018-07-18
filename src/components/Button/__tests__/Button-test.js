@@ -7,7 +7,7 @@ import renderer from "react-test-renderer";
 import sinon from "sinon";
 import { shallow } from "enzyme";
 
-import Button from "../";
+import Button from "..";
 
 it("renders Button default correctly", () => {
   const tree = renderer.create(<Button>{"I'm a Button"}</Button>).toJSON();

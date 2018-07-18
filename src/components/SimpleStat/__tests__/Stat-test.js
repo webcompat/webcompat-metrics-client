@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Stat } from "../";
+import { Stat } from "..";
 
 it("renders Stat default correctly", () => {
   const tree = renderer

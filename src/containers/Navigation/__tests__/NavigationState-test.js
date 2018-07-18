@@ -6,7 +6,8 @@ import React from "react";
 import { shallow } from "enzyme";
 
 import Header from "../../../components/Header";
-import NavigationContainer from "../";
+
+import NavigationContainer from "..";
 
 it("NavigationContainer click button", () => {
   Object.defineProperty(window, "matchMedia", {

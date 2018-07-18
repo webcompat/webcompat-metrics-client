@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import MainView from "../";
+import MainView from "..";
 
 it("renders MainView default correctly", () => {
   const tree = renderer

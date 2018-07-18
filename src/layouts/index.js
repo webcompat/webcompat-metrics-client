@@ -13,7 +13,7 @@ const App = props => {
     /* eslint-disable-next-line no-undef */
     <Router basename={BASENAME}>
       <NavigationContainer>
-        <Route exact path="/" component={NeedsDiagnosisContainer} />
+        <Route exact={true} path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
       </NavigationContainer>
     </Router>

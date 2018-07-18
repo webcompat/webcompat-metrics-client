@@ -6,7 +6,8 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { Provider } from "react-redux";
 
-import Component from "../";
+import Component from "..";
+
 import store from "../../store/configureStore";
 
 it("renders Component matchMedia return true", () => {

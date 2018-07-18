@@ -4,7 +4,7 @@
 
 import React from "react";
 
-import Svg from "../../../components/Svg";
+import Svg from "../../Svg";
 import SVGTwitter from "../../../assets/svg/iconmonstr-twitter-1.svg";
 import SVGGithub from "../../../assets/svg/iconmonstr-github-1.svg";
 

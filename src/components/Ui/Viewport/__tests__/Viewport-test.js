@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import Viewport from "../";
+import Viewport from "..";
 
 it("renders Viewport default correctly", () => {
   const tree = renderer
