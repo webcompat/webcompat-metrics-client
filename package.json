@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "chart.js": "^2.7.2",
-    "dayjs": "^1.5.24",
+    "dayjs": "^1.7.4",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-chartjs-2": "^2.7.0",
