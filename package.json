@@ -57,7 +57,7 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.3",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^5.1.0",
     "eslint-config-i-am-meticulous": "^11.0.0",
     "eslint-config-prettier": "^2.9.0",
