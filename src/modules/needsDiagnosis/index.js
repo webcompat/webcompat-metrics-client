@@ -105,9 +105,7 @@ const normalize = (stats = {}, chartList = [], filters = {}) => {
           (accumulator, currentValue) => {
             const stat = stats[currentValue];
             accumulator.openIssues.push(stat.count);
-            accumulator.dates.push(
-              dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
-            );
+            accumulator.dates.push(new Date(stat.timestamp));
             return accumulator;
           },
           {
