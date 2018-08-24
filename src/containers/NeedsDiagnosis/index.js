@@ -80,7 +80,6 @@ class NeedsDiagnosis extends React.Component {
     const from = dayjs(this.state.from).format("DD MMMM YYYY");
     const to = dayjs(this.state.to).format("DD MMMM YYYY");
     const globalStats = ObjectNested.get(this.props.stats, "stats", {});
-
     return (
       <section>
         <Jumbotron
@@ -140,6 +139,16 @@ class NeedsDiagnosis extends React.Component {
                 `${CHART_LINE}.openIssues`,
                 [],
               )}
+              options={{
+                scales: {
+                  xAxes: [
+                    {
+                      type: "time",
+                      distribution: "linear",
+                    },
+                  ],
+                },
+              }}
             />
           </div>
         ) : (
