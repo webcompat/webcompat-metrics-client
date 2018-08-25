@@ -56,7 +56,7 @@
     "babel-runtime": "^6.26.0",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
-    "enzyme": "^3.4.4",
+    "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "eslint": "^5.1.0",
     "eslint-config-i-am-meticulous": "^11.0.0",
