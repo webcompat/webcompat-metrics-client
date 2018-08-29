@@ -87,12 +87,15 @@ module.exports = env => {
     optimization: {
       splitChunks: {
         cacheGroups: {
-          commons: {
+          vendors: {
             test: /[\\/]node_modules[\\/]/,
             name: "vendors",
             chunks: "all",
           },
         },
+      },
+      runtimeChunk: {
+        name: "vendors",
       },
     },
     plugins: [
