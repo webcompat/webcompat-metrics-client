@@ -15,4 +15,5 @@
   height: var(--heightComponent);
   background-color: var(--backgroundColor);
   overflow: hidden;
+  z-index: 5;
 }
