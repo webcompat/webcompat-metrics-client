@@ -8,14 +8,7 @@ import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
 
 import { getWeeklyReports } from "../../actions";
-import {
-  ObjectNested,
-  getFiltersFromUrl,
-  toQueryObject,
-  pushFiltersToUrl,
-  toQueryString,
-  isEmptyObject,
-} from "../../libraries";
+import { ObjectNested, isEmptyObject } from "../../libraries";
 import LineChart from "../../components/LineChart";
 import Jumbotron from "../../components/Jumbotron";
 import { Fetch, Error } from "../../components/Chart";
@@ -28,41 +21,17 @@ class WeeklyReports extends React.Component {
   }
 
   componentDidMount() {
-    /* merge filters from url and local filters */
-    const filters = {
-      ...this.state,
-      ...toQueryObject(getFiltersFromUrl()),
-    };
-    /* sent request */
-    this.getWeeklyReports(filters);
-    /* update view with filters */
-    this.setState({
-      ...filters,
-    });
+    this.getWeeklyReports();
   }
 
   /* fetch data */
-  getWeeklyReports(filters = {}) {
-    /* push filters to url */
-    pushFiltersToUrl(toQueryString(filters));
+  getWeeklyReports() {
     const args = {
       actionParameters: {
         chartList: [CHART_LINE],
       },
-      requestParameters: {
-        ...filters,
-      },
     };
     this.props.getWeeklyReports(args);
-  }
-
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.getWeeklyReports(this.state);
   }
 
   render() {
@@ -102,7 +71,7 @@ class WeeklyReports extends React.Component {
                 `${CHART_LINE}.dates`,
                 [],
               )}
-              legend={{ display: true }}
+              legend={{ display: false }}
               data={ObjectNested.get(
                 this.props.stats,
                 `${CHART_LINE}.newIssues`,
