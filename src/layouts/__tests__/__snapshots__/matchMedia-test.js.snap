@@ -101,6 +101,35 @@ exports[`renders Component matchMedia return true 1`] = `
             </div>
           </div>
         </a>
+        <a
+          aria-current={null}
+          className={undefined}
+          href="/webcompat-metrics-client/weeklyreports"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <div
+            className="component"
+          >
+            <div
+              className="icon"
+            >
+              <span
+                className="SVGInline SVGInline--cleaned"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "test-file-stub",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="text"
+            >
+              Weekly Issue Reports
+            </div>
+          </div>
+        </a>
       </nav>
       <footer
         className="footer"
@@ -214,6 +243,55 @@ exports[`renders Component matchMedia return true 1`] = `
           </form>
         </section>
       </header>
+      <article
+        className="container"
+      >
+        <div
+          className="wrapper"
+        >
+          <h3
+            className="title"
+          >
+            Rendering Chart
+          </h3>
+          <div>
+            <div
+              className="fetch"
+            >
+              <span
+                className="SVGInline SVGInline--cleaned"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "test-file-stub",
+                  }
+                }
+              />
+              <div
+                className="fetchTitle"
+              >
+                Rendering Chart...
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+    <section>
+      <div
+        className="component"
+        style={Object {}}
+      >
+        <h2
+          className="title"
+        >
+          Weekly Issues Reported Dashboard
+        </h2>
+        <h3
+          className="subtitle"
+        >
+          Tracking weekly volume of new issues
+        </h3>
+      </div>
       <article
         className="container"
       >

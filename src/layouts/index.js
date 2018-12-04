@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import NavigationContainer from "../containers/Navigation";
 import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
+import WeeklyReportsContainer from "../containers/WeeklyReports";
 
 const App = props => {
   return (
@@ -15,6 +16,8 @@ const App = props => {
       <NavigationContainer>
         <Route exact={true} path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
+        <Route exact={true} path="/" component={WeeklyReportsContainer} />
+        <Route path="/weeklyreports" component={WeeklyReportsContainer} />
       </NavigationContainer>
     </Router>
   );
