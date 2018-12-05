@@ -112,6 +112,9 @@ module.exports = env => {
       port: 3001,
       compress: true,
       open: true,
+      historyApiFallback: {
+        index: PUBLIC_PATH,
+      },
       proxy: {
         "/api": {
           pathRewrite: { "^/api": "" },
