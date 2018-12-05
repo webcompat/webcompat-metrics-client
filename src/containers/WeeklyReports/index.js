@@ -6,35 +6,79 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import PropTypes from "prop-types";
+import dayjs from "dayjs";
 
 import { getWeeklyReports } from "../../actions";
-import { ObjectNested, isEmptyObject } from "../../libraries";
+import {
+  ObjectNested,
+  getFiltersFromUrl,
+  toQueryObject,
+  pushFiltersToUrl,
+  toQueryString,
+  isEmptyObject,
+} from "../../libraries";
 import LineChart from "../../components/LineChart";
 import Jumbotron from "../../components/Jumbotron";
-import { Fetch, Error } from "../../components/Chart";
+import { Header, Fetch, Error } from "../../components/Chart";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 import { SimpleStat, Stat } from "../../components/SimpleStat";
 import { CHART_LINE } from "../../constants/Charts";
 
 class WeeklyReports extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      from: dayjs()
+        .subtract(1, "month")
+        .format("YYYY-MM-DD"),
+      to: dayjs().format("YYYY-MM-DD"),
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.getWeeklyReports();
+    /* merge filters from url and local filters */
+    const filters = {
+      ...this.state,
+      ...toQueryObject(getFiltersFromUrl()),
+    };
+    /* sent request */
+    this.getWeeklyReports(filters);
+    /* update view with filters */
+    this.setState({
+      ...filters,
+    });
   }
 
   /* fetch data */
   getWeeklyReports() {
+    /* push filters to url */
+    pushFiltersToUrl(toQueryString(filters));
     const args = {
       actionParameters: {
         chartList: [CHART_LINE],
+      },
+      requestParameters: {
+        ...filters,
       },
     };
     this.props.getWeeklyReports(args);
   }
 
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.getNeedsDiagnosis(this.state);
+  }
+
   render() {
+    const from = dayjs(this.state.from).format("DD MMMM YYYY");
+    const to = dayjs(this.state.to).format("DD MMMM YYYY");
     const globalStats = ObjectNested.get(this.props.stats, "stats", {});
     return (
       <section>
@@ -42,6 +86,25 @@ class WeeklyReports extends React.Component {
           title="Weekly Issues Reported Dashboard"
           subtitle="Tracking weekly volume of new issues"
         />
+        <Header title={`${from} - ${to}`}>
+          <form onSubmit={this.handleSubmit}>
+            <Input
+              type="date"
+              name="from"
+              placeholder="From"
+              value={ObjectNested.get(this.state, "from", "")}
+              onChange={this.handleChange}
+            />
+            <Input
+              type="date"
+              name="to"
+              placeholder="To"
+              value={ObjectNested.get(this.state, "to", "")}
+              onChange={this.handleChange}
+            />
+            <Button type="submit">Filtered</Button>
+          </form>
+        </Header>
         {ObjectNested.get(this.props.stats, "isFetching", true) ? (
           <Fetch />
         ) : isEmptyObject(this.props.error) ? (
