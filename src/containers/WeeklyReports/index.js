@@ -53,7 +53,7 @@ class WeeklyReports extends React.Component {
   }
 
   /* fetch data */
-  getWeeklyReports() {
+  getWeeklyReports(filters = {}) {
     /* push filters to url */
     pushFiltersToUrl(toQueryString(filters));
     const args = {
