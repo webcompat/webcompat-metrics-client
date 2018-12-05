@@ -1,7 +1,6 @@
 // webpack.config.js
 const path = require("path");
 
-const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
@@ -12,8 +11,6 @@ const BUILD_DIRECTORY = path.resolve(__dirname, "build");
 const RESOURCES_DIRECTORY = path.resolve(SRC_DIRECTORY, "resources");
 const LOGO_DIRECTORY = path.resolve(SRC_DIRECTORY, "assets/Logo");
 const PUBLIC_PATH = "/";
-const BASENAME = "webcompat-metrics-client/";
-const BASENAME_PATH = `${PUBLIC_PATH}${BASENAME}`;
 
 module.exports = env => {
   const PROD = env.NODE_ENV === "production";
@@ -100,9 +97,6 @@ module.exports = env => {
       },
     },
     plugins: [
-      new webpack.DefinePlugin({
-        BASENAME: JSON.stringify(BASENAME_PATH),
-      }),
       new HtmlWebpackPlugin({
         inject: true,
         template: path.resolve(RESOURCES_DIRECTORY, "index.html"),
@@ -113,15 +107,14 @@ module.exports = env => {
       }),
     ],
     devServer: {
-      publicPath: BASENAME_PATH,
-      historyApiFallback: {
-        index: BASENAME_PATH,
-      },
+      publicPath: PUBLIC_PATH,
       contentBase: BUILD_DIRECTORY,
       port: 3001,
       compress: true,
       open: true,
-      openPage: BASENAME,
+      historyApiFallback: {
+        index: PUBLIC_PATH,
+      },
       proxy: {
         "/api": {
           pathRewrite: { "^/api": "" },

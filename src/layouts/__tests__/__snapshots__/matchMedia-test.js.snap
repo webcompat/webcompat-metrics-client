@@ -30,7 +30,7 @@ exports[`renders Component matchMedia return true 1`] = `
         </button>
       </div>
       <a
-        href="/webcompat-metrics-client/"
+        href="#/"
         onClick={[Function]}
       >
         <div
@@ -75,7 +75,7 @@ exports[`renders Component matchMedia return true 1`] = `
         <a
           aria-current={null}
           className={undefined}
-          href="/webcompat-metrics-client/needsdiagnosis"
+          href="#/needsdiagnosis"
           onClick={[Function]}
           style={undefined}
         >
@@ -104,7 +104,7 @@ exports[`renders Component matchMedia return true 1`] = `
         <a
           aria-current={null}
           className={undefined}
-          href="/webcompat-metrics-client/weeklyreports"
+          href="#/weeklyreports"
           onClick={[Function]}
           style={undefined}
         >
