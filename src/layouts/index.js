@@ -12,7 +12,7 @@ import WeeklyReportsContainer from "../containers/WeeklyReports";
 const App = props => {
   return (
     /* eslint-disable-next-line no-undef */
-    <Router basename={BASENAME}>
+    <Router basename={process.env.PUBLIC_URL}>
       <NavigationContainer>
         <Route exact={true} path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
