@@ -9,12 +9,13 @@ const StylesVariables = require("./src/constants/StylesVariables");
 
 const SRC_DIRECTORY = path.resolve(__dirname, "src");
 const BUILD_DIRECTORY = path.resolve(__dirname, "build");
-const RESOURCES_DIRECTORY = path.resolve(__dirname, "src/resources");
-const LOGO_DIRECTORY = path.resolve(__dirname, "src/assets/Logo");
+const RESOURCES_DIRECTORY = path.resolve(SRC_DIRECTORY, "resources");
+const LOGO_DIRECTORY = path.resolve(SRC_DIRECTORY, "assets/Logo");
 const PUBLIC_PATH = "/";
+const BASENAME = "webcompat-metrics-client/";
+const BASENAME_PATH = `${PUBLIC_PATH}${BASENAME}`;
 
 module.exports = env => {
-  const DEBUG = env.NODE_ENV === "development";
   const PROD = env.NODE_ENV === "production";
 
   return {
@@ -100,9 +101,7 @@ module.exports = env => {
     },
     plugins: [
       new webpack.DefinePlugin({
-        BASENAME: JSON.stringify(
-          DEBUG ? PUBLIC_PATH : "/webcompat-metrics-client",
-        ),
+        BASENAME: JSON.stringify(BASENAME_PATH),
       }),
       new HtmlWebpackPlugin({
         inject: true,
@@ -114,12 +113,15 @@ module.exports = env => {
       }),
     ],
     devServer: {
-      publicPath: PUBLIC_PATH,
-      historyApiFallback: true,
+      publicPath: BASENAME_PATH,
+      historyApiFallback: {
+        index: BASENAME_PATH,
+      },
       contentBase: BUILD_DIRECTORY,
       port: 3001,
       compress: true,
       open: true,
+      openPage: BASENAME,
       proxy: {
         "/api": {
           pathRewrite: { "^/api": "" },
