@@ -105,7 +105,7 @@ const normalize = (stats = {}, chartList = []) => {
           (accumulator, currentValue) => {
             const stat = stats[currentValue];
             accumulator.newIssues.push(stat.count);
-            accumulator.dates.push(new Date(stat.date));
+            accumulator.dates.push(new Date(stat.timestamp));
             return accumulator;
           },
           {
@@ -149,18 +149,18 @@ const mostAndLeast = (stats = {}) => {
     let least = {};
     /*
      * stat.count
-     * stat.date
+     * stat.timestamp
      */
     if (null == mostCount || stat.count >= mostCount) {
       most = {
         count: stat.count,
-        date: dayjs(new Date(stat.date)).format("YYYY-MM-DD"),
+        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
       };
     }
     if (null == leastCount || stat.count < leastCount) {
       least = {
         count: stat.count,
-        date: dayjs(new Date(stat.date)).format("YYYY-MM-DD"),
+        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
       };
     }
 
