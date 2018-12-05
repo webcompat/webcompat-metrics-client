@@ -73,7 +73,7 @@ class WeeklyReports extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.getNeedsDiagnosis(this.state);
+    this.getWeeklyReports(this.state);
   }
 
   render() {
