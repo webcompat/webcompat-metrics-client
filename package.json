@@ -20,7 +20,7 @@
   "scripts": {
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
     "clean": "shx rm -rf build && shx mkdir build",
-    "heroku-postbuild": "npm install --only=dev && npm install && npm run build",
+    "heroku-postbuild": "npm run build",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./server ./webpack.config.js ./src ./scripts",
     "lint:CSS": "stylelint './src/**/*.css'",
