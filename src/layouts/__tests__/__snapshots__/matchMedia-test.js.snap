@@ -97,7 +97,7 @@ exports[`renders Component matchMedia return true 1`] = `
             <div
               className="text"
             >
-              NeedsDiagnosis
+              Needs diagnosis
             </div>
           </div>
         </a>
@@ -198,98 +198,6 @@ exports[`renders Component matchMedia return true 1`] = `
           className="subtitle"
         >
           Tracking issue diagnosis burndown rate
-        </h3>
-      </div>
-      <header
-        className="header"
-        style={Object {}}
-      >
-        <section>
-          <h3
-            className="headerTitle"
-          >
-            25 April 2018 - 25 May 2018
-          </h3>
-        </section>
-        <section>
-          <form
-            onSubmit={[Function]}
-          >
-            <input
-              className="component"
-              name="from"
-              onChange={[Function]}
-              placeholder="From"
-              type="date"
-              value="2018-04-25"
-            />
-            <input
-              className="component"
-              name="to"
-              onChange={[Function]}
-              placeholder="To"
-              type="date"
-              value="2018-05-25"
-            />
-            <button
-              className="component"
-              onBlur={[Function]}
-              onClick={[Function]}
-              style={Object {}}
-              type="submit"
-            >
-              Filtered
-            </button>
-          </form>
-        </section>
-      </header>
-      <article
-        className="container"
-      >
-        <div
-          className="wrapper"
-        >
-          <h3
-            className="title"
-          >
-            Rendering Chart
-          </h3>
-          <div>
-            <div
-              className="fetch"
-            >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
-                  }
-                }
-              />
-              <div
-                className="fetchTitle"
-              >
-                Rendering Chart...
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-    <section>
-      <div
-        className="component"
-        style={Object {}}
-      >
-        <h2
-          className="title"
-        >
-          Weekly Issues Reported Dashboard
-        </h2>
-        <h3
-          className="subtitle"
-        >
-          Tracking weekly volume of new issues
         </h3>
       </div>
       <header
