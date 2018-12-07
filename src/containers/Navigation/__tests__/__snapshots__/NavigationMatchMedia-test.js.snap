@@ -97,7 +97,7 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
             <div
               className="text"
             >
-              NeedsDiagnosis
+              Needs diagnosis
             </div>
           </div>
         </a>

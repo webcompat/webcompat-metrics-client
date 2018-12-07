@@ -16,7 +16,6 @@ const App = props => {
       <NavigationContainer>
         <Route exact={true} path="/" component={NeedsDiagnosisContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
-        <Route exact={true} path="/" component={WeeklyReportsContainer} />
         <Route path="/weeklyreports" component={WeeklyReportsContainer} />
       </NavigationContainer>
     </Router>

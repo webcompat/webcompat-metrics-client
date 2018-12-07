@@ -50,7 +50,7 @@ class NavigationContainer extends React.Component {
         <PinningMenu isOpened={this.state.isOpened}>
           <Link
             to="/needsdiagnosis"
-            text={"NeedsDiagnosis"}
+            text={"Needs diagnosis"}
             icon={<Svg svg={SVGBugdiagnosis} />}
             onClick={this.handleResize}
           />
