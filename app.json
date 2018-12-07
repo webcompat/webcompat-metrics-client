@@ -1,0 +1,18 @@
+{
+  "name": "webcompat-metrics-client",
+  "description": "Webcompat dashboard client",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
