@@ -153,8 +153,9 @@ class NeedsDiagnosis extends React.Component {
               />
             ) : (
               <Error
+                title={"No results"}
                 message={
-                  "No results, To get more results, try adjusting your search by changing your dates"
+                  "To get more results, try adjusting your search by changing your dates"
                 }
               />
             )}

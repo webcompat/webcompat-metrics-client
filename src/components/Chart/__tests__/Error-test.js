@@ -11,3 +11,10 @@ it("renders Error default correctly", () => {
   const tree = renderer.create(<Error message={"error message"} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it("renders Error default correctly", () => {
+  const tree = renderer
+    .create(<Error title={"No results"} message={"error message"} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
