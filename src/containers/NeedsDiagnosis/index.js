@@ -125,31 +125,39 @@ class NeedsDiagnosis extends React.Component {
                 </Stat>
               </SimpleStat>
             )}
-            <LineChart
-              title={"Open issues in needsdiagnosis milestone"}
-              label={""}
-              labels={ObjectNested.get(
-                this.props.stats,
-                `${CHART_LINE}.dates`,
-                [],
-              )}
-              legend={{ display: false }}
-              data={ObjectNested.get(
-                this.props.stats,
-                `${CHART_LINE}.openIssues`,
-                [],
-              )}
-              options={{
-                scales: {
-                  xAxes: [
-                    {
-                      type: "time",
-                      distribution: "linear",
-                    },
-                  ],
-                },
-              }}
-            />
+            {!isEmptyObject(globalStats) ? (
+              <LineChart
+                title={"Open issues in needsdiagnosis milestone"}
+                label={""}
+                labels={ObjectNested.get(
+                  this.props.stats,
+                  `${CHART_LINE}.dates`,
+                  [],
+                )}
+                legend={{ display: false }}
+                data={ObjectNested.get(
+                  this.props.stats,
+                  `${CHART_LINE}.openIssues`,
+                  [],
+                )}
+                options={{
+                  scales: {
+                    xAxes: [
+                      {
+                        type: "time",
+                        distribution: "linear",
+                      },
+                    ],
+                  },
+                }}
+              />
+            ) : (
+              <Error
+                message={
+                  "No results, To get more results, try adjusting your search by changing your dates"
+                }
+              />
+            )}
           </div>
         ) : (
           <Error message={this.props.error.message} />
