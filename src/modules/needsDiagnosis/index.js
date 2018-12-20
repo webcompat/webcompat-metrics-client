@@ -4,80 +4,7 @@
 
 import dayjs from "dayjs";
 
-import {
-  NEEDS_DIAGNOSIS_REQUEST,
-  NEEDS_DIAGNOSIS_SUCCESS,
-  NEEDS_DIAGNOSIS_FAILURE,
-} from "../../constants/ActionTypes";
-import { CALL_API, GET } from "../../constants/Api";
-import { CHART_LINE } from "../../constants/Charts";
 import { ObjectNested, isEmptyObject } from "../../libraries";
-
-/* name of reducer */
-export const STATE_KEY = "needsdiagnosis";
-
-const initialState = {
-  stats: {},
-};
-
-/* reducer function */
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case NEEDS_DIAGNOSIS_SUCCESS: {
-      return {
-        ...state,
-        stats: mostAndLeast(
-          ObjectNested.get(action, "response.json.timeline", {}),
-        ),
-        ...normalize(
-          ObjectNested.get(action, "response.json.timeline", {}),
-          ObjectNested.get(action, "actionParameters.chartList"),
-          ObjectNested.get(action, "requestParameters"),
-        ),
-        isFetching: false,
-        error: {},
-      };
-    }
-
-    case NEEDS_DIAGNOSIS_REQUEST: {
-      return {
-        ...state,
-        isFetching: true,
-        error: {},
-      };
-    }
-
-    case NEEDS_DIAGNOSIS_FAILURE: {
-      return {
-        ...state,
-        error: {
-          message: ObjectNested.get(action, "response.json.message"),
-          errors: ObjectNested.get(action, "response.json.errors", []),
-          code: ObjectNested.get(action, "response.json.code"),
-        },
-        isFetching: false,
-      };
-    }
-
-    default: {
-      return state;
-    }
-  }
-}
-
-// actions
-export const getNeedsDiagnosis = args => ({
-  [CALL_API]: {
-    types: [
-      NEEDS_DIAGNOSIS_REQUEST,
-      NEEDS_DIAGNOSIS_SUCCESS,
-      NEEDS_DIAGNOSIS_FAILURE,
-    ],
-    endpoint: "needsdiagnosis-timeline",
-    method: GET,
-    args,
-  },
-});
 
 /**
  * Normalize data relay on API and CHART
@@ -85,39 +12,22 @@ export const getNeedsDiagnosis = args => ({
  * @param {chartList} array
  * @return {object}
  */
-const normalize = (stats = {}, chartList = [], filters = {}) => {
-  const data = {
-    ...initialState.stats,
-  };
-  if (isEmptyObject(stats)) {
-    return data;
+export const normalize = (data = {}) => {
+  if (isEmptyObject(data)) {
+    return {};
   }
-  if (chartList.length <= 0) {
-    return data;
-  }
-  const statsByChart = {};
-  /* iterate chartList */
-  for (const chart of chartList) {
-    switch (chart) {
-      /* normalize every type of chart relay on data */
-      case CHART_LINE:
-        statsByChart[CHART_LINE] = Object.keys(stats).reduce(
-          (accumulator, currentValue) => {
-            const stat = stats[currentValue];
-            accumulator.openIssues.push(stat.count);
-            accumulator.dates.push(new Date(stat.timestamp));
-            return accumulator;
-          },
-          {
-            openIssues: [],
-            dates: [],
-          },
-        );
-        break;
-      default:
-    }
-  }
-  return statsByChart;
+  return Object.keys(data).reduce(
+    (accumulator, currentValue) => {
+      const stat = data[currentValue];
+      accumulator.openIssues.push(stat.count);
+      accumulator.dates.push(new Date(stat.timestamp));
+      return accumulator;
+    },
+    {
+      openIssues: [],
+      dates: [],
+    },
+  );
 };
 
 /**
@@ -125,7 +35,7 @@ const normalize = (stats = {}, chartList = [], filters = {}) => {
  * @param {stats} object
  * @return {object}
  */
-const mostAndLeast = (stats = {}) => {
+export const mostAndLeast = (stats = {}) => {
   /* init default */
   const obj = {
     most: {

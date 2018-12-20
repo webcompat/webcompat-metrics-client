@@ -4,80 +4,7 @@
 
 import dayjs from "dayjs";
 
-import {
-  WEEKLY_REPORTS_REQUEST,
-  WEEKLY_REPORTS_SUCCESS,
-  WEEKLY_REPORTS_FAILURE,
-} from "../../constants/ActionTypes";
-import { CALL_API, GET } from "../../constants/Api";
-import { CHART_LINE } from "../../constants/Charts";
 import { ObjectNested, isEmptyObject } from "../../libraries";
-
-/* name of reducer */
-export const STATE_KEY = "weeklyreports";
-
-const initialState = {
-  stats: {},
-};
-
-/* reducer function */
-export default function reducer(state = initialState, action) {
-  switch (action.type) {
-    case WEEKLY_REPORTS_SUCCESS: {
-      return {
-        ...state,
-        stats: mostAndLeast(
-          ObjectNested.get(action, "response.json.timeline", {}),
-        ),
-        ...normalize(
-          ObjectNested.get(action, "response.json.timeline", {}),
-          ObjectNested.get(action, "actionParameters.chartList"),
-          ObjectNested.get(action, "requestParameters"),
-        ),
-        isFetching: false,
-        error: {},
-      };
-    }
-
-    case WEEKLY_REPORTS_REQUEST: {
-      return {
-        ...state,
-        isFetching: true,
-        error: {},
-      };
-    }
-
-    case WEEKLY_REPORTS_FAILURE: {
-      return {
-        ...state,
-        error: {
-          message: ObjectNested.get(action, "response.json.message"),
-          errors: ObjectNested.get(action, "response.json.errors", []),
-          code: ObjectNested.get(action, "response.json.code"),
-        },
-        isFetching: false,
-      };
-    }
-
-    default: {
-      return state;
-    }
-  }
-}
-
-// actions
-export const getWeeklyReports = args => ({
-  [CALL_API]: {
-    types: [
-      WEEKLY_REPORTS_REQUEST,
-      WEEKLY_REPORTS_SUCCESS,
-      WEEKLY_REPORTS_FAILURE,
-    ],
-    endpoint: "weekly-counts",
-    method: GET,
-    args,
-  },
-});
 
 /**
  * Normalize data relay on API and CHART
@@ -85,39 +12,22 @@ export const getWeeklyReports = args => ({
  * @param {chartList} array
  * @return {object}
  */
-const normalize = (stats = {}, chartList = []) => {
-  const data = {
-    ...initialState.stats,
-  };
-  if (isEmptyObject(stats)) {
-    return data;
+export const normalize = (data = {}) => {
+  if (isEmptyObject(data)) {
+    return {};
   }
-  if (chartList.length <= 0) {
-    return data;
-  }
-  const statsByChart = {};
-  /* iterate chartList */
-  for (const chart of chartList) {
-    switch (chart) {
-      /* normalize every type of chart relay on data */
-      case CHART_LINE:
-        statsByChart[CHART_LINE] = Object.keys(stats).reduce(
-          (accumulator, currentValue) => {
-            const stat = stats[currentValue];
-            accumulator.newIssues.push(stat.count);
-            accumulator.dates.push(new Date(stat.timestamp));
-            return accumulator;
-          },
-          {
-            newIssues: [],
-            dates: [],
-          },
-        );
-        break;
-      default:
-    }
-  }
-  return statsByChart;
+  return Object.keys(data).reduce(
+    (accumulator, currentValue) => {
+      const stat = data[currentValue];
+      accumulator.newIssues.push(stat.count);
+      accumulator.dates.push(new Date(stat.timestamp));
+      return accumulator;
+    },
+    {
+      newIssues: [],
+      dates: [],
+    },
+  );
 };
 
 /**
@@ -125,7 +35,7 @@ const normalize = (stats = {}, chartList = []) => {
  * @param {stats} object
  * @return {object}
  */
-const mostAndLeast = (stats = {}) => {
+export const mostAndLeast = (stats = {}) => {
   /* init default */
   const obj = {
     most: {
@@ -139,7 +49,7 @@ const mostAndLeast = (stats = {}) => {
   };
   /* if no data */
   if (isEmptyObject(stats)) {
-    return {};
+    return obj;
   }
   return Object.keys(stats).reduce((accumulator, currentValue) => {
     const stat = stats[currentValue];

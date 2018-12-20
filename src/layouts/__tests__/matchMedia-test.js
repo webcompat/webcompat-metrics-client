@@ -4,11 +4,10 @@
 
 import React from "react";
 import renderer from "react-test-renderer";
-import { Provider } from "react-redux";
 
 import Component from "..";
 
-import store from "../../store/configureStore";
+jest.mock("react-chartjs-2", () => ({ Line: () => null }));
 
 it("renders Component matchMedia return true", () => {
   beforeEach(() => {
@@ -39,12 +38,6 @@ it("renders Component matchMedia return true", () => {
       return { matches: true };
     }),
   });
-  const tree = renderer
-    .create(
-      <Provider store={store}>
-        <Component />
-      </Provider>,
-    )
-    .toJSON();
+  const tree = renderer.create(<Component />).toJSON();
   expect(tree).toMatchSnapshot();
 });
