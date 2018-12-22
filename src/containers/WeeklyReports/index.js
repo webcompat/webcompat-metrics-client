@@ -20,8 +20,8 @@ const WeeklyReports = () => {
   return (
     <MetricsTemplate
       endpoint={"weekly-counts"}
-      title={"Needs diagnosis dashboard"}
-      subtitle={"Tracking issue diagnosis burndown rate"}
+      title={"Weekly Issues Reported Dashboard"}
+      subtitle={"Tracking weekly volume of new issues"}
       normalizeData={handleData}
       renderChart={data => (
         <BarChart

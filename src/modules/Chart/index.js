@@ -8,23 +8,28 @@ import { ObjectNested, isEmptyObject } from "../../libraries";
 
 /**
  * Normalize data relay on API and CHART
- * @param {stats} object
- * @param {chartList} array
+ * @param {data} object
+ * @param {key} string
  * @return {object}
  */
-export const normalize = (data = {}) => {
+export const normalize = (data = {}, key = null) => {
   if (isEmptyObject(data)) {
     return {};
   }
+  /* key */
+  if ("string" !== typeof key) {
+    throw new Error("Specify a string key.");
+  }
+
   return Object.keys(data).reduce(
     (accumulator, currentValue) => {
       const stat = data[currentValue];
-      accumulator.openIssues.push(stat.count);
+      accumulator[key].push(stat.count);
       accumulator.dates.push(new Date(stat.timestamp));
       return accumulator;
     },
     {
-      openIssues: [],
+      [key]: [],
       dates: [],
     },
   );
@@ -49,7 +54,7 @@ export const mostAndLeast = (stats = {}) => {
   };
   /* if no data */
   if (isEmptyObject(stats)) {
-    return {};
+    return obj;
   }
   return Object.keys(stats).reduce((accumulator, currentValue) => {
     const stat = stats[currentValue];

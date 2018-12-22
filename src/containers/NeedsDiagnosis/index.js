@@ -16,7 +16,7 @@ const handleData = data => {
   };
 };
 
-const WeeklyReports = () => {
+const NeedsDiagnosis = () => {
   return (
     <MetricsTemplate
       endpoint={"needsdiagnosis-timeline"}
@@ -46,5 +46,4 @@ const WeeklyReports = () => {
   );
 };
 
-export default WeeklyReports;
-
+export default NeedsDiagnosis;
