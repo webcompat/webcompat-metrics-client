@@ -13,7 +13,7 @@ import Container from "./Container";
 
 const Error = props => {
   return (
-    <Container title={"Error during rendering the chart"}>
+    <Container title={props.title}>
       <div className={classes.fetch}>
         <Svg svg={SvgBulb} fill="#58666e" width={"7em"} height={"7em"} />
         <div className={classes.fetchTitle}>{props.message}</div>
@@ -23,7 +23,12 @@ const Error = props => {
 };
 
 Error.propTypes = {
+  title: PropTypes.string,
   message: PropTypes.string.isRequired,
+};
+
+Error.defaultProps = {
+  title: "An error occurred during rendering the chart",
 };
 
 export default Error;

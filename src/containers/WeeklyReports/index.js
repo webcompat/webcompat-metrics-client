@@ -125,32 +125,41 @@ class WeeklyReports extends React.Component {
                 </Stat>
               </SimpleStat>
             )}
-            <LineChart
-              title={"Issues Reported per Week"}
-              fill={true}
-              label={""}
-              labels={ObjectNested.get(
-                this.props.stats,
-                `${CHART_LINE}.dates`,
-                [],
-              )}
-              legend={{ display: false }}
-              data={ObjectNested.get(
-                this.props.stats,
-                `${CHART_LINE}.newIssues`,
-                [],
-              )}
-              options={{
-                scales: {
-                  xAxes: [
-                    {
-                      type: "time",
-                      distribution: "linear",
-                    },
-                  ],
-                },
-              }}
-            />
+            {!isEmptyObject(globalStats) ? (
+              <LineChart
+                title={"Issues Reported per Week"}
+                fill={true}
+                label={""}
+                labels={ObjectNested.get(
+                  this.props.stats,
+                  `${CHART_LINE}.dates`,
+                  [],
+                )}
+                legend={{ display: false }}
+                data={ObjectNested.get(
+                  this.props.stats,
+                  `${CHART_LINE}.newIssues`,
+                  [],
+                )}
+                options={{
+                  scales: {
+                    xAxes: [
+                      {
+                        type: "time",
+                        distribution: "linear",
+                      },
+                    ],
+                  },
+                }}
+              />
+            ) : (
+              <Error
+                title={"No results"}
+                message={
+                  "To get more results, try adjusting your search by changing your dates"
+                }
+              />
+            )}
           </div>
         ) : (
           <Error message={this.props.error.message} />
