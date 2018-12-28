@@ -10,7 +10,7 @@ exports[`renders Error default correctly 1`] = `
     <h3
       className="title"
     >
-      Error during rendering the chart
+      An error occurred during rendering the chart
     </h3>
     <div>
       <div
