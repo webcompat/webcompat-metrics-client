@@ -28,7 +28,7 @@ Error.propTypes = {
 };
 
 Error.defaultProps = {
-  title: "Error during rendering the chart",
+  title: "An error occurred during rendering the chart",
 };
 
 export default Error;
