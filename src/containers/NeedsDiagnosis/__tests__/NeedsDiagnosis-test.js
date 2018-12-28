@@ -1,0 +1,38 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+import React from "react";
+import renderer from "react-test-renderer";
+
+import Component from "..";
+
+jest.mock("react-chartjs-2", () => ({ Line: () => null }));
+
+it("renders Component default correctly", () => {
+  beforeEach(() => {
+    fetch.resetMocks();
+  });
+  fetch.mockResponseOnce(
+    JSON.stringify({
+      about: "Hourly NeedsDiagnosis issues count",
+      date_format: "w3c",
+      timeline: [
+        {
+          count: "822",
+          timestamp: "2018-02-08T13:12:16Z",
+        },
+        {
+          count: "819",
+          timestamp: "2018-02-08T15:00:00Z",
+        },
+        {
+          count: "806",
+          timestamp: "2018-02-09T15:00:03Z",
+        },
+      ],
+    }),
+  );
+  const tree = renderer.create(<Component />).toJSON();
+  expect(tree).toMatchSnapshot();
+});

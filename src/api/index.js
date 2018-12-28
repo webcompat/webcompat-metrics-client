@@ -31,8 +31,8 @@ const request = (args = {}, callback = CALLBACK_API) => {
   /* init var */
   let requestUrl = `${API_BASE_URL}/${endpoint}`;
   let requestConfig = {
-    ...config,
     ...CONFIG_API,
+    ...config,
   };
   const method = ObjectNested.get(config, "method");
 
@@ -48,7 +48,6 @@ const request = (args = {}, callback = CALLBACK_API) => {
   if (GET === method && !isEmptyObject(parameters)) {
     requestUrl = `${requestUrl}?${toQueryString(parameters)}`;
   }
-
   if (POST === method && !isEmptyObject(parameters)) {
     const formData = new FormData();
     Object.keys(parameters).forEach(key => {
@@ -70,7 +69,7 @@ const request = (args = {}, callback = CALLBACK_API) => {
 
   return jsonFetch(requestUrl, requestConfig).then(
     response => callback.onSuccess(response.json),
-    response => callback.onError(response.json),
+    response => callback.onError(response),
   );
 };
 
