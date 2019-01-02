@@ -7,6 +7,7 @@ import {
   hydrateData,
 } from "../../propTypes/ChartPropTypes.js";
 import { Container } from "../Chart";
+import StylesVariables from "../../constants/StylesVariables";
 
 class BarChart extends React.PureComponent {
   constructor(props) {
@@ -23,9 +24,9 @@ class BarChart extends React.PureComponent {
             meta.data.forEach((element, index) => {
               // Draw the text in black, with the specified font
               ctx.fillStyle = "rgb(0, 0, 0)";
-              const fontSize = 16;
+              const fontSize = "16";
               const fontStyle = "normal";
-              const fontFamily = "Helvetica Neue";
+              const fontFamily = StylesVariables.fontFamily;
               ctx.font = Chart.helpers.fontString(
                 fontSize,
                 fontStyle,
@@ -36,13 +37,9 @@ class BarChart extends React.PureComponent {
               // Make sure alignment settings are correct
               ctx.textAlign = "center";
               ctx.textBaseline = "middle";
-              const padding = 5;
+              const padding = 15;
               const position = element.tooltipPosition();
-              ctx.fillText(
-                dataString,
-                position.x,
-                position.y - fontSize / 2 - padding,
-              );
+              ctx.fillText(dataString, position.x, position.y + padding);
             });
           }
         });
