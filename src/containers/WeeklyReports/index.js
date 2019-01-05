@@ -17,7 +17,7 @@ import {
   toQueryString,
   isEmptyObject,
 } from "../../libraries";
-import LineChart from "../../components/LineChart";
+import BarChart from "../../components/BarChart";
 import Jumbotron from "../../components/Jumbotron";
 import { Header, Fetch, Error } from "../../components/Chart";
 import Input from "../../components/Input";
@@ -30,9 +30,12 @@ class WeeklyReports extends React.Component {
     super(props);
     this.state = {
       from: dayjs()
-        .subtract(1, "month")
+        .subtract(2, "month")
+        .startOf("week")
         .format("YYYY-MM-DD"),
-      to: dayjs().format("YYYY-MM-DD"),
+      to: dayjs()
+        .startOf("week")
+        .format("YYYY-MM-DD"),
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -126,7 +129,7 @@ class WeeklyReports extends React.Component {
               </SimpleStat>
             )}
             {!isEmptyObject(globalStats) ? (
-              <LineChart
+              <BarChart
                 title={"Issues Reported per Week"}
                 fill={true}
                 label={""}
@@ -142,11 +145,19 @@ class WeeklyReports extends React.Component {
                   [],
                 )}
                 options={{
+                  tooltips: {
+                    enabled: false,
+                  },
                   scales: {
                     xAxes: [
                       {
                         type: "time",
-                        distribution: "linear",
+                        distribution: "series",
+                        time: {
+                          unit: "week",
+                          isoWeekday: true,
+                        },
+                        stacked: true,
                       },
                     ],
                   },
