@@ -3,6 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import React from "react";
+import dayjs from "dayjs";
 
 import BarChart from "../../components/BarChart";
 import MetricsTemplate from "../MetricsTemplate";
@@ -23,6 +24,15 @@ const WeeklyReports = () => {
       title={"Weekly Issues Reported Dashboard"}
       subtitle={"Tracking weekly volume of new issues"}
       normalizeData={handleData}
+      injectedFilters={{
+        from: dayjs()
+          .subtract(2, "month")
+          .startOf("week")
+          .format("YYYY-MM-DD"),
+        to: dayjs()
+          .startOf("week")
+          .format("YYYY-MM-DD"),
+      }}
       renderChart={data => (
         <BarChart
           title={"Issues Reported per Week"}
