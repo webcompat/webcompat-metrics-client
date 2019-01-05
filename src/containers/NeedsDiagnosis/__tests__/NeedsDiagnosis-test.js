@@ -9,7 +9,7 @@ import Component from "..";
 
 jest.mock("react-chartjs-2", () => ({ Line: () => null }));
 
-it("renders Component matchMedia return true", () => {
+it("renders Component default correctly", () => {
   beforeEach(() => {
     fetch.resetMocks();
   });
@@ -33,11 +33,6 @@ it("renders Component matchMedia return true", () => {
       ],
     }),
   );
-  Object.defineProperty(window, "matchMedia", {
-    value: jest.fn(() => {
-      return { matches: true };
-    }),
-  });
   const tree = renderer.create(<Component />).toJSON();
   expect(tree).toMatchSnapshot();
 });

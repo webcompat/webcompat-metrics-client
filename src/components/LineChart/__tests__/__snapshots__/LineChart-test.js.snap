@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LineChart default correctly 1`] = `
+<article
+  className="container"
+>
+  <div
+    className="wrapper"
+  >
+    <h3
+      className="title"
+    >
+      Title LineChart
+    </h3>
+    <div>
+      <div>
+        Chart
+      </div>
+    </div>
+  </div>
+</article>
+`;

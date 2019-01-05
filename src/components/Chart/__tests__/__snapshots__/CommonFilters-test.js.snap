@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders CommonFilters default correctly 1`] = `
+Array [
+  <input
+    className="component"
+    name="from"
+    onChange={[Function]}
+    placeholder="From"
+    type="date"
+    value="2018-11-22"
+  />,
+  <input
+    className="component"
+    name="to"
+    onChange={[Function]}
+    placeholder="To"
+    type="date"
+    value="2018-12-22"
+  />,
+]
+`;

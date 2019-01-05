@@ -3,188 +3,47 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 import React from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import PropTypes from "prop-types";
-import dayjs from "dayjs";
 
-import { getNeedsDiagnosis } from "../../actions";
-import {
-  ObjectNested,
-  getFiltersFromUrl,
-  toQueryObject,
-  pushFiltersToUrl,
-  toQueryString,
-  isEmptyObject,
-} from "../../libraries";
 import LineChart from "../../components/LineChart";
-import Jumbotron from "../../components/Jumbotron";
-import { Header, Fetch, Error } from "../../components/Chart";
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import { SimpleStat, Stat } from "../../components/SimpleStat";
-import { CHART_LINE } from "../../constants/Charts";
+import MetricsTemplate from "../MetricsTemplate";
+import { ObjectNested } from "../../libraries";
+import { mostAndLeast, normalize } from "../../modules/Chart";
 
-class NeedsDiagnosis extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      from: dayjs()
-        .subtract(1, "month")
-        .format("YYYY-MM-DD"),
-      to: dayjs().format("YYYY-MM-DD"),
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+const handleData = data => {
+  return {
+    globalStats: mostAndLeast(data),
+    chart: normalize(data, "openIssues"),
+  };
+};
 
-  componentDidMount() {
-    /* merge filters from url and local filters */
-    const filters = {
-      ...this.state,
-      ...toQueryObject(getFiltersFromUrl()),
-    };
-    /* sent request */
-    this.getNeedsDiagnosis(filters);
-    /* update view with filters */
-    this.setState({
-      ...filters,
-    });
-  }
-
-  /* fetch data */
-  getNeedsDiagnosis(filters = {}) {
-    /* push filters to url */
-    pushFiltersToUrl(toQueryString(filters));
-    const args = {
-      actionParameters: {
-        chartList: [CHART_LINE],
-      },
-      requestParameters: {
-        ...filters,
-      },
-    };
-    this.props.getNeedsDiagnosis(args);
-  }
-
-  handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.getNeedsDiagnosis(this.state);
-  }
-
-  render() {
-    const from = dayjs(this.state.from).format("DD MMMM YYYY");
-    const to = dayjs(this.state.to).format("DD MMMM YYYY");
-    const globalStats = ObjectNested.get(this.props.stats, "stats", {});
-    return (
-      <section>
-        <Jumbotron
-          title="Needs diagnosis dashboard"
-          subtitle="Tracking issue diagnosis burndown rate"
+const NeedsDiagnosis = () => {
+  return (
+    <MetricsTemplate
+      endpoint={"needsdiagnosis-timeline"}
+      title={"Needs diagnosis dashboard"}
+      subtitle={"Tracking issue diagnosis burndown rate"}
+      normalizeData={handleData}
+      renderChart={data => (
+        <LineChart
+          title={"Open issues in needsdiagnosis milestone"}
+          label={""}
+          labels={ObjectNested.get(data, "chart.dates", [])}
+          legend={{ display: false }}
+          data={ObjectNested.get(data, "chart.openIssues", [])}
+          options={{
+            scales: {
+              xAxes: [
+                {
+                  type: "time",
+                  distribution: "linear",
+                },
+              ],
+            },
+          }}
         />
-        <Header title={`${from} - ${to}`}>
-          <form onSubmit={this.handleSubmit}>
-            <Input
-              type="date"
-              name="from"
-              placeholder="From"
-              value={ObjectNested.get(this.state, "from", "")}
-              onChange={this.handleChange}
-            />
-            <Input
-              type="date"
-              name="to"
-              placeholder="To"
-              value={ObjectNested.get(this.state, "to", "")}
-              onChange={this.handleChange}
-            />
-            <Button type="submit">Filtered</Button>
-          </form>
-        </Header>
-        {ObjectNested.get(this.props.stats, "isFetching", true) ? (
-          <Fetch />
-        ) : isEmptyObject(this.props.error) ? (
-          <div style={{ position: "relative" }}>
-            {!isEmptyObject(globalStats) && (
-              <SimpleStat>
-                <Stat style={{ color: "#00bdb4" }}>
-                  {`Min: ${ObjectNested.get(
-                    globalStats,
-                    "least.count",
-                  )} (${ObjectNested.get(globalStats, "least.date")}) `}
-                </Stat>
-                <Stat style={{ color: "#fb3c59" }}>
-                  {`Max: ${ObjectNested.get(
-                    globalStats,
-                    "most.count",
-                  )} (${ObjectNested.get(globalStats, "most.date")}) `}
-                </Stat>
-              </SimpleStat>
-            )}
-            {!isEmptyObject(globalStats) ? (
-              <LineChart
-                title={"Open issues in needsdiagnosis milestone"}
-                label={""}
-                labels={ObjectNested.get(
-                  this.props.stats,
-                  `${CHART_LINE}.dates`,
-                  [],
-                )}
-                legend={{ display: false }}
-                data={ObjectNested.get(
-                  this.props.stats,
-                  `${CHART_LINE}.openIssues`,
-                  [],
-                )}
-                options={{
-                  scales: {
-                    xAxes: [
-                      {
-                        type: "time",
-                        distribution: "linear",
-                      },
-                    ],
-                  },
-                }}
-              />
-            ) : (
-              <Error
-                title={"No results"}
-                message={
-                  "To get more results, try adjusting your search by changing your dates"
-                }
-              />
-            )}
-          </div>
-        ) : (
-          <Error message={this.props.error.message} />
-        )}
-      </section>
-    );
-  }
-}
-
-NeedsDiagnosis.propTypes = {
-  getNeedsDiagnosis: PropTypes.func.isRequired,
-  stats: PropTypes.object,
-  error: PropTypes.object,
+      )}
+    />
+  );
 };
 
-NeedsDiagnosis.defaultProps = {
-  stats: {},
-  error: {},
-};
-
-export default connect(
-  state => ({
-    stats: ObjectNested.get(state, "needsdiagnosis", {}),
-    error: ObjectNested.get(state, "needsdiagnosis.error", {}),
-  }),
-  dispatch => ({
-    getNeedsDiagnosis: bindActionCreators(getNeedsDiagnosis, dispatch),
-  }),
-)(NeedsDiagnosis);
+export default NeedsDiagnosis;
