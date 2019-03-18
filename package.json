@@ -41,7 +41,7 @@
     "react": "^16.6.3",
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.6.3",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.0",
     "react-svg-inline": "^2.1.1",
     "simple-json-fetch": "^1.0.1"
   },
