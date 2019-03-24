@@ -62,11 +62,16 @@
         "trailingComma": "all",
         "bracketSpacing": true,
         "jsxBracketSameLine": true,
-        "parser": "babylon"
+        "parser": "babel"
       }
     ]
   },
   "parserOptions": {
     "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
