@@ -84,6 +84,27 @@ class MetricsTemplate extends React.Component {
     });
   }
 
+  /*
+   * Get Formated Date: from - to
+   * @param {object} filters
+   * @return {string}
+   */
+  getFormatedDate(filters = {}) {
+    const filterList = [];
+    const from = ObjectNested.get(filters, "from");
+    const to = ObjectNested.get(filters, "to");
+    if (from) {
+      filterList.push(dayjs(filters.from).format("DD MMMM YYYY"));
+    }
+    if (to) {
+      filterList.push(dayjs(filters.to).format("DD MMMM YYYY"));
+    }
+
+    return filterList.length === 0
+      ? "No date selected"
+      : filterList.join(" - ");
+  }
+
   handleChange(e) {
     const { filters } = this.state;
     this.setState({
@@ -135,8 +156,6 @@ class MetricsTemplate extends React.Component {
 
   render() {
     const { filters, data } = this.state;
-    const from = dayjs(filters.from).format("DD MMMM YYYY");
-    const to = dayjs(filters.to).format("DD MMMM YYYY");
     return (
       <section>
         {this.props.shouldRenderJumbotron && (
@@ -144,7 +163,7 @@ class MetricsTemplate extends React.Component {
         )}
 
         {this.props.shouldRenderHeader && (
-          <Header title={`${from} - ${to}`}>
+          <Header title={this.getFormatedDate(filters)}>
             <form onSubmit={this.handleSubmit}>
               {this.renderFilters(this.handleChange, filters)}
               <Button type="submit">Filtered</Button>
