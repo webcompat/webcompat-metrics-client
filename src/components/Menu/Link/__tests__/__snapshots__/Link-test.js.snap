@@ -3,10 +3,8 @@
 exports[`renders Link default correctly 1`] = `
 <a
   aria-current={null}
-  className={undefined}
   href="/weeklyreports"
   onClick={[Function]}
-  style={undefined}
 >
   <div
     className="component"

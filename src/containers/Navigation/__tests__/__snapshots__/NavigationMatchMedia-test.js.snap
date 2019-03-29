@@ -74,10 +74,8 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
       >
         <a
           aria-current={null}
-          className={undefined}
           href="/needsdiagnosis"
           onClick={[Function]}
-          style={undefined}
         >
           <div
             className="component"
@@ -103,10 +101,8 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
         </a>
         <a
           aria-current={null}
-          className={undefined}
           href="/needstriage"
           onClick={[Function]}
-          style={undefined}
         >
           <div
             className="component"
@@ -132,10 +128,8 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
         </a>
         <a
           aria-current={null}
-          className={undefined}
           href="/needscontact"
           onClick={[Function]}
-          style={undefined}
         >
           <div
             className="component"
@@ -161,10 +155,8 @@ exports[`renders NavigationContainer matchMedia return true 1`] = `
         </a>
         <a
           aria-current={null}
-          className={undefined}
           href="/weeklyreports"
           onClick={[Function]}
-          style={undefined}
         >
           <div
             className="component"
