@@ -30,7 +30,7 @@
     "start": "node server",
     "start:dev": "webpack-dev-server --env.NODE_ENV=development --progress --colors",
     "test": "npm run lint && npm run test:jest",
-    "test:jest": "jest --runInBand --coverage ----detectOpenHandles --forceExit",
+    "test:jest": "jest --runInBand --coverage --forceExit",
     "test:watch": "npm run test:jest -- --watch"
   },
   "dependencies": {

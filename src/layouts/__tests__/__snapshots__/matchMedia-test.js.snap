@@ -74,8 +74,10 @@ exports[`renders Component matchMedia return true 1`] = `
       >
         <a
           aria-current={null}
+          className={undefined}
           href="/needsdiagnosis"
           onClick={[Function]}
+          style={undefined}
         >
           <div
             className="component"
@@ -96,6 +98,35 @@ exports[`renders Component matchMedia return true 1`] = `
               className="text"
             >
               Needs Diagnosis
+            </div>
+          </div>
+        </a>
+        <a
+          aria-current={null}
+          className={undefined}
+          href="/needstriage"
+          onClick={[Function]}
+          style={undefined}
+        >
+          <div
+            className="component"
+          >
+            <div
+              className="icon"
+            >
+              <span
+                className="SVGInline SVGInline--cleaned"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "test-file-stub",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="text"
+            >
+              Needs Triage
             </div>
           </div>
         </a>
@@ -131,36 +162,9 @@ exports[`renders Component matchMedia return true 1`] = `
         <a
           aria-current={null}
           className={undefined}
-          href="/needstriage"
-          onClick={[Function]}
-          style={undefined}
-        >
-          <div
-            className="component"
-          >
-            <div
-              className="icon"
-            >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
-                  }
-                }
-              />
-            </div>
-            <div
-              className="text"
-            >
-              Needs Triage
-            </div>
-          </div>
-        </a>
-        <a
-          aria-current={null}
           href="/weeklyreports"
           onClick={[Function]}
+          style={undefined}
         >
           <div
             className="component"
