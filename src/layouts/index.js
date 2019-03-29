@@ -9,6 +9,7 @@ import NavigationContainer from "../containers/Navigation";
 import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
 import NeedsTriageContainer from "../containers/NeedsTriage";
 import NeedsContactContainer from "../containers/NeedsContact";
+import SiteWaitContainer from "../containers/SiteWait";
 import WeeklyReportsContainer from "../containers/WeeklyReports";
 
 const App = props => {
@@ -20,6 +21,7 @@ const App = props => {
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
         <Route path="/needstriage" component={NeedsTriageContainer} />
         <Route path="/needscontact" component={NeedsContactContainer} />
+        <Route path="/sitewait" component={SiteWaitContainer} />
         <Route path="/weeklyreports" component={WeeklyReportsContainer} />
       </NavigationContainer>
     </Router>
