@@ -34,6 +34,7 @@ exports[`renders Component default correctly 1`] = `
       >
         <input
           className="component"
+          min="2019-03-28"
           name="from"
           onChange={[Function]}
           placeholder="From"
@@ -42,6 +43,7 @@ exports[`renders Component default correctly 1`] = `
         />
         <input
           className="component"
+          min="2019-03-28"
           name="to"
           onChange={[Function]}
           placeholder="To"

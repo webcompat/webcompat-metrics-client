@@ -5,9 +5,15 @@
 import React from "react";
 
 import LineChart from "../../components/LineChart";
+import { CommonFilters } from "../../components/Chart";
 import MetricsTemplate from "../MetricsTemplate";
 import { ObjectNested } from "../../libraries";
-import { mostAndLeast, normalize } from "../../modules/Chart";
+import {
+  mostAndLeast,
+  normalize,
+  getTemporaryDefaultFilters,
+} from "../../modules/Chart";
+import { TEMP_MIN_DATE } from "../../constants/Charts";
 
 const handleData = data => {
   return {
@@ -23,6 +29,16 @@ const SiteWait = () => {
       title={"Site Wait Dashboard"}
       subtitle={"Tracking issue sitewait burndown rate"}
       normalizeData={handleData}
+      shouldRenderCommonFilters={false}
+      injectedFilters={getTemporaryDefaultFilters(TEMP_MIN_DATE)}
+      renderFilters={(handleChange, filters) => (
+        <CommonFilters
+          onChange={handleChange}
+          filters={filters}
+          minFrom={TEMP_MIN_DATE}
+          minTo={TEMP_MIN_DATE}
+        />
+      )}
       renderChart={data => (
         <LineChart
           title={"Open issues in sitewait milestone"}

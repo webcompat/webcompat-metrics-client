@@ -91,3 +91,22 @@ export const mostAndLeast = (stats = {}) => {
     };
   }, obj);
 };
+
+/**
+ * needstriage, needscontact, and sitewait) started collecting date
+ * Default Filters take car about min date
+ * @param {string} minDate
+ * @return {object}
+ */
+export const getTemporaryDefaultFilters = minDate => {
+  const today = dayjs();
+  const oneMonthBefore = today.subtract(1, "month");
+  const to = today.format("YYYY-MM-DD");
+  const from = oneMonthBefore.isBefore(dayjs(minDate))
+    ? minDate
+    : oneMonthBefore.format("YYYY-MM-DD");
+  return {
+    from,
+    to,
+  };
+};

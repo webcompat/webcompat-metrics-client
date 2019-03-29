@@ -4,6 +4,7 @@ exports[`renders CommonFilters default correctly 1`] = `
 Array [
   <input
     className="component"
+    min=""
     name="from"
     onChange={[Function]}
     placeholder="From"
@@ -12,6 +13,7 @@ Array [
   />,
   <input
     className="component"
+    min=""
     name="to"
     onChange={[Function]}
     placeholder="To"

@@ -11,7 +11,9 @@ import { CommonFilters } from "..";
 
 const obj = {
   from: "2018-11-22",
+  minFrom: "2018-11-22",
   to: "2018-12-22",
+  minTo: "2018-11-22",
 };
 
 it("renders CommonFilters: simulates change events", () => {
