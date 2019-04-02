@@ -49,14 +49,20 @@ class NavigationContainer extends React.Component {
         </PinningHeader>
         <PinningMenu isOpened={this.state.isOpened}>
           <Link
-            to="/needsdiagnosis"
-            text={"Needs Diagnosis"}
+            to="/weeklyreports"
+            text={"Weekly Issue Reports"}
             icon={<Svg svg={SVGBugdiagnosis} />}
             onClick={this.handleResize}
           />
           <Link
             to="/needstriage"
             text={"Needs Triage"}
+            icon={<Svg svg={SVGBugdiagnosis} />}
+            onClick={this.handleResize}
+          />
+          <Link
+            to="/needsdiagnosis"
+            text={"Needs Diagnosis"}
             icon={<Svg svg={SVGBugdiagnosis} />}
             onClick={this.handleResize}
           />
@@ -69,12 +75,6 @@ class NavigationContainer extends React.Component {
           <Link
             to="/sitewait"
             text={"Site Wait"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
-            onClick={this.handleResize}
-          />
-          <Link
-            to="/weeklyreports"
-            text={"Weekly Issue Reports"}
             icon={<Svg svg={SVGBugdiagnosis} />}
             onClick={this.handleResize}
           />

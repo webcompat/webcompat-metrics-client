@@ -74,7 +74,7 @@ exports[`renders Component default correctly 1`] = `
       >
         <a
           aria-current={null}
-          href="/needsdiagnosis"
+          href="/weeklyreports"
           onClick={[Function]}
         >
           <div
@@ -95,7 +95,7 @@ exports[`renders Component default correctly 1`] = `
             <div
               className="text"
             >
-              Needs Diagnosis
+              Weekly Issue Reports
             </div>
           </div>
         </a>
@@ -123,6 +123,33 @@ exports[`renders Component default correctly 1`] = `
               className="text"
             >
               Needs Triage
+            </div>
+          </div>
+        </a>
+        <a
+          aria-current={null}
+          href="/needsdiagnosis"
+          onClick={[Function]}
+        >
+          <div
+            className="component"
+          >
+            <div
+              className="icon"
+            >
+              <span
+                className="SVGInline SVGInline--cleaned"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "test-file-stub",
+                  }
+                }
+              />
+            </div>
+            <div
+              className="text"
+            >
+              Needs Diagnosis
             </div>
           </div>
         </a>
@@ -177,33 +204,6 @@ exports[`renders Component default correctly 1`] = `
               className="text"
             >
               Site Wait
-            </div>
-          </div>
-        </a>
-        <a
-          aria-current={null}
-          href="/weeklyreports"
-          onClick={[Function]}
-        >
-          <div
-            className="component"
-          >
-            <div
-              className="icon"
-            >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
-                  }
-                }
-              />
-            </div>
-            <div
-              className="text"
-            >
-              Weekly Issue Reports
             </div>
           </div>
         </a>
@@ -269,12 +269,12 @@ exports[`renders Component default correctly 1`] = `
         <h2
           className="title"
         >
-          Needs diagnosis dashboard
+          Weekly Issues Reported Dashboard
         </h2>
         <h3
           className="subtitle"
         >
-          Tracking issue diagnosis burndown rate
+          Tracking weekly volume of new issues
         </h3>
       </div>
       <header

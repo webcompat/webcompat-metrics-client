@@ -17,7 +17,7 @@ const App = props => {
     /* eslint-disable-next-line no-undef */
     <Router basename={process.env.PUBLIC_URL}>
       <NavigationContainer>
-        <Route exact={true} path="/" component={NeedsDiagnosisContainer} />
+        <Route exact={true} path="/" component={WeeklyReportsContainer} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
         <Route path="/needstriage" component={NeedsTriageContainer} />
         <Route path="/needscontact" component={NeedsContactContainer} />
