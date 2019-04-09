@@ -19,8 +19,7 @@
 @media all and (min-width: 42.5em) {
   .component {
     position: absolute;
-    top: 4em;
-    right: 4em;
+    right: 2em;
   }
 }
 
