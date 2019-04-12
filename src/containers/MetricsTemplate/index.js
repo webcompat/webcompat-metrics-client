@@ -181,19 +181,34 @@ class MetricsTemplate extends React.Component {
                   {`Min: ${ObjectNested.get(
                     data,
                     "globalStats.least.count",
-                  )} (${ObjectNested.get(data, "globalStats.least.date")}) `}
+                    "",
+                  )} (${ObjectNested.get(
+                    data,
+                    "globalStats.least.date",
+                    "no data",
+                  )}) `}
                 </Stat>
                 <Stat style={{ color: "#fb3c59" }}>
                   {`Max: ${ObjectNested.get(
                     data,
                     "globalStats.most.count",
-                  )} (${ObjectNested.get(data, "globalStats.most.date")}) `}
+                    "",
+                  )} (${ObjectNested.get(
+                    data,
+                    "globalStats.most.date",
+                    "no data",
+                  )}) `}
                 </Stat>
                 <Stat style={{ color: "#fb3c59" }}>
                   {`Current: ${ObjectNested.get(
                     data,
                     "globalStats.current.count",
-                  )} (${ObjectNested.get(data, "globalStats.current.date")}) `}
+                    "",
+                  )} (${ObjectNested.get(
+                    data,
+                    "globalStats.current.date",
+                    "no data",
+                  )}) `}
                 </Stat>
               </SimpleStat>
             )}
