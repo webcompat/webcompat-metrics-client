@@ -36,7 +36,7 @@ export const normalize = (data = {}, key = null) => {
 };
 
 /**
- * Determines the most and the least issues
+ * Determines the most, the least issues and the current issues
  * @param {stats} object
  * @return {object}
  */
@@ -51,6 +51,10 @@ export const mostAndLeast = (stats = {}) => {
       count: null,
       date: null,
     },
+    current: {
+      count: null,
+      date: null,
+    },
   };
   /* if no data */
   if (isEmptyObject(stats)) {
@@ -58,36 +62,46 @@ export const mostAndLeast = (stats = {}) => {
   }
   return Object.keys(stats).reduce((accumulator, currentValue) => {
     const stat = stats[currentValue];
+    const date = dayjs(new Date(stat.timestamp));
     const mostCount = ObjectNested.get(accumulator, "most.count");
     const leastCount = ObjectNested.get(accumulator, "least.count");
-    let most = {};
-    let least = {};
+    let most = ObjectNested.get(accumulator, "most", {});
+    let least = ObjectNested.get(accumulator, "least", {});
+    let current = ObjectNested.get(accumulator, "current", {});
+
     /*
-     * stat.count
-     * stat.timestamp
+     * most
      */
     if (null == mostCount || stat.count >= mostCount) {
       most = {
         count: stat.count,
-        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
-      };
-    }
-    if (null == leastCount || stat.count < leastCount) {
-      least = {
-        count: stat.count,
-        date: dayjs(new Date(stat.timestamp)).format("YYYY-MM-DD"),
+        date: date.format("YYYY-MM-DD"),
       };
     }
 
+    /*
+     * least
+     */
+    if (null == leastCount || stat.count < leastCount) {
+      least = {
+        count: stat.count,
+        date: date.format("YYYY-MM-DD"),
+      };
+    }
+
+    /*
+     * current
+     */
+    if (dayjs().isSame(date, "day")) {
+      current = {
+        count: stat.count,
+        date: date.format("YYYY-MM-DD"),
+      };
+    }
     return {
-      most: {
-        ...accumulator.most,
-        ...most,
-      },
-      least: {
-        ...accumulator.least,
-        ...least,
-      },
+      most,
+      least,
+      current,
     };
   }, obj);
 };
