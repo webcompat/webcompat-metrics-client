@@ -189,6 +189,12 @@ class MetricsTemplate extends React.Component {
                     "globalStats.most.count",
                   )} (${ObjectNested.get(data, "globalStats.most.date")}) `}
                 </Stat>
+                <Stat style={{ color: "#fb3c59" }}>
+                  {`Current: ${ObjectNested.get(
+                    data,
+                    "globalStats.current.count",
+                  )} (${ObjectNested.get(data, "globalStats.current.date")}) `}
+                </Stat>
               </SimpleStat>
             )}
             {this.props.renderChart(data)}
