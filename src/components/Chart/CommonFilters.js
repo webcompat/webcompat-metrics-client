@@ -8,13 +8,14 @@ import PropTypes from "prop-types";
 import Input from "../Input";
 import { ObjectNested } from "../../libraries";
 
-const CommonFilters = ({ onChange, filters }) => {
+const CommonFilters = ({ onChange, filters, minFrom, minTo }) => {
   return (
     <React.Fragment>
       <Input
         type="date"
         name="from"
         placeholder="From"
+        min={minFrom}
         value={ObjectNested.get(filters, "from", "")}
         onChange={onChange}
       />
@@ -22,6 +23,7 @@ const CommonFilters = ({ onChange, filters }) => {
         type="date"
         name="to"
         placeholder="To"
+        min={minTo}
         value={ObjectNested.get(filters, "to", "")}
         onChange={onChange}
       />
@@ -35,6 +37,8 @@ CommonFilters.propTypes = {
     from: PropTypes.string,
     to: PropTypes.string,
   }),
+  minFrom: PropTypes.string,
+  minTo: PropTypes.string,
 };
 
 CommonFilters.defaultProps = {
@@ -42,6 +46,8 @@ CommonFilters.defaultProps = {
     from: "",
     to: "",
   },
+  minFrom: "",
+  minTo: "",
 };
 
 export default CommonFilters;
