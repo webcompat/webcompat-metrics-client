@@ -37,7 +37,7 @@ class NavigationContainer extends React.Component {
 
   handleResize() {
     this.setState({
-      isOpened: !window.matchMedia("(max-width: 42.5em)").matches,
+      isOpened: !window.matchMedia("(max-width: 53.75em)").matches,
     });
   }
 
