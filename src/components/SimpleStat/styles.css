@@ -11,7 +11,7 @@
 .component {
   font-size: var(--fontSize);
   background-color: #fff;
-  padding: .875em;
+  padding: .312em;
   box-shadow: 0 2px 6px rgba(0, 0, 0, .07);
   margin: 2em 0 0 0;
 }
