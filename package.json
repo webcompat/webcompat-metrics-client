@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/webcompat/webcompat-metrics-client#readme",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.7.0"
   },
   "scripts": {
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
@@ -23,7 +23,7 @@
     "heroku-postbuild": "npm run build",
     "lint": "npm run lint:JS && npm run lint:CSS",
     "lint:JS": "eslint ./server ./webpack.config.js ./src ./scripts",
-    "lint:CSS": "stylelint './src/**/*.css'",
+    "lint:CSS": "stylelint \"./src/**/*.css\" ",
     "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
     "lint:fix:JS": "npm run lint:JS -- --fix",
     "lint:fix:CSS": "npm run lint:CSS -- --fix",
@@ -80,7 +80,7 @@
     "shx": "^0.3.2",
     "sinon": "^7.3.0",
     "style-loader": "^0.23.1",
-    "stylelint": "^9.10.1",
+    "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
