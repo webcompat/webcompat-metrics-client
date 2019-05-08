@@ -6,6 +6,7 @@ import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "./constants/EndPoints";
 import App from "./layouts";
 
 ReactDOM.render(<App />, document.getElementById("appMountPoint"));
