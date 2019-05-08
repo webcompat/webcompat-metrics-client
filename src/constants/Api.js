@@ -22,3 +22,4 @@ export const CALLBACK_API = {
 
 /* base API url */
 export const API_BASE_URL = "https://webcompat-metrics.herokuapp.com/data";
+export const WEBCOMPAT_BASE_URl = "https://webcompat.com/api/";

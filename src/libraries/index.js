@@ -9,3 +9,4 @@ export { default as getFiltersFromUrl } from "./getFiltersFromUrl";
 export { default as toQueryObject } from "./toQueryObject";
 export { default as isBetweenDates } from "./isBetweenDates";
 export { default as pushFiltersToUrl } from "./pushFiltersToUrl";
+export { default as Router } from "./router";
