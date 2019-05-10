@@ -5,14 +5,7 @@
 import jsonFetch from "simple-json-fetch";
 
 import { isEmptyObject, toQueryString, ObjectNested } from "../libraries";
-import {
-  CONFIG_API,
-  API_BASE_URL,
-  GET,
-  CALLBACK_API,
-  METHODS,
-  POST,
-} from "../constants/Api";
+import { CONFIG_API, GET, CALLBACK_API, METHODS, POST } from "../constants/Api";
 
 /**
  * Request get
@@ -29,7 +22,7 @@ const request = (args = {}, callback = CALLBACK_API) => {
   }
 
   /* init var */
-  let requestUrl = `${API_BASE_URL}/${endpoint}`;
+  let requestUrl = endpoint;
   let requestConfig = {
     ...CONFIG_API,
     ...config,

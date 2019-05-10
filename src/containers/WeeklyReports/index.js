@@ -7,7 +7,7 @@ import dayjs from "dayjs";
 
 import BarChart from "../../components/BarChart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested } from "../../libraries";
+import { ObjectNested, Router } from "../../libraries";
 import { mostAndLeast, normalize } from "../../modules/Chart";
 
 const handleData = data => {
@@ -20,7 +20,7 @@ const handleData = data => {
 const WeeklyReports = () => {
   return (
     <MetricsTemplate
-      endpoint={"weekly-counts"}
+      endpoint={Router.getRoute("weekly-counts")}
       title={"Weekly Issues Reported Dashboard"}
       subtitle={"Tracking weekly volume of new issues"}
       normalizeData={handleData}

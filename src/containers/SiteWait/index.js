@@ -7,7 +7,7 @@ import React from "react";
 import LineChart from "../../components/LineChart";
 import { CommonFilters } from "../../components/Chart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested } from "../../libraries";
+import { ObjectNested, Router } from "../../libraries";
 import {
   mostAndLeast,
   normalize,
@@ -25,7 +25,7 @@ const handleData = data => {
 const SiteWait = () => {
   return (
     <MetricsTemplate
-      endpoint={"sitewait-timeline"}
+      endpoint={Router.getRoute("sitewait-timeline")}
       title={"Site Wait Dashboard"}
       subtitle={"Tracking issue sitewait burndown rate"}
       normalizeData={handleData}

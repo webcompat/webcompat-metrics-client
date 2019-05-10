@@ -7,7 +7,7 @@ import React from "react";
 import LineChart from "../../components/LineChart";
 import { CommonFilters } from "../../components/Chart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested } from "../../libraries";
+import { ObjectNested, Router } from "../../libraries";
 import {
   mostAndLeast,
   normalize,
@@ -25,7 +25,7 @@ const handleData = data => {
 const NeedsContact = () => {
   return (
     <MetricsTemplate
-      endpoint={"needscontact-timeline"}
+      endpoint={Router.getRoute("needscontact-timeline")}
       title={"Needs Contact Dashboard"}
       subtitle={"Tracking issue contact burndown rate"}
       normalizeData={handleData}
