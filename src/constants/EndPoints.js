@@ -4,7 +4,7 @@
 
 import { Router } from "../libraries";
 
-import { API_BASE_URL, WEBCOMPAT_BASE_URl } from "./Api";
+import { API_BASE_URL, WEBCOMPAT_BASE_URL } from "./Api";
 
 /*
  * Ochazuke endPoints
@@ -33,5 +33,5 @@ Router.defineRoute("/weekly-counts", "weekly-counts", {
  * Webcompat endPoints
  */
 Router.defineRoute("/issues/category/needstriage", "needstriage-list", {
-  baseUrl: WEBCOMPAT_BASE_URl,
+  baseUrl: WEBCOMPAT_BASE_URL,
 });
