@@ -36,6 +36,9 @@ const NeedsDiagnosis = () => {
                 {
                   type: "time",
                   distribution: "linear",
+                  time: {
+                    minUnit: "hour",
+                  },
                 },
               ],
             },

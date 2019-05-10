@@ -52,6 +52,9 @@ const SiteWait = () => {
                 {
                   type: "time",
                   distribution: "linear",
+                  time: {
+                    unit: "day",
+                  },
                 },
               ],
             },

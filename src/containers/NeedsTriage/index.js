@@ -52,6 +52,9 @@ const NeedsTriage = () => {
                 {
                   type: "time",
                   distribution: "linear",
+                  time: {
+                    unit: "day",
+                  },
                 },
               ],
             },
