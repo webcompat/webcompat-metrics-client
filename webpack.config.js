@@ -3,6 +3,7 @@ const path = require("path");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const StylesVariables = require("./src/constants/StylesVariables");
 
@@ -104,6 +105,11 @@ module.exports = env => {
       new FaviconsWebpackPlugin({
         logo: path.resolve(LOGO_DIRECTORY, "logo.png"),
         inject: true,
+      }),
+      new Dotenv({
+        safe: true,
+        systemvars: true,
+        defaults: true,
       }),
     ],
     devServer: {

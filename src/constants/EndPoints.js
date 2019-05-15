@@ -4,7 +4,8 @@
 
 import { Router } from "../libraries";
 
-import { API_BASE_URL, WEBCOMPAT_BASE_URL } from "./Api";
+const WEBCOMPAT_BASE_URL = process.env.WEBCOMPAT_BASE_URL;
+const API_BASE_URL = process.env.API_BASE_URL;
 
 /*
  * Ochazuke endPoints
