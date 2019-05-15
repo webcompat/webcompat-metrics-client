@@ -26,6 +26,13 @@ npm run start:dev
 # Go to http://localhost:3001
 ```
 
+### Configuration
+Environment variables
+
+You can create a .env file (or copy .env.example) and modify variables, make sure variables are all set.
+
+By default `.env.defaults` is loaded and injected through the webpack configuration.
+
 ### Testing
 
 For testing DOM, React component, and others JavaScript, we use [Jest], [Enzyme] and [Sinon.JS].

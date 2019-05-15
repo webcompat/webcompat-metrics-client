@@ -55,6 +55,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^1.0.0",
+    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
