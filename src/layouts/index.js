@@ -5,25 +5,26 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import NavigationContainer from "../containers/Navigation";
-import NeedsDiagnosisContainer from "../containers/NeedsDiagnosis";
-import NeedsTriageContainer from "../containers/NeedsTriage";
-import NeedsContactContainer from "../containers/NeedsContact";
-import SiteWaitContainer from "../containers/SiteWait";
-import WeeklyReportsContainer from "../containers/WeeklyReports";
+import Navigation from "../containers/Navigation";
+import NeedsDiagnosis from "../containers/NeedsDiagnosis";
+import { NeedsTriageChart, NeedsTriageCard } from "../containers/NeedsTriage";
+import NeedsContact from "../containers/NeedsContact";
+import SiteWait from "../containers/SiteWait";
+import WeeklyReports from "../containers/WeeklyReports";
 
 const App = props => {
   return (
     /* eslint-disable-next-line no-undef */
     <Router basename={process.env.PUBLIC_URL}>
-      <NavigationContainer>
-        <Route exact={true} path="/" component={WeeklyReportsContainer} />
-        <Route path="/needsdiagnosis" component={NeedsDiagnosisContainer} />
-        <Route path="/needstriage" component={NeedsTriageContainer} />
-        <Route path="/needscontact" component={NeedsContactContainer} />
-        <Route path="/sitewait" component={SiteWaitContainer} />
-        <Route path="/weeklyreports" component={WeeklyReportsContainer} />
-      </NavigationContainer>
+      <Navigation>
+        <Route exact={true} path="/" component={WeeklyReports} />
+        <Route path="/needsdiagnosis" component={NeedsDiagnosis} />
+        <Route path="/needstriage" component={NeedsTriageChart} />
+        <Route path="/needscontact" component={NeedsContact} />
+        <Route path="/sitewait" component={SiteWait} />
+        <Route path="/weeklyreports" component={WeeklyReports} />
+        <Route path="/needstriage-list" component={NeedsTriageCard} />
+      </Navigation>
     </Router>
   );
 };

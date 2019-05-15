@@ -105,6 +105,14 @@ class MetricsTemplate extends React.Component {
       : filterList.join(" - ");
   }
 
+  getHeaderTitle(filters) {
+    if (this.props.headerTitle != null) {
+      return this.props.headerTitle;
+    } else {
+      return this.getFormatedDate(filters);
+    }
+  }
+
   handleChange(e) {
     const { filters } = this.state;
     this.setState({
@@ -124,11 +132,11 @@ class MetricsTemplate extends React.Component {
     return this.props.normalizeData(data);
   }
 
-  handleSuccessSubmit(payload) {
+  handleSuccessSubmit(payload = {}) {
     this.setState({
       isFetching: false,
       error: {},
-      data: this.normalize(ObjectNested.get(payload, "timeline", {})),
+      data: this.normalize(payload),
     });
   }
 
@@ -163,7 +171,7 @@ class MetricsTemplate extends React.Component {
         )}
 
         {this.props.shouldRenderHeader && (
-          <Header title={this.getFormatedDate(filters)}>
+          <Header title={this.getHeaderTitle(filters)}>
             <form onSubmit={this.handleSubmit}>
               {this.renderFilters(this.handleChange, filters)}
               <Button type="submit">Filtered</Button>
@@ -233,6 +241,7 @@ MetricsTemplate.propTypes = {
   injectedFilters: PropTypes.object,
   renderChart: PropTypes.func.isRequired,
   normalizeData: PropTypes.func,
+  headerTitle: PropTypes.string,
 };
 
 MetricsTemplate.defaultProps = {

@@ -10,9 +10,10 @@ import { ObjectNested, Router } from "../../libraries";
 import { mostAndLeast, normalize } from "../../modules/Chart";
 
 const handleData = data => {
+  const localData = ObjectNested.get(data, "timeline", {});
   return {
-    globalStats: mostAndLeast(data),
-    chart: normalize(data, "openIssues"),
+    globalStats: mostAndLeast(localData),
+    chart: normalize(localData, "openIssues"),
   };
 };
 
