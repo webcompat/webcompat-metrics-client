@@ -31,7 +31,7 @@ Environment variables
 
 You can create a .env file (or copy .env.example) and modify variables, make sure variables are all set.
 
-By default `.env.defaults` is loading and injected throught the webpack configuration.
+By default `.env.defaults` is loaded and injected through the webpack configuration.
 
 ### Testing
 
