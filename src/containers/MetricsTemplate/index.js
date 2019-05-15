@@ -79,7 +79,7 @@ class MetricsTemplate extends React.Component {
       isFetching: true,
     });
     request(args, {
-      onSuccess: payload => this.handleSuccessSubmit(payload),
+      onSuccess: payload => this.handleSuccessSubmit(payload, filters),
       onError: payload => this.handleErrorSubmit(payload),
     });
   }
@@ -132,11 +132,11 @@ class MetricsTemplate extends React.Component {
     return this.props.normalizeData(data);
   }
 
-  handleSuccessSubmit(payload = {}) {
+  handleSuccessSubmit(payload = {}, filters) {
     this.setState({
       isFetching: false,
       error: {},
-      data: this.normalize(payload),
+      data: this.normalize(payload, filters),
     });
   }
 
