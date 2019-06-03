@@ -4,7 +4,6 @@
 
 import { Router } from "../libraries";
 
-const WEBCOMPAT_BASE_URL = process.env.WEBCOMPAT_BASE_URL;
 const API_BASE_URL = process.env.API_BASE_URL;
 
 /*
@@ -30,9 +29,6 @@ Router.defineRoute("/weekly-counts", "weekly-counts", {
   baseUrl: API_BASE_URL,
 });
 
-/*
- * Webcompat endPoints
- */
-Router.defineRoute("/issues/category/needstriage", "needstriage-list", {
-  baseUrl: WEBCOMPAT_BASE_URL,
+Router.defineRoute("/triage-bugs", "needstriage-list", {
+  baseUrl: API_BASE_URL,
 });
