@@ -5,7 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { Chart } from "..";
+import Component from "..";
 
 jest.mock("react-chartjs-2", () => ({ Line: () => null }));
 
@@ -33,6 +33,6 @@ it("renders Component default correctly", () => {
       ],
     }),
   );
-  const tree = renderer.create(<Chart />).toJSON();
+  const tree = renderer.create(<Component />).toJSON();
   expect(tree).toMatchSnapshot();
 });

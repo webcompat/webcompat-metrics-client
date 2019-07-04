@@ -65,7 +65,10 @@ class MetricsTemplate extends React.Component {
     return this.props.injectedFilters;
   }
 
-  /* fetch data */
+  /**
+   *  Get dat from API
+   * @param {object} filters
+   */
   getData(filters = {}) {
     /* push filters to url */
     pushFiltersToUrl(toQueryString(filters));
@@ -128,8 +131,13 @@ class MetricsTemplate extends React.Component {
     this.getData(this.state.filters);
   }
 
-  normalize(data) {
-    return this.props.normalizeData(data);
+  /**
+   * normalize data through function
+   * @param {object} data
+   * @param {object} filters
+   */
+  normalize(data, filters) {
+    return this.props.normalizeData(data, filters);
   }
 
   handleSuccessSubmit(payload = {}, filters) {
@@ -164,6 +172,7 @@ class MetricsTemplate extends React.Component {
 
   render() {
     const { filters, data } = this.state;
+    const globalStats = ObjectNested.get(data, "globalStats", []);
     return (
       <section>
         {this.props.shouldRenderJumbotron && (
@@ -183,43 +192,15 @@ class MetricsTemplate extends React.Component {
           <Fetch />
         ) : isEmptyObject(this.state.error) ? (
           <div style={{ position: "relative" }}>
-            {this.props.shouldRenderSimpleStat && !isEmptyObject(data) && (
-              <SimpleStat>
-                <Stat style={{ color: "#00bdb4" }}>
-                  {`Min: ${ObjectNested.get(
-                    data,
-                    "globalStats.least.count",
-                    "",
-                  )} (${ObjectNested.get(
-                    data,
-                    "globalStats.least.date",
-                    "no data",
-                  )}) `}
-                </Stat>
-                <Stat style={{ color: "#fb3c59" }}>
-                  {`Max: ${ObjectNested.get(
-                    data,
-                    "globalStats.most.count",
-                    "",
-                  )} (${ObjectNested.get(
-                    data,
-                    "globalStats.most.date",
-                    "no data",
-                  )}) `}
-                </Stat>
-                <Stat style={{ color: "#fb3c59" }}>
-                  {`Current: ${ObjectNested.get(
-                    data,
-                    "globalStats.current.count",
-                    "",
-                  )} (${ObjectNested.get(
-                    data,
-                    "globalStats.current.date",
-                    "no data",
-                  )}) `}
-                </Stat>
-              </SimpleStat>
-            )}
+            {this.props.shouldRenderSimpleStat &&
+              !isEmptyObject(data) &&
+              globalStats.length > 0 && (
+                <SimpleStat>
+                  {globalStats.map((stat, key) => {
+                    return <Stat stat={stat} key={key} />;
+                  })}
+                </SimpleStat>
+              )}
             {this.props.renderChart(data)}
           </div>
         ) : (
