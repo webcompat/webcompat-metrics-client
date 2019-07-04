@@ -7,10 +7,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Navigation from "../containers/Navigation";
 import NeedsDiagnosis from "../containers/NeedsDiagnosis";
-import { NeedsTriageChart, NeedsTriageCard } from "../containers/NeedsTriage";
+import NeedsTriage from "../containers/NeedsTriage";
 import NeedsContact from "../containers/NeedsContact";
 import SiteWait from "../containers/SiteWait";
 import WeeklyReports from "../containers/WeeklyReports";
+import Triage from "../containers/Triage";
 
 const App = props => {
   return (
@@ -19,11 +20,11 @@ const App = props => {
       <Navigation>
         <Route exact={true} path="/" component={WeeklyReports} />
         <Route path="/needsdiagnosis" component={NeedsDiagnosis} />
-        <Route path="/needstriage" component={NeedsTriageChart} />
+        <Route path="/needstriage" component={NeedsTriage} />
         <Route path="/needscontact" component={NeedsContact} />
         <Route path="/sitewait" component={SiteWait} />
         <Route path="/weeklyreports" component={WeeklyReports} />
-        <Route path="/needstriage-list" component={NeedsTriageCard} />
+        <Route path="/triage" component={Triage} />
       </Navigation>
     </Router>
   );

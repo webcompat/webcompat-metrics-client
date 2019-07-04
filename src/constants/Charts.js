@@ -5,3 +5,5 @@ export const CHART_LINE = "CHART_LINE";
  */
 
 export const TEMP_MIN_DATE = "2019-03-28";
+
+export const TYPE_CARD = "card";
