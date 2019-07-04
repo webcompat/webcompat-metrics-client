@@ -36,38 +36,25 @@ export const normalize = (data = {}, key = null) => {
 };
 
 /**
- * Determines the most, the least issues and the current issues
+ * Determines the most, the least and the current issues
  * @param {stats} object
  * @return {object}
  */
 export const mostAndLeast = (stats = {}) => {
   /* init default */
-  const obj = {
-    most: {
-      count: null,
-      date: null,
-    },
-    least: {
-      count: null,
-      date: null,
-    },
-    current: {
-      count: null,
-      date: null,
-    },
-  };
+  const obj = [];
   /* if no data */
   if (isEmptyObject(stats)) {
     return obj;
   }
-  return Object.keys(stats).reduce((accumulator, currentValue) => {
-    const stat = stats[currentValue];
+  let most = {};
+  let least = {};
+  let current = {};
+  for (const index in stats) {
+    const stat = stats[index];
     const date = dayjs(new Date(stat.timestamp));
-    const mostCount = ObjectNested.get(accumulator, "most.count");
-    const leastCount = ObjectNested.get(accumulator, "least.count");
-    let most = ObjectNested.get(accumulator, "most", {});
-    let least = ObjectNested.get(accumulator, "least", {});
-    let current = ObjectNested.get(accumulator, "current", {});
+    const mostCount = ObjectNested.get(most, "count");
+    const leastCount = ObjectNested.get(least, "count");
 
     /*
      * most
@@ -98,12 +85,35 @@ export const mostAndLeast = (stats = {}) => {
         date: date.format("YYYY-MM-DD"),
       };
     }
-    return {
-      most,
-      least,
-      current,
-    };
-  }, obj);
+  }
+  if (!isEmptyObject(least)) {
+    obj.push({
+      label: "Min",
+      count: `${least.count} (${least.date})`,
+      style: {
+        color: "#00bdb4",
+      },
+    });
+  }
+  if (!isEmptyObject(most)) {
+    obj.push({
+      label: "Max",
+      count: `${most.count} (${most.date})`,
+      style: {
+        color: "#fb3c59",
+      },
+    });
+  }
+  if (!isEmptyObject(current)) {
+    obj.push({
+      label: "Current",
+      count: `${current.count} (${current.date})`,
+      style: {
+        color: "#58666e",
+      },
+    });
+  }
+  return obj;
 };
 
 /**
