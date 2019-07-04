@@ -22,6 +22,7 @@
   will-change: transform;
   transform: translate(-100%);
   transition: transform .16s linear 0s;
+  z-index: 5;
 }
 
 .component.isOpened {
