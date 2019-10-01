@@ -60,7 +60,7 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
     "eslint-config-i-am-meticulous": "^11.0.0",
-    "eslint-config-prettier": "^5.0.0",
+    "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "favicons-webpack-plugin": "0.0.9",
