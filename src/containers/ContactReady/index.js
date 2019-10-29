@@ -16,19 +16,18 @@ import {
 import { TEMP_MIN_DATE } from "../../constants/Charts";
 
 const handleData = data => {
-  const localData = ObjectNested.get(data, "timeline", {});
   return {
-    globalStats: mostAndLeast(localData),
-    chart: normalize(localData, "openIssues"),
+    globalStats: mostAndLeast(data),
+    chart: normalize(data, "openIssues"),
   };
 };
 
-const NeedsContact = () => {
+const ContactReady = () => {
   return (
     <MetricsTemplate
-      endpoint={Router.getRoute("needscontact-timeline")}
-      title={"Needs Contact Dashboard"}
-      subtitle={"Tracking needs-contact issue burndown rate"}
+      endpoint={Router.getRoute("contactready-timeline")}
+      title={"Contact Ready Dashboard"}
+      subtitle={"Tracking contact-ready issue burndown rate"}
       normalizeData={handleData}
       shouldRenderCommonFilters={false}
       injectedFilters={getTemporaryDefaultFilters(TEMP_MIN_DATE)}
@@ -42,7 +41,7 @@ const NeedsContact = () => {
       )}
       renderChart={data => (
         <LineChart
-          title={"Open issues in needscontact milestone"}
+          title={"Open issues in contactready milestone"}
           label={""}
           labels={ObjectNested.get(data, "chart.dates", [])}
           legend={{ display: false }}
@@ -66,4 +65,4 @@ const NeedsContact = () => {
   );
 };
 
-export default NeedsContact;
+export default ContactReady;

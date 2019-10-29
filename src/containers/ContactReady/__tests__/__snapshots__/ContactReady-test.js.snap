@@ -9,12 +9,12 @@ exports[`renders Component default correctly 1`] = `
     <h2
       className="title"
     >
-      Needs Contact Dashboard
+      Contact Ready Dashboard
     </h2>
     <h3
       className="subtitle"
     >
-      Tracking needs-contact issue burndown rate
+      Tracking contact-ready issue burndown rate
     </h3>
   </div>
   <header

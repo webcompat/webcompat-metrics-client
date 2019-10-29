@@ -17,6 +17,10 @@ Router.defineRoute("/needscontact-timeline", "needscontact-timeline", {
   baseUrl: API_BASE_URL,
 });
 
+Router.defineRoute("/contactready-timeline", "contactready-timeline", {
+  baseUrl: API_BASE_URL,
+});
+
 Router.defineRoute("/needstriage-timeline", "needstriage-timeline", {
   baseUrl: API_BASE_URL,
 });

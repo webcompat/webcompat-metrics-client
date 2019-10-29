@@ -9,6 +9,7 @@ import Navigation from "../containers/Navigation";
 import NeedsDiagnosis from "../containers/NeedsDiagnosis";
 import NeedsTriage from "../containers/NeedsTriage";
 import NeedsContact from "../containers/NeedsContact";
+import ContactReady from "../containers/ContactReady";
 import SiteWait from "../containers/SiteWait";
 import WeeklyReports from "../containers/WeeklyReports";
 import Triage from "../containers/Triage";
@@ -22,6 +23,7 @@ const App = props => {
         <Route path="/needsdiagnosis" component={NeedsDiagnosis} />
         <Route path="/needstriage" component={NeedsTriage} />
         <Route path="/needscontact" component={NeedsContact} />
+        <Route path="/contactready" component={ContactReady} />
         <Route path="/sitewait" component={SiteWait} />
         <Route path="/weeklyreports" component={WeeklyReports} />
         <Route path="/triage" component={Triage} />
