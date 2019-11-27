@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/webcompat/webcompat-metrics-client#readme",
   "engines": {
-    "node": ">=8.7.0"
+    "node": ">=12.6.0"
   },
   "scripts": {
     "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
