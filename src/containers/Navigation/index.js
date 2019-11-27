@@ -15,6 +15,7 @@ import Header from "../../components/Header";
 import { Link } from "../../components/Menu";
 import Svg from "../../components/Svg";
 import SVGBugdiagnosis from "../../assets/svg/Bugdiagnosis.svg";
+import SVGBCard from "../../assets/svg/iconmonstr-menu-4.svg";
 
 class NavigationContainer extends React.Component {
   constructor(props) {
@@ -58,6 +59,12 @@ class NavigationContainer extends React.Component {
             to="/needstriage"
             text={"Needs Triage"}
             icon={<Svg svg={SVGBugdiagnosis} />}
+            onClick={this.handleResize}
+          />
+          <Link
+            to="/triage"
+            text={"Triage"}
+            icon={<Svg svg={SVGBCard} />}
             onClick={this.handleResize}
           />
           <Link

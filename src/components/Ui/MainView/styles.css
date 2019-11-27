@@ -16,6 +16,8 @@
   flex-direction: column;
   padding: var(--paddingTop) 0 0 var(--paddingLeft);
   background-color: #f6f8f8;
+  will-change: padding;
+  transition: padding .16s linear 0s;
 }
 
 @media all and (min-width: 42.51em) {

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Select default correctly 1`] = `
+<div
+  className="component"
+>
+  <select
+    className="select"
+    name="browserList"
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      All browsers
+    </option>
+    <option
+      value="firefox"
+    >
+      Firefox
+    </option>
+    <option
+      value="chrome"
+    >
+      Chrome
+    </option>
+    <option
+      value="edge"
+    >
+      Edge
+    </option>
+    <option
+      value="safari"
+    >
+      Safari
+    </option>
+  </select>
+  <div
+    aria-hidden="true"
+    className="arrow"
+  />
+</div>
+`;
+
+exports[`renders Select required 1`] = `
+<div
+  className="component"
+>
+  <select
+    className="select"
+    name="browserList"
+    onChange={[Function]}
+    required={true}
+    value="firefox"
+  >
+    <option
+      value=""
+    >
+      All browsers
+    </option>
+    <option
+      value="firefox"
+    >
+      Firefox
+    </option>
+    <option
+      value="chrome"
+    >
+      Chrome
+    </option>
+    <option
+      value="edge"
+    >
+      Edge
+    </option>
+    <option
+      value="safari"
+    >
+      Safari
+    </option>
+  </select>
+  <div
+    aria-hidden="true"
+    className="arrow"
+  />
+</div>
+`;
+
+exports[`renders Select with defaultValue 1`] = `
+<div
+  className="component"
+>
+  <select
+    className="select"
+    name="browserList"
+    onChange={[Function]}
+    value="firefox"
+  >
+    <option
+      value=""
+    >
+      All browsers
+    </option>
+    <option
+      value="firefox"
+    >
+      Firefox
+    </option>
+    <option
+      value="chrome"
+    >
+      Chrome
+    </option>
+    <option
+      value="edge"
+    >
+      Edge
+    </option>
+    <option
+      value="safari"
+    >
+      Safari
+    </option>
+  </select>
+  <div
+    aria-hidden="true"
+    className="arrow"
+  />
+</div>
+`;
+
+exports[`renders Select with style injected 1`] = `
+<div
+  className="component"
+>
+  <select
+    className="select"
+    name="browserList"
+    onChange={[Function]}
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+    value="firefox"
+  >
+    <option
+      value=""
+    >
+      All browsers
+    </option>
+    <option
+      value="firefox"
+    >
+      Firefox
+    </option>
+    <option
+      value="chrome"
+    >
+      Chrome
+    </option>
+    <option
+      value="edge"
+    >
+      Edge
+    </option>
+    <option
+      value="safari"
+    >
+      Safari
+    </option>
+  </select>
+  <div
+    aria-hidden="true"
+    className="arrow"
+  />
+</div>
+`;

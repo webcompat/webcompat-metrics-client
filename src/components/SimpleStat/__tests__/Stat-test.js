@@ -8,9 +8,13 @@ import renderer from "react-test-renderer";
 import { Stat } from "..";
 
 it("renders Stat default correctly", () => {
+  const stat = {
+    label: "test label",
+    count: 3,
+  };
   const tree = renderer
     .create(
-      <Stat>
+      <Stat stat={stat}>
         <div>{"Stat"}</div>
       </Stat>,
     )
@@ -19,9 +23,13 @@ it("renders Stat default correctly", () => {
 });
 
 it("renders SimpleStat default correctly with custom style", () => {
+  const stat = {
+    label: "test label",
+    count: 3,
+  };
   const tree = renderer
     .create(
-      <Stat style={{ color: "blue" }}>
+      <Stat stat={stat} style={{ color: "blue" }}>
         <div>{"Stat"}</div>
       </Stat>,
     )

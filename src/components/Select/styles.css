@@ -1,0 +1,60 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+:root {
+  --fontSize: var(--fontSize);
+  --fontFamily: var(--fontFamily);
+}
+
+/* wrapper */
+.component {
+  display: inline-flex;
+  position: relative;
+  background-color: #fff;
+}
+
+.select {
+  font-size: var(--fontSize);
+  font-family: var(--fontFamily);
+  font-weight: 300;
+  margin: 0;
+  line-height: normal;
+  vertical-align: middle;
+  color: #404040;
+  transition: background-color .3s ease 0s;
+  border: solid 1px #dee5e7;
+  position: relative;
+  z-index: 1;
+  padding: .42em 1.25em .6em .6em;
+  appearance: none;
+  text-indent: .01px;
+  text-overflow: "";
+  background-color: transparent;
+}
+
+/* ie100/11 */
+.select::-ms-expand {
+  display: none;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 0;
+  width: 1.25em;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: #9b9b9b;
+}
+
+/* unicode */
+.arrow::after {
+  content: "\25BC";
+  position: absolute;
+  color: inherit;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 8px;
+}

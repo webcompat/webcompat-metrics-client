@@ -30,11 +30,11 @@ it("renders Component default correctly", () => {
       date_format: "w3c",
       timeline: [
         {
-          count: "822",
+          count: 822,
           timestamp: "2018-02-08T13:12:16Z",
         },
         {
-          count: "819",
+          count: 819,
           timestamp: "2018-02-08T15:00:00Z",
         },
         {

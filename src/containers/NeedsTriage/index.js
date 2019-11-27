@@ -16,13 +16,14 @@ import {
 import { TEMP_MIN_DATE } from "../../constants/Charts";
 
 const handleData = data => {
+  const localData = ObjectNested.get(data, "timeline", {});
   return {
-    globalStats: mostAndLeast(data),
-    chart: normalize(data, "openIssues"),
+    globalStats: mostAndLeast(localData),
+    chart: normalize(localData, "openIssues"),
   };
 };
 
-const NeedsTriage = () => {
+const NeedsTriageChart = () => {
   return (
     <MetricsTemplate
       endpoint={Router.getRoute("needstriage-timeline")}
@@ -52,9 +53,6 @@ const NeedsTriage = () => {
                 {
                   type: "time",
                   distribution: "linear",
-                  time: {
-                    unit: "day",
-                  },
                 },
               ],
             },
@@ -65,4 +63,4 @@ const NeedsTriage = () => {
   );
 };
 
-export default NeedsTriage;
+export default NeedsTriageChart;

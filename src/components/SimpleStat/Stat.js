@@ -5,19 +5,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { ObjectNested } from "../../libraries";
+
 import classes from "./styles.css";
 
-const Stat = ({ children, style }) => {
+const Stat = ({ stat }) => {
+  const label = ObjectNested.get(stat, "label");
+  const count = ObjectNested.get(stat, "count");
+  const style = ObjectNested.get(stat, "style");
+
   return (
     <div {...(style ? { style } : undefined)} className={classes.stat}>
-      {children}
+      {`${label} : ${count}`}
     </div>
   );
 };
 
 Stat.propTypes = {
-  children: PropTypes.node.isRequired,
-  style: PropTypes.object,
+  stat: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    count: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    style: PropTypes.object,
+  }),
 };
 
 export default Stat;
