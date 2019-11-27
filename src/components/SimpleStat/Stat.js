@@ -24,7 +24,8 @@ const Stat = ({ stat }) => {
 Stat.propTypes = {
   stat: PropTypes.shape({
     label: PropTypes.string.isRequired,
-    count: PropTypes.number.isRequired,
+    count: PropTypes.PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
     style: PropTypes.object,
   }),
 };
