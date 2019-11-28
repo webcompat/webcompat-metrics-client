@@ -17,5 +17,6 @@ cache:
 version: "{build}"
 build: off
 deploy: off
+platform: x64
 matrix:
   fast_finish: true
