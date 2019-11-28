@@ -17,7 +17,7 @@ cache:
 version: "{build}"
 build: off
 deploy: off
-image: Windows Server 2019
+image: Visual Studio 2019
 platform: x64
 matrix:
   fast_finish: true
