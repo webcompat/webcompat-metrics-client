@@ -8,8 +8,13 @@ import MetricsTemplate from "../MetricsTemplate";
 import { Router } from "../../libraries";
 
 // const spreadsheetID = "1238RmSUsSC8SfNS5bn-ogUvvE0bxQ82IULILm5GRu_Q";
-const spreadsheetID =
+const spreadsheetId =
   "2PACX-1vTWYPjf_5L68XOgNvbAwKjnE00XiQJ5f2Rz1QQVrone9zsD4V1mZAGgyG0GdXgBWHNhnBFho-qX_YKf";
+
+const handleData = data => {
+  const spreadsheetId = JSON.parse(data).currentDoc;
+  return spreadsheetId;
+};
 
 const FramedChart = props => {
   const spreadsheetBaseUrl = "https://docs.google.com/spreadsheets/d/e/";
@@ -26,7 +31,7 @@ const FramedChart = props => {
         maxWidth: "100%",
         sandbox: "",
       }}
-      src={spreadsheetBaseUrl + spreadsheetID + spreadsheetEnd}
+      src={spreadsheetBaseUrl + spreadsheetId + spreadsheetEnd}
     />
   );
 };
@@ -34,15 +39,16 @@ const FramedChart = props => {
 const TSCI = () => {
   return (
     <MetricsTemplate
-      endpoint={Router.getRoute("weekly-counts")}
+      endpoint={Router.getRoute("tsci-doc")}
       title={"Top Site Compatibility Index"}
       subtitle={
         "Measuring user pain from webcompat issues (aggregated, mobile & desktop)"
       }
+      normalizeData={handleData}
       shouldRenderCommonFilters={true}
       shouldRenderHeader={false}
       shouldRenderSimpleStat={false}
-      renderChart={frameData => <FramedChart frameData={""} />}
+      renderChart={() => <FramedChart frameData={""} />}
     />
   );
 };
