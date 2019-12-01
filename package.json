@@ -53,7 +53,7 @@
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^5.0.5",
     "css-loader": "^3.2.0",
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.10.0",
