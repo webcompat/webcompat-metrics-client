@@ -1,0 +1,27 @@
+.component {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.ratio {
+  display: block;
+  width: 100%;
+}
+
+.content {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.content > iframe {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
