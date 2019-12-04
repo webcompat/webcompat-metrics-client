@@ -19,6 +19,7 @@ import Jumbotron from "../../components/Jumbotron";
 import { Header, Fetch, Error, CommonFilters } from "../../components/Chart";
 import Button from "../../components/Button";
 import { SimpleStat, Stat } from "../../components/SimpleStat";
+import { VIEW_MODE_FORM, VIEW_MODE_STATIC } from "../../constants/View";
 
 class MetricsTemplate extends React.Component {
   constructor(props) {
@@ -37,19 +38,21 @@ class MetricsTemplate extends React.Component {
   }
 
   componentDidMount() {
-    /* merge filters from url and local filters */
-    const filters = {
-      ...this.state.filters,
-      ...toQueryObject(getFiltersFromUrl()),
-    };
-    /* sent request */
-    this.getData(filters);
-    /* update view with filters */
-    this.setState({
-      filters: {
-        ...filters,
-      },
-    });
+    if (this.isViewModeForm()) {
+      /* merge filters from url and local filters */
+      const filters = {
+        ...this.state.filters,
+        ...toQueryObject(getFiltersFromUrl()),
+      };
+      /* sent request */
+      this.getData(filters);
+      /* update view with filters */
+      this.setState({
+        filters: {
+          ...filters,
+        },
+      });
+    }
   }
 
   getDefaultCommonFilters() {
@@ -170,6 +173,22 @@ class MetricsTemplate extends React.Component {
     );
   }
 
+  /**
+   * is view mode static
+   * @return {bool}
+   */
+  isViewModeStatic() {
+    return this.props.viewMode === VIEW_MODE_STATIC;
+  }
+
+  /**
+   * is view mode form
+   * @return {bool}
+   */
+  isViewModeForm() {
+    return this.props.viewMode === VIEW_MODE_FORM;
+  }
+
   render() {
     const { filters, data } = this.state;
     const globalStats = ObjectNested.get(data, "globalStats", []);
@@ -188,7 +207,7 @@ class MetricsTemplate extends React.Component {
           </Header>
         )}
 
-        {this.state.isFetching ? (
+        {this.isViewModeForm() && this.state.isFetching ? (
           <Fetch />
         ) : isEmptyObject(this.state.error) ? (
           <div style={{ position: "relative" }}>
@@ -223,6 +242,7 @@ MetricsTemplate.propTypes = {
   renderChart: PropTypes.func.isRequired,
   normalizeData: PropTypes.func,
   headerTitle: PropTypes.string,
+  viewMode: PropTypes.oneOf([VIEW_MODE_FORM, VIEW_MODE_STATIC]),
 };
 
 MetricsTemplate.defaultProps = {
@@ -233,6 +253,7 @@ MetricsTemplate.defaultProps = {
   shouldRenderSimpleStat: true,
   injectedFilters: {},
   normalizeData: () => {},
+  viewMode: VIEW_MODE_FORM,
 };
 
 export default MetricsTemplate;
