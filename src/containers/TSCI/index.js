@@ -9,14 +9,14 @@ import { Router } from "../../libraries";
 import { VIEW_MODE_STATIC } from "../../constants/View";
 import AspectRatio from "../../components/AspectRatio";
 
-// const spreadsheetID = "1238RmSUsSC8SfNS5bn-ogUvvE0bxQ82IULILm5GRu_Q";
-const spreadsheetId =
-  "2PACX-1vTWYPjf_5L68XOgNvbAwKjnE00XiQJ5f2Rz1QQVrone9zsD4V1mZAGgyG0GdXgBWHNhnBFho-qX_YKf";
+// const spreadsheetId = "1LYMeQdF6a6Mz6NsvgZBieWA90foINTVSM6pv_AapL2Y";
 
-const FramedChart = props => {
+const FramedChart = frameData => {
   const spreadsheetBaseUrl = "https://docs.google.com/spreadsheets/d/e/";
+  const spreadsheetId = frameData;
   const spreadsheetEnd =
     "/pubhtml?widget=true&amp;headers=false&amp;embedded=true";
+  // "pubhtml?widget=true&amp;headers=false";
   return (
     <AspectRatio>
       <iframe
@@ -31,7 +31,7 @@ const TSCI = () => {
   return (
     <MetricsTemplate
       endpoint={Router.getRoute("tsci-doc")}
-      title={"Top Site Compatibility Index"}
+      title={"TSCI"}
       subtitle={
         "Measuring user pain from webcompat issues (aggregated, mobile & desktop)"
       }
@@ -39,7 +39,7 @@ const TSCI = () => {
       shouldRenderHeader={false}
       shouldRenderSimpleStat={false}
       viewMode={VIEW_MODE_STATIC}
-      renderChart={() => <FramedChart frameData={""} />}
+      renderChart={data => <FramedChart frameData={data} />}
     />
   );
 };
