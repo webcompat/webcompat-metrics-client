@@ -6,25 +6,12 @@ import React from "react";
 
 import MetricsTemplate from "../MetricsTemplate";
 import { Router } from "../../libraries";
-import { VIEW_MODE_STATIC } from "../../constants/View";
-import AspectRatio from "../../components/AspectRatio";
+import FramedChart from "../../components/FramedChart";
 
-// const spreadsheetId = "1LYMeQdF6a6Mz6NsvgZBieWA90foINTVSM6pv_AapL2Y";
-
-const FramedChart = frameData => {
-  const spreadsheetBaseUrl = "https://docs.google.com/spreadsheets/d/e/";
-  const spreadsheetId = frameData;
-  const spreadsheetEnd =
-    "/pubhtml?widget=true&amp;headers=false&amp;embedded=true";
-  // "pubhtml?widget=true&amp;headers=false";
-  return (
-    <AspectRatio>
-      <iframe
-        frameBorder="0"
-        src={spreadsheetBaseUrl + spreadsheetId + spreadsheetEnd}
-      />
-    </AspectRatio>
-  );
+const handleData = data => {
+  return {
+    spreadsheetId: data.currentDoc,
+  };
 };
 
 const TSCI = () => {
@@ -35,11 +22,21 @@ const TSCI = () => {
       subtitle={
         "Measuring user pain from webcompat issues (aggregated, mobile & desktop)"
       }
+      normalizeData={handleData}
       shouldRenderCommonFilters={false}
       shouldRenderHeader={false}
       shouldRenderSimpleStat={false}
-      viewMode={VIEW_MODE_STATIC}
-      renderChart={data => <FramedChart frameData={data} />}
+      renderChart={data => {
+        return (
+          <FramedChart
+            spreadsheetId={data.spreadsheetId}
+            spreadsheetBaseUrl={"https://docs.google.com/spreadsheets/d/e/"}
+            spreadsheetEnd={
+              "/pubhtml?widget=true&amp;headers=false&amp;embedded=true"
+            }
+          />
+        );
+      }}
     />
   );
 };
