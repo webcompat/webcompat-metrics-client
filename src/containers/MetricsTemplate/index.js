@@ -26,7 +26,7 @@ class MetricsTemplate extends React.Component {
     super(props);
     this.state = {
       filters: this.getDefaultCommonFilters(),
-      isFetching: false,
+      isFetching: true,
       error: {},
       data: {},
     };
