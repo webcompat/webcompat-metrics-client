@@ -30,9 +30,9 @@ const TSCI = () => {
         return (
           <FramedChart
             spreadsheetId={data.spreadsheetId}
-            spreadsheetBaseUrl={"https://docs.google.com/spreadsheets/d/e/"}
+            spreadsheetBaseUrl={"https://docs.google.com/spreadsheets/d/"}
             spreadsheetEnd={
-              "/pubhtml?widget=true&amp;headers=false&amp;embedded=true"
+              "/pubhtml?widget=true&headers=false&embedded=true&chrome=false"
             }
           />
         );
