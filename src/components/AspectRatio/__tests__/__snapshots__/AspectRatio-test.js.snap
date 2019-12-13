@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AspectRatio default correctly  1`] = `
+<div
+  className="component"
+>
+  <div
+    className="ratio"
+    style={
+      Object {
+        "paddingBottom": "100%",
+      }
+    }
+  />
+  <div
+    className="content"
+  >
+    <div>
+      test
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders AspectRatio width 50% ratio correctly  1`] = `
+<div
+  className="component"
+>
+  <div
+    className="ratio"
+    style={
+      Object {
+        "paddingBottom": "50%",
+      }
+    }
+  />
+  <div
+    className="content"
+  >
+    <div>
+      test
+    </div>
+  </div>
+</div>
+`;

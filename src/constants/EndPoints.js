@@ -36,3 +36,7 @@ Router.defineRoute("/weekly-counts", "weekly-counts", {
 Router.defineRoute("/triage-bugs", "needstriage-list", {
   baseUrl: API_BASE_URL,
 });
+
+Router.defineRoute("/tsci-doc", "tsci-doc", {
+  baseUrl: API_BASE_URL,
+});

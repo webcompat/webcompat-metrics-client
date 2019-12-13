@@ -13,6 +13,7 @@ import ContactReady from "../containers/ContactReady";
 import SiteWait from "../containers/SiteWait";
 import WeeklyReports from "../containers/WeeklyReports";
 import Triage from "../containers/Triage";
+import TSCI from "../containers/TSCI";
 
 const App = props => {
   return (
@@ -27,6 +28,7 @@ const App = props => {
         <Route path="/sitewait" component={SiteWait} />
         <Route path="/weeklyreports" component={WeeklyReports} />
         <Route path="/triage" component={Triage} />
+        <Route path="/tsci" component={TSCI} />
       </Navigation>
     </Router>
   );
