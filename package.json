@@ -57,7 +57,7 @@
     "css-loader": "^3.4.0",
     "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^5.16.0",
     "eslint-config-i-am-meticulous": "^11.0.0",
     "eslint-config-prettier": "^6.10.0",
