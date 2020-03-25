@@ -1,9 +1,18 @@
 # http://www.appveyor.com/docs/appveyor-yml
-environment:
-  nodejs_version: '12.6.0'
+os: Visual Studio 2017
+version: "{build}"
+build: off
+deploy: off
+matrix:
+  fast_finish: true
 
+environment:
+  matrix:
+  - nodejs_version: "12"
+    platform: x64
+    
 install:
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version) $env:platform
   - npm install
 
 test_script:
@@ -13,9 +22,3 @@ test_script:
 
 cache:
   - node_modules -> package.json
-
-version: "{build}"
-build: off
-deploy: off
-matrix:
-  fast_finish: true
