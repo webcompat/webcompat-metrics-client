@@ -58,9 +58,7 @@ class MetricsTemplate extends React.Component {
   getDefaultCommonFilters() {
     if (this.props.shouldRenderCommonFilters) {
       return {
-        from: dayjs()
-          .subtract(1, "month")
-          .format("YYYY-MM-DD"),
+        from: dayjs().subtract(1, "month").format("YYYY-MM-DD"),
         to: dayjs().format("YYYY-MM-DD"),
         ...this.props.injectedFilters,
       };
@@ -85,8 +83,8 @@ class MetricsTemplate extends React.Component {
       isFetching: true,
     });
     request(args, {
-      onSuccess: payload => this.handleSuccessSubmit(payload, filters),
-      onError: payload => this.handleErrorSubmit(payload),
+      onSuccess: (payload) => this.handleSuccessSubmit(payload, filters),
+      onError: (payload) => this.handleErrorSubmit(payload),
     });
   }
 

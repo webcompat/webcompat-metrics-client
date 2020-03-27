@@ -2,20 +2,14 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-:root {
-  --fontSize: var(--fontSize);
-  --widthComponent: var(--widthMenu);
-  --colorBorderDark: var(--colorDark);
-}
-
 .component {
   font-size: var(--fontSize);
   display: flex;
   align-items: center;
-  width: var(--widthComponent);
-  max-width: var(--widthComponent);
+  width: var(--widthMenu);
+  max-width: var(--widthMenu);
   padding: 0 1em;
-  border-right: solid 1px var(--colorBorderDark);
+  border-right: solid 1px var(--colorDark);
 }
 
 .logo {

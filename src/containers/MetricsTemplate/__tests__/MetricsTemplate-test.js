@@ -8,10 +8,9 @@ import renderer from "react-test-renderer";
 import { ObjectNested } from "../../../libraries";
 import { mostAndLeast, normalize } from "../../../modules/Chart";
 import LineChart from "../../../components/LineChart";
-
 import Component from "..";
 
-const handleData = data => {
+const handleData = (data) => {
   return {
     globalStats: mostAndLeast(data),
     chart: normalize(data, "newIssues"),
@@ -50,7 +49,7 @@ it("renders Component default correctly", () => {
       title={"Needs diagnosis dashboard"}
       subtitle={"Tracking issue diagnosis burndown rate"}
       normalizeData={handleData}
-      renderChart={data => (
+      renderChart={(data) => (
         <LineChart
           title={"Issues Reported per Week"}
           fill={true}
@@ -118,7 +117,7 @@ it("renders Component with custom props", () => {
         shouldRenderJumbotron={false}
         shouldRenderSimpleStat={false}
         injectedFilters={{ from: "2018-12-25", to: "2019-01-01" }}
-        renderChart={data => (
+        renderChart={(data) => (
           <LineChart
             title={"Issues Reported per Week"}
             fill={true}

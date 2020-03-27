@@ -7,15 +7,16 @@ import React from "react";
 import LineChart from "../../components/LineChart";
 import { CommonFilters } from "../../components/Chart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested, Router } from "../../libraries";
+import { ObjectNested } from "../../libraries";
 import {
   mostAndLeast,
   normalize,
   getTemporaryDefaultFilters,
 } from "../../modules/Chart";
 import { TEMP_MIN_DATE } from "../../constants/Charts";
+import Router from "../../routes";
 
-const handleData = data => {
+const handleData = (data) => {
   const localData = ObjectNested.get(data, "timeline", {});
   return {
     globalStats: mostAndLeast(localData),
@@ -40,7 +41,7 @@ const NeedsContact = () => {
           minTo={TEMP_MIN_DATE}
         />
       )}
-      renderChart={data => (
+      renderChart={(data) => (
         <LineChart
           title={"Open issues in needscontact milestone"}
           label={""}

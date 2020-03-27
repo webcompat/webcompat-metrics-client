@@ -19,19 +19,22 @@ exports[`renders NavigationContainer default correctly 1`] = `
           className="button"
           onClick={[Function]}
         >
-          <span
-            className="SVGInline SVGInline--cleaned"
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "test-file-stub",
-              }
-            }
-          />
+          <svg
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M24 6H0V2h24v4zm0 4H0v4h24v-4zm0 8H0v4h24v-4z"
+            />
+          </svg>
         </button>
       </div>
       <a
         href="/"
         onClick={[Function]}
+        onMouseEnter={[Function]}
       >
         <div
           className="link"
@@ -49,14 +52,35 @@ exports[`renders NavigationContainer default correctly 1`] = `
           <div
             className="logo"
           >
-            <span
-              className="SVGInline SVGInline--cleaned"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "test-file-stub",
-                }
-              }
-            />
+            <svg
+              height="4em"
+              preserveAspectRatio="xMinYMid meet"
+              viewBox="0 0 224 357"
+              width="2em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                Lightbulb Logo Black
+              </title>
+              <g
+                fill="none"
+              >
+                <path
+                  d="M4.549 261.673c5.085 54.013 43.555 91.866 107.45 91.866s102.365-37.853 107.45-91.866c3.98-54.677-16.172-71.722-40.271-106.919-7.738-11.068-10.58-23.243-13.676-34.754H58.715c-3.095 11.511-7.304 23.686-15.043 34.754C19.352 189.951.567 206.996 4.547 261.673z"
+                  stroke="#000"
+                  strokeWidth="6.5"
+                />
+                <path
+                  d="M174.013 253.108c-.179-.549-39.433-120.031-40.085-121.048-.652-1.017-6.318-.339-6.326 0-.009.339 34.775 112.179 34.775 112.179-8.575-4.282-19.293-6.117-28.174-3.364-1.837.612-3.675 1.529-5.206 2.447 0 0-7.806-4.324-14.854-4.341-7.048-.017-14.59 3.154-17.607 5.564-2.756-1.529-5.819-2.447-9.187-3.364-10.106-2.447-18.987-1.835-26.337 1.835 0 0 35.524-110.409 35.524-110.955 0-.546-5.772-.851-6.5 0-.728.851-39.13 118.907-39.13 118.907-.593 1.529-1.837 4.893-.306 6.117 1.531 1.223 3.675.918 4.9-.612 7.043-8.869 17.149-11.622 30.011-8.258 1.531.306 3.675.918 5.819 2.141-2.144 3.364-3.369 7.34-3.062 11.01.306 7.952 3.062 13.457 7.35 15.598 2.45 1.223 5.206 1.223 7.656-.306 3.675-2.447 5.512-8.258 4.9-15.598-.306-4.588-2.45-8.564-5.819-11.928 5.819-3.67 14.699-3.976 21.13-.612-2.45 3.364-3.675 7.646-3.981 12.54-.306 7.034 1.837 12.54 5.819 14.986 2.45 1.529 5.512 1.529 8.268.306 3.981-2.447 6.431-7.952 6.125-14.986 0-4.588-1.837-9.175-4.9-12.845l1.531-.612c5.834-1.831 13.119-.854 19.486 1.552 5.331 2.014 10.018 5.029 12.67 8.235 1.225 1.529 3.736 1.783 4.9.612 1.164-1.171.791-4.65.612-5.199zm-75.029 17.433h-.306c-.919-.612-3.062-3.364-3.369-9.481 0-2.447.612-4.893 1.837-7.034 2.144 1.835 3.369 4.282 3.675 7.34.612 5.505-.612 8.564-1.837 9.175zm30.93-.612h-.306s-.306 0-.612-.306c-.919-.612-2.756-3.058-2.45-8.564.306-3.364.919-6.117 2.45-8.564 2.144 2.447 3.369 5.199 3.369 8.258 0 6.117-1.531 8.564-2.45 9.175z"
+                  fill="#000"
+                />
+                <path
+                  d="M160.401 42.53a51.799 51.799 0 0 0-.546-3.558c-.952-5.048-2.618-10.092-5.161-14.775-7.211-13.281-19.926-21.196-39.983-21.196-20.09 0-33.244 7.953-41.123 21.291-2.776 4.699-4.687 9.756-5.883 14.815a53.565 53.565 0 0 0-.694 3.424H160.4zM62.384 87.239V105h101.077V87.239H62.384zm4.227-30.871v17.761h94.032V56.368H66.611z"
+                  stroke="#000"
+                  strokeWidth="6"
+                />
+              </g>
+            </svg>
           </div>
         </div>
       </a>
@@ -73,9 +97,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
         role="navigation"
       >
         <a
-          aria-current={null}
           href="/weeklyreports"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -83,14 +107,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -100,9 +133,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/needstriage"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -110,14 +143,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -127,9 +169,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/triage"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -137,14 +179,16 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
-                  }
-                }
-              />
+              <svg
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 11H5V9h14v2zm0 2H5v2h14v-2zm0 4H5v2h14v-2zm3-11v16H2V6h20zm2-6H0v24h24V0z"
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -154,9 +198,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/needsdiagnosis"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -164,14 +208,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -181,9 +234,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/needscontact"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -191,14 +244,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -208,9 +270,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/contactready"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -218,14 +280,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -235,9 +306,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/sitewait"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -245,14 +316,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -262,9 +342,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
           </div>
         </a>
         <a
-          aria-current={null}
           href="/tsci"
           onClick={[Function]}
+          onMouseEnter={[Function]}
         >
           <div
             className="component"
@@ -272,14 +352,23 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <div
               className="icon"
             >
-              <span
-                className="SVGInline SVGInline--cleaned"
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "test-file-stub",
+              <svg
+                viewBox="0 0 100 125"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  color="#000"
+                  d="M12 12.002c-3.29 0-6 2.71-6 6v50C6 71.29 8.71 74 12 74h29v10h-4.188c-1.047.05-1.955 1.047-1.906 2.094C34.956 87.14 35.953 88.05 37 88h26c1.057.015 2.028-.943 2.028-2s-.97-2.015-2.028-2h-4V74h29c3.29 0 6-2.71 6-6V18.003c0-3.29-2.71-6-6-6zm0 4h76c1.143 0 2 .857 2 2v24l-17.72-.032-6.468-13.812a2.048 2.048 0 0 0-1.874-1.18 2.05 2.05 0 0 0-1.813 1.274L51.187 55.97l-10.28-32.593c-.284-.893-1.26-1.507-2.188-1.375-.655.09-1.25.528-1.532 1.125L28.718 41H10V18.003c0-1.143.857-2 2-2zM38.625 29.47l10.47 33.124c.24.79 1.02 1.385 1.845 1.412a2.055 2.055 0 0 0 1.935-1.287l11.28-28.656 5.032 10.75A2.049 2.049 0 0 0 71 45.969L90 46v22c0 1.143-.857 2-2 2H12c-1.143 0-2-.857-2-2V45h20c.757 0 1.493-.47 1.813-1.155zM45 74h10v10H45z"
+                  overflow="visible"
+                  style={
+                    Object {
+                      "blockProgression": "tb",
+                      "textIndent": "0",
+                      "textTransform": "none",
+                    }
                   }
-                }
-              />
+                />
+              </svg>
             </div>
             <div
               className="text"
@@ -302,14 +391,17 @@ exports[`renders NavigationContainer default correctly 1`] = `
             target="_blank"
             title="Twitter webcompat accounts"
           >
-            <span
-              className="SVGInline SVGInline--cleaned"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "test-file-stub",
-                }
-              }
-            />
+            <svg
+              fill="#1da1f2"
+              height="1.5em"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724 9.864 9.864 0 0 1-3.127 1.195 4.916 4.916 0 0 0-3.594-1.555c-3.179 0-5.515 2.966-4.797 6.045A13.978 13.978 0 0 1 1.671 3.149a4.93 4.93 0 0 0 1.523 6.574 4.903 4.903 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.935 4.935 0 0 1-2.224.084 4.928 4.928 0 0 0 4.6 3.419A9.9 9.9 0 0 1 0 19.54a13.94 13.94 0 0 0 7.548 2.212c9.142 0 14.307-7.721 13.995-14.646A10.025 10.025 0 0 0 24 4.557z"
+              />
+            </svg>
           </a>
           <a
             className="social"
@@ -318,14 +410,17 @@ exports[`renders NavigationContainer default correctly 1`] = `
             target="_blank"
             title="Github webcompat account"
           >
-            <span
-              className="SVGInline SVGInline--cleaned"
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "test-file-stub",
-                }
-              }
-            />
+            <svg
+              fill="#c6cbd1"
+              height="1.5em"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"
+              />
+            </svg>
           </a>
         </div>
         <div

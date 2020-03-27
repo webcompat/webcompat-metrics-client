@@ -118,7 +118,7 @@ function hasIncludeData(issue = {}, filterList = {}) {
   if (browser) {
     isIncluded =
       undefined !==
-      ObjectNested.get(issue, "browserList", []).find(currentBrowser => {
+      ObjectNested.get(issue, "browserList", []).find((currentBrowser) => {
         return browser.includes(currentBrowser);
       });
   }

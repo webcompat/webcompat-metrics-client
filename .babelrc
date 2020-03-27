@@ -1,0 +1,23 @@
+{
+  "env": {
+    "production": {
+      "presets": ["next/babel"],
+      "plugins": ["babel-plugin-inline-react-svg",
+        [
+        "babel-plugin-transform-react-remove-prop-types",
+        {
+          "mode": "wrap"
+        }
+        ]
+      ]
+    },
+    "development": {
+      "presets": ["next/babel"],
+      "plugins": ["babel-plugin-inline-react-svg"]
+    },
+    "test": {
+      "presets": ["next/babel"],
+      "plugins": ["babel-plugin-inline-react-svg"]
+    }
+  }
+}

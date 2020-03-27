@@ -49,7 +49,7 @@ export const defaultProps = {
   options: {},
 };
 
-export const hydrateData = props => {
+export const hydrateData = (props) => {
   return {
     labels: props.labels,
     datasets: [

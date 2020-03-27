@@ -7,10 +7,9 @@ import {
   hydrateData,
 } from "../../propTypes/ChartPropTypes.js";
 import { Container } from "../Chart";
-import StylesVariables from "../../constants/StylesVariables";
 
 const pluginLabel = {
-  afterDraw: chart => {
+  afterDraw: (chart) => {
     const ctx = chart.ctx;
     chart.data.datasets.forEach((dataset, i) => {
       const meta = chart.getDatasetMeta(i);
@@ -20,7 +19,8 @@ const pluginLabel = {
           ctx.fillStyle = "rgb(0, 0, 0)";
           const fontSize = "16";
           const fontStyle = "normal";
-          const fontFamily = StylesVariables.fontFamily;
+          const fontFamily =
+            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif";
           ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
           // Just naively convert to string for now
           const dataString = dataset.data[index].toString();
@@ -36,7 +36,7 @@ const pluginLabel = {
   },
 };
 
-const BarChart = props => {
+const BarChart = (props) => {
   const data = {
     ...hydrateData(props),
   };

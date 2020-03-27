@@ -2,9 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import request from "..";
-
 import { POST } from "../../constants/Api";
+import request from "..";
 
 const requestData = {
   about: "Hourly NeedsDiagnosis issues count",
@@ -117,8 +116,8 @@ describe("testing api: GET", () => {
         endpoint: "endpoint",
       },
       {
-        onSuccess: payload => expect(payload.timeline).toEqual(responseData),
-        onError: payload => {},
+        onSuccess: (payload) => expect(payload.timeline).toEqual(responseData),
+        onError: (payload) => {},
       },
     );
   });
@@ -140,8 +139,8 @@ describe("testing api: POST", () => {
         },
       },
       {
-        onSuccess: payload => expect(payload.timeline).toEqual(responseData),
-        onError: payload => {},
+        onSuccess: (payload) => expect(payload.timeline).toEqual(responseData),
+        onError: (payload) => {},
       },
     );
   });
@@ -163,8 +162,8 @@ describe("testing api: erreur", () => {
         },
       },
       {
-        onSuccess: payload => {},
-        onError: payload => expect(payload).toEqual("Message error"),
+        onSuccess: (payload) => {},
+        onError: (payload) => expect(payload).toEqual("Message error"),
       },
     );
   });

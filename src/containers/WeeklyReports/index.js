@@ -7,10 +7,11 @@ import dayjs from "dayjs";
 
 import BarChart from "../../components/BarChart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested, Router } from "../../libraries";
+import { ObjectNested } from "../../libraries";
 import { mostAndLeast, normalize } from "../../modules/Chart";
+import Router from "../../routes";
 
-const handleData = data => {
+const handleData = (data) => {
   const localData = ObjectNested.get(data, "timeline", {});
   return {
     globalStats: mostAndLeast(localData),
@@ -26,15 +27,10 @@ const WeeklyReports = () => {
       subtitle={"Tracking weekly volume of new issues"}
       normalizeData={handleData}
       injectedFilters={{
-        from: dayjs()
-          .subtract(2, "month")
-          .startOf("week")
-          .format("YYYY-MM-DD"),
-        to: dayjs()
-          .startOf("week")
-          .format("YYYY-MM-DD"),
+        from: dayjs().subtract(2, "month").startOf("week").format("YYYY-MM-DD"),
+        to: dayjs().startOf("week").format("YYYY-MM-DD"),
       }}
-      renderChart={data => (
+      renderChart={(data) => (
         <BarChart
           title={"Issues Reported per Week"}
           fill={true}

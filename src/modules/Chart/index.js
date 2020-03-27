@@ -122,7 +122,7 @@ export const mostAndLeast = (stats = {}) => {
  * @param {string} minDate
  * @return {object}
  */
-export const getTemporaryDefaultFilters = minDate => {
+export const getTemporaryDefaultFilters = (minDate) => {
   const today = dayjs();
   const oneMonthBefore = today.subtract(1, "month");
   const to = today.format("YYYY-MM-DD");

@@ -2,19 +2,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-:root {
-  --fontSize: var(--fontSize);
-  --marginLeftComponent: var(--widthMenu);
-  --paddingTop: var(--heightHeader);
-  --paddingLeft: var(--widthMenu);
-}
-
 .component {
   font-size: var(--fontSize);
   overflow-x: hidden;
   flex: 1;
   flex-direction: column;
-  padding: var(--paddingTop) 0 0 var(--paddingLeft);
+  padding: var(--heightHeader) 0 0 var(--widthMenu);
   background-color: #f6f8f8;
   will-change: padding;
   transition: padding .16s linear 0s;
