@@ -4,18 +4,26 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
 
 import classes from "./styles.css";
 
 const Link = ({ to, text, icon, onClick }) => {
+  const router = useRouter();
   return (
-    <NavLink onClick={onClick} activeClassName={classes.active} to={to}>
-      <div className={classes.component}>
-        {icon && <div className={classes.icon}>{icon}</div>}
-        {text && <div className={classes.text}>{text}</div>}
-      </div>
-    </NavLink>
+    <NextLink href={to}>
+      <a
+        onClick={onClick}
+        {...(router.pathname === to && {
+          className: classes.active,
+        })}>
+        <div className={classes.component}>
+          {icon && <div className={classes.icon}>{icon}</div>}
+          {text && <div className={classes.text}>{text}</div>}
+        </div>
+      </a>
+    </NextLink>
   );
 };
 

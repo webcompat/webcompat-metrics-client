@@ -3,10 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 :root {
-  --fontSize: var(--fontSize);
-  --widthComponent: var(--widthMenu);
-  --topComponent: var(--heightHeader);
-  --backgroundColor: var(--colorDark);
   --heightFooter: 4.7em;
 }
 
@@ -16,8 +12,8 @@
   font-size: var(--fontSize);
   position: fixed;
   left: 0;
-  top: var(--topComponent);
-  width: var(--widthComponent);
+  top: var(--heightHeader);
+  width: var(--widthMenu);
   height: calc(100% - var(--heightHeader));
   will-change: transform;
   transform: translate(-100%);
@@ -39,7 +35,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: var(--backgroundColor);
+  background-color: var(--colorDark);
   color: #fff;
 }
 

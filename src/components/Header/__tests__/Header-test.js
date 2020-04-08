@@ -6,18 +6,11 @@ import React from "react";
 import renderer from "react-test-renderer";
 import sinon from "sinon";
 import { shallow } from "enzyme";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import Header from "..";
 
 it("renders Header default correctly", () => {
-  const tree = renderer
-    .create(
-      <Router>
-        <Header />
-      </Router>,
-    )
-    .toJSON();
+  const tree = renderer.create(<Header />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 

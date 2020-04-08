@@ -1,7 +1,16 @@
 /* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
- 
+
+:root {
+  --fontFamily: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  --fontSize: 1rem;
+  --colorMain: #ffc900;
+  --colorDark: #404040;
+  --widthMenu: 16em;
+  --heightHeader: 4.75em;
+}
+
 html,
 body {
   margin: 0;
@@ -18,21 +27,24 @@ body {
   background-color: #fff;
   color: var(--colorDark);
 }
+
 main {
   display: flex;
   min-height: 100vh;
 }
 
-html {box-sizing: border-box}
+html {
+  box-sizing: border-box;
+  border-collapse: collapse;
+}
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
-html {border-collapse: collapse}
-* {border-collapse: inherit}
+* { border-collapse: inherit; }
 
 a {
   text-decoration: none;

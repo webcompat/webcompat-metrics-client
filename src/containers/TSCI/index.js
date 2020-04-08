@@ -5,10 +5,10 @@
 import React from "react";
 
 import MetricsTemplate from "../MetricsTemplate";
-import { Router } from "../../libraries";
+import Router from "../../routes";
 import FramedChart from "../../components/FramedChart";
 
-const handleData = data => {
+const handleData = (data) => {
   return {
     spreadsheetId: data.currentDoc,
   };
@@ -26,7 +26,7 @@ const TSCI = () => {
       shouldRenderCommonFilters={false}
       shouldRenderHeader={false}
       shouldRenderSimpleStat={false}
-      renderChart={data => {
+      renderChart={(data) => {
         return (
           <FramedChart
             spreadsheetId={data.spreadsheetId}

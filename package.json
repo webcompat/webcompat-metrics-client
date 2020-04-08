@@ -1,11 +1,10 @@
 {
   "name": "webcompat-metrics-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "An application to power metrics for webcompat.com",
   "license": "MPL-2.0",
   "private": true,
   "author": "webcompat",
-  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/webcompat/webcompat-metrics-client.git"
@@ -15,114 +14,59 @@
   },
   "homepage": "https://github.com/webcompat/webcompat-metrics-client#readme",
   "engines": {
-    "node": ">=12.6.0"
+    "node": ">=13"
   },
   "scripts": {
-    "build": "npm run clean && webpack --env.NODE_ENV=production --progress --colors",
-    "clean": "shx rm -rf build && shx mkdir build",
-    "heroku-postbuild": "npm run build",
+    "build": "next build",
+    "dev": "next",
     "lint": "npm run lint:JS && npm run lint:CSS",
-    "lint:JS": "eslint ./server ./webpack.config.js ./src ./scripts",
+    "lint:JS": "eslint ./next.config.js ./postcss.config.js ./src ./scripts",
     "lint:CSS": "stylelint \"./src/**/*.css\" ",
     "fix": "npm run lint:fix:JS && npm run lint:fix:CSS",
     "lint:fix:JS": "npm run lint:JS -- --fix",
     "lint:fix:CSS": "npm run lint:CSS -- --fix",
-    "start": "node server",
-    "start:dev": "webpack-dev-server --env.NODE_ENV=development --progress --colors",
+    "start": "next start",
     "test": "npm run lint && npm run test:jest",
     "test:jest": "jest --runInBand --detectOpenHandles --coverage --forceExit",
     "test:watch": "npm run test:jest -- --watch"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "babel-plugin-inline-react-svg": "^1.1.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chart.js": "^2.9.3",
     "dayjs": "^1.8.21",
-    "express": "^4.17.1",
+    "dotenv-webpack": "^1.7.0",
+    "next": "^9.3.4",
+    "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-svg-inline": "^2.1.1",
-    "simple-json-fetch": "^1.0.1"
+    "react-dom": "^16.12.0",
+    "simple-json-fetch": "^1.0.1",
+    "webpack-filter-warnings-plugin": "^1.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-spread": "^7.2.2",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
-    "dotenv-webpack": "^1.7.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
-    "eslint-config-i-am-meticulous": "^11.0.0",
+    "eslint-config-i-am-meticulous": "^12.0.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
-    "favicons-webpack-plugin": "^3.0.1",
-    "html-webpack-plugin": "^4.0.1",
     "identity-obj-proxy": "^3.0.0",
-    "imports-loader": "^0.8.0",
-    "jest": "^25.1.0",
+    "jest": "^25.2.6",
     "jest-fetch-mock": "^3.0.1",
-    "postcss": "^7.0.27",
-    "postcss-browser-reporter": "^0.6.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-import": "^12.0.1",
-    "postcss-loader": "^3.0.0",
-    "postcss-reporter": "^6.0.1",
-    "prettier": "^1.19.1",
-    "raw-loader": "^4.0.0",
+    "prettier": "^2.0.2",
     "react-test-renderer": "^16.12.0",
-    "shx": "^0.3.2",
     "sinon": "^9.0.0",
-    "style-loader": "^1.0.0",
     "stylelint": "^13.2.0",
-    "stylelint-config-standard": "^20.0.0",
-    "webpack": "^4.35.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "babel": {
-    "env": {
-      "development": {
-        "presets": [
-          "@babel/preset-react",
-          "@babel/preset-env"
-        ],
-        "plugins": [
-          "@babel/plugin-transform-spread"
-        ]
-      },
-      "test": {
-        "presets": [
-          "@babel/preset-react",
-          "@babel/preset-env"
-        ],
-        "plugins": [
-          "@babel/plugin-transform-spread"
-        ]
-      },
-      "production": {
-        "presets": [
-          "@babel/preset-react",
-          "@babel/preset-env"
-        ],
-        "plugins": [
-          [
-            "babel-plugin-transform-react-remove-prop-types",
-            {
-              "mode": "wrap"
-            }
-          ],
-          "@babel/plugin-transform-spread"
-        ]
-      }
-    }
+    "stylelint-config-standard": "^19.0.0"
   },
   "jest": {
     "verbose": true,
@@ -144,7 +88,8 @@
       "<rootDir>/scripts/"
     ],
     "setupFiles": [
-      "<rootDir>/scripts/test-setup.js"
+      "<rootDir>/scripts/test-setup.js",
+      "<rootDir>/scripts/__mocks__/userRouter.js"
     ],
     "testURL": "http://localhost:3001/?from=2018-04-25&to=2018-05-25"
   }

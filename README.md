@@ -1,7 +1,5 @@
 # [webcompat-metrics-client][website]
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/webcompat/webcompat-metrics-client.svg)](https://greenkeeper.io/)
-
 [website]: https://webcompat.com/
 
 [![CircleCI status]][circle-ci]
@@ -9,7 +7,7 @@
 [![appveyor status]][appveyor-ci]
 [![PRs Welcome]][make-a-pull-request]
 
-webcompat-metrics is a JavaScript application using [React] and [Redux] to power metrics for [webcompat.com]
+webcompat-metrics is a JavaScript application using [Next.js] and [React] to power metrics for [webcompat.com]
 
 ### Quick Setup
 
@@ -19,10 +17,21 @@ git clone https://github.com/webcompat/webcompat-metrics-client.git
 cd webcompat-metrics-client
 
 yarn
-yarn start:dev
+yarn dev
 # or
 npm install
-npm run start:dev
+npm run dev
+# Go to http://localhost:3001
+```
+
+### Production
+
+```bash
+yarn build
+yarn start
+# or
+npm run build
+npm run start
 # Go to http://localhost:3001
 ```
 
@@ -31,7 +40,7 @@ npm run start:dev
 
 You can create a `.env` file (or copy `.env.example`) and modify variables, make sure variables are all set.
 
-By default `.env.defaults` is loaded and injected through the [Webpack] configuration.
+By default `.env.defaults` is loaded and injected through the [Next.js] configuration.
 
 ### Testing
 
@@ -66,15 +75,15 @@ npm run test:jest -- -u
 
 ### How to Add a New Dashboard
 
-1. Add an endpoint for the new dashboard in [`src/constants/EndPoints.js`](https://github.com/webcompat/webcompat-metrics-client/blob/a65bcd87702425fba9f39fa6d026c1bcb2e488c0/src/constants/EndPoints.js#L12).
+1. Add an endpoint for the new dashboard in [`src/routes/index.js`](https://github.com/webcompat/webcompat-metrics-client/blob/8ab26fa6475ea376d0ea4dafdd520f6a73faec11/src/routes/index.js#L14).
    
-2. Add a link to the sidebar menu in [`src/containers/Navigation/index.js`](https://github.com/webcompat/webcompat-metrics-client/blob/a65bcd87702425fba9f39fa6d026c1bcb2e488c0/src/containers/Navigation/index.js#L52).
+2. Add a new container directory for your dashboard in the `src/containers/` directory, and build a container for it using the[`MetricsTemplate` model](https://github.com/webcompat/webcompat-metrics-client/blob/a65bcd87702425fba9f39fa6d026c1bcb2e488c0/src/containers/MetricsTemplate/index.js#L24).
    
-3. Add a new container directory for your dashboard in the `src/containers/` directory, and build a container for it using the[`MetricsTemplate` model](https://github.com/webcompat/webcompat-metrics-client/blob/a65bcd87702425fba9f39fa6d026c1bcb2e488c0/src/containers/MetricsTemplate/index.js#L24).
-   
-4. Add at least one test for your new dashboard container in a `__tests__` directory inside your container directory.
-   
-5. Map your new dashboard component to your new route in [`src/layouts/index.js`](https://github.com/webcompat/webcompat-metrics-client/blob/a65bcd87702425fba9f39fa6d026c1bcb2e488c0/src/layouts/index.js#L24).
+3. Add at least one test for your new dashboard container in a `__tests__` directory inside your container directory.
+
+4. Add a new page in [`src/pages`](https://github.com/webcompat/webcompat-metrics-client/tree/8ab26fa6475ea376d0ea4dafdd520f6a73faec11/src/pages).
+
+5. Import your new dashboard component to your new page in [`src/pages`](https://github.com/webcompat/webcompat-metrics-client/blob/8ab26fa6475ea376d0ea4dafdd520f6a73faec11/src/pages/needstriage.js#L5-L19).
    
 6. Update the [Jest] snapshots so that they will include your new dashboard views -- as shown in the [testing](#testing) section.
 
@@ -103,6 +112,6 @@ Webcompat has adopted a Code of Conduct that we expect project participants to a
 [webcompat.com]: https://webcompat.com
 [webpack]: https://webpack.js.org/
 [react]: https://reactjs.org/
-[redux]: https://redux.js.org/
+[next.js]: https://nextjs.org/
 [code of conduct]: https://github.com/webcompat/webcompat-metrics-client/blob/master/CODE_OF_CONDUCT.md
 [the full text]: https://github.com/webcompat/webcompat-metrics-client/blob/master/CODE_OF_CONDUCT.md

@@ -13,9 +13,8 @@ import {
 } from "../../components/Ui";
 import Header from "../../components/Header";
 import { Link } from "../../components/Menu";
-import Svg from "../../components/Svg";
-import SVGBugdiagnosis from "../../assets/svg/Bugdiagnosis.svg";
-import SVGBCard from "../../assets/svg/iconmonstr-menu-4.svg";
+import SVGBugdiagnosis from "../../static/svg/Bugdiagnosis.svg";
+import SVGBCard from "../../static/svg/iconmonstr-menu-4.svg";
 
 class NavigationContainer extends React.Component {
   constructor(props) {
@@ -33,7 +32,7 @@ class NavigationContainer extends React.Component {
   }
 
   handleClick() {
-    this.setState(prevState => ({ isOpened: !prevState.isOpened }));
+    this.setState((prevState) => ({ isOpened: !prevState.isOpened }));
   }
 
   handleResize() {
@@ -52,49 +51,49 @@ class NavigationContainer extends React.Component {
           <Link
             to="/weeklyreports"
             text={"Weekly Issue Reports"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/needstriage"
             text={"Needs Triage"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/triage"
             text={"Triage"}
-            icon={<Svg svg={SVGBCard} />}
+            icon={<SVGBCard />}
             onClick={this.handleResize}
           />
           <Link
             to="/needsdiagnosis"
             text={"Needs Diagnosis"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/needscontact"
             text={"Needs Contact"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/contactready"
             text={"Contact Ready"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/sitewait"
             text={"Site Wait"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
           <Link
             to="/tsci"
             text={"Top Site Compatibility Index"}
-            icon={<Svg svg={SVGBugdiagnosis} />}
+            icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
         </PinningMenu>

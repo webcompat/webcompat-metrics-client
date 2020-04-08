@@ -4,17 +4,16 @@
 
 import React from "react";
 
-import Svg from "../Svg";
-import SvgDost from "../../assets/svg/stats-dots.svg";
+import SvgDost from "../../static/svg/stats-dots.svg";
 
 import classes from "./styles.css";
 import Container from "./Container";
 
-const Fetch = props => {
+const Fetch = (props) => {
   return (
     <Container title={"Rendering Chart"}>
       <div className={classes.fetch}>
-        <Svg svg={SvgDost} fill="#58666e" width={"7em"} height={"7em"} />
+        <SvgDost fill="#58666e" width={"7em"} height={"7em"} />
         <div className={classes.fetchTitle}>Rendering Chart...</div>
       </div>
     </Container>

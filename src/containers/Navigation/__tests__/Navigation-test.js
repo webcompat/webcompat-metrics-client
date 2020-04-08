@@ -4,11 +4,20 @@
 
 import React from "react";
 import renderer from "react-test-renderer";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import NavigationContainer from "..";
 
 it("renders NavigationContainer default correctly", () => {
+  jest.mock("next/router", () => ({
+    useRouter() {
+      return {
+        route: "/",
+        pathname: "",
+        query: "",
+        asPath: "",
+      };
+    },
+  }));
   Object.defineProperty(window, "matchMedia", {
     value: jest.fn(() => {
       return { matches: false };
@@ -16,11 +25,9 @@ it("renders NavigationContainer default correctly", () => {
   });
   const tree = renderer
     .create(
-      <Router>
-        <NavigationContainer>
-          <div>Content</div>
-        </NavigationContainer>
-      </Router>,
+      <NavigationContainer>
+        <div>Content</div>
+      </NavigationContainer>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

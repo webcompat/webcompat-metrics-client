@@ -5,17 +5,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Svg from "../Svg";
-import SvgBulb from "../../assets/svg/bulb.svg";
+import SvgBulb from "../../static/svg/bulb.svg";
 
 import classes from "./styles.css";
 import Container from "./Container";
 
-const Error = props => {
+const Error = (props) => {
   return (
     <Container title={props.title}>
       <div className={classes.fetch}>
-        <Svg svg={SvgBulb} fill="#58666e" width={"7em"} height={"7em"} />
+        <SvgBulb fill="#58666e" width={"7em"} height={"7em"} />
         <div className={classes.fetchTitle}>{props.message}</div>
       </div>
     </Container>

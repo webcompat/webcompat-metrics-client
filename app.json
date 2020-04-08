@@ -1,15 +1,9 @@
 {
-  "name": "webcompat-metrics-client",
-  "description": "Webcompat dashboard client",
-  "scripts": {
+  "name": "webcompat-metrics",
+  "description": "An application to power metrics for webcompat.com",
+  "engines": {
+    "node": ">=13"
   },
-  "env": {
-  },
-  "formation": {
-  },
-  "addons": [
-
-  ],
   "buildpacks": [
     {
       "url": "heroku/nodejs"

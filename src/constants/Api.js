@@ -15,7 +15,7 @@ export const CONFIG_API = {
 
 /* default fallback */
 export const CALLBACK_API = {
-  onSuccess: payload => {},
-  onError: payload => {},
+  onSuccess: (payload) => {},
+  onError: (payload) => {},
   onFinish: (payload, isError) => {},
 };

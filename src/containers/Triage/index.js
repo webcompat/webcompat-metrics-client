@@ -8,9 +8,10 @@ import MetricsTemplate from "../MetricsTemplate";
 import Select from "../../components/Select";
 import { Container } from "../../components/Chart";
 import { Container as ContainerIssue, Issue } from "../../components/Issue";
-import { Router, ObjectNested } from "../../libraries";
+import { ObjectNested } from "../../libraries";
 import { parse } from "../../modules/Triage";
 import { CARD_LAYOUT } from "../../constants/View";
+import Router from "../../routes";
 
 class Triage extends React.PureComponent {
   constructor(props) {
@@ -47,7 +48,10 @@ class Triage extends React.PureComponent {
    * get view pref relay on localStorage
    */
   getViewPrefRelayOnLocalStorage() {
-    const localView = localStorage.getItem("DashboardTriageView");
+    let localView;
+    if (process.browser) {
+      localView = localStorage.getItem("DashboardTriageView");
+    }
     return localView ? localView : CARD_LAYOUT;
   }
 
@@ -55,7 +59,9 @@ class Triage extends React.PureComponent {
    * saved view pref on localStorage
    */
   savedViewPrefOnLocalStorage(viewPref) {
-    localStorage.setItem("DashboardTriageView", viewPref);
+    if (process.browser) {
+      localStorage.setItem("DashboardTriageView", viewPref);
+    }
   }
 
   render() {
@@ -116,7 +122,7 @@ class Triage extends React.PureComponent {
             />
           </React.Fragment>
         )}
-        renderChart={data => (
+        renderChart={(data) => (
           <Container title={"Open issues in needstriage milestone"}>
             <ContainerIssue mode={this.state.viewMode}>
               {ObjectNested.get(data, "data", []).map((issue, key) => {

@@ -43,7 +43,7 @@ const request = (args = {}, callback = CALLBACK_API) => {
   }
   if (POST === method && !isEmptyObject(parameters)) {
     const formData = new FormData();
-    Object.keys(parameters).forEach(key => {
+    Object.keys(parameters).forEach((key) => {
       // Case array / object
       if ("object" === typeof parameters[key]) {
         for (const i in parameters[key]) {
@@ -61,8 +61,8 @@ const request = (args = {}, callback = CALLBACK_API) => {
   }
 
   return jsonFetch(requestUrl, requestConfig).then(
-    response => callback.onSuccess(response.json),
-    response => callback.onError(response),
+    (response) => callback.onSuccess(response.json),
+    (response) => callback.onError(response),
   );
 };
 

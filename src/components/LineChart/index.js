@@ -8,7 +8,7 @@ import {
 } from "../../propTypes/ChartPropTypes.js";
 import { Container } from "../Chart";
 
-const LineChart = props => {
+const LineChart = (props) => {
   const data = {
     ...hydrateData(props),
   };

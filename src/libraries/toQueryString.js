@@ -12,7 +12,7 @@
 const toQueryString = (object = {}, base) => {
   const queryString = [];
 
-  Object.keys(object).forEach(key => {
+  Object.keys(object).forEach((key) => {
     let result;
     const value = object[key];
 

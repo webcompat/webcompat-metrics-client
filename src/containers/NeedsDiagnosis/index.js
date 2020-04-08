@@ -6,10 +6,11 @@ import React from "react";
 
 import LineChart from "../../components/LineChart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested, Router } from "../../libraries";
+import { ObjectNested } from "../../libraries";
 import { mostAndLeast, normalize } from "../../modules/Chart";
+import Router from "../../routes";
 
-const handleData = data => {
+const handleData = (data) => {
   const localData = ObjectNested.get(data, "timeline", {});
   return {
     globalStats: mostAndLeast(localData),
@@ -24,7 +25,7 @@ const NeedsDiagnosis = () => {
       title={"Needs diagnosis dashboard"}
       subtitle={"Tracking issue diagnosis burndown rate"}
       normalizeData={handleData}
-      renderChart={data => (
+      renderChart={(data) => (
         <LineChart
           title={"Open issues in needsdiagnosis milestone"}
           label={""}

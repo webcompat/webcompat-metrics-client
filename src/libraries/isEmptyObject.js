@@ -7,7 +7,7 @@
  * @param  {object} object
  * @return {boolean}
  */
-const isEmptyObject = object => {
+const isEmptyObject = (object) => {
   if (!object || typeof object !== "object") {
     return false;
   }

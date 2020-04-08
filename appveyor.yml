@@ -8,7 +8,7 @@ matrix:
 
 environment:
   matrix:
-  - nodejs_version: "12"
+  - nodejs_version: "13"
     platform: x64
     
 install:
