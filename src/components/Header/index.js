@@ -7,8 +7,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 
 //import Svg from "../Svg";
-import SVGLogo from "../../static/Logo/logo.svg";
-
+import SVGLogo from "./logo.svg";
 import SVGMenu from "./menu.svg";
 import classes from "./styles.css";
 
