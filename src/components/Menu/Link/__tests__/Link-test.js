@@ -6,7 +6,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import sinon from "sinon";
 
-import SVGBugdiagnosis from "../../../../static/svg/Bugdiagnosis.svg";
+import SVGBugdiagnosis from "../../../../containers/Navigation/Bugdiagnosis.svg";
 import Link from "..";
 
 it("renders Link default correctly", () => {
