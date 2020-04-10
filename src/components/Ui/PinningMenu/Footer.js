@@ -4,9 +4,8 @@
 
 import React from "react";
 
-import SVGTwitter from "../../../static/svg/iconmonstr-twitter-1.svg";
-import SVGGithub from "../../../static/svg/iconmonstr-github-1.svg";
-
+import SVGTwitter from "./iconmonstr-twitter-1.svg";
+import SVGGithub from "./iconmonstr-github-1.svg";
 import classes from "./styles.css";
 
 const Footer = (props) => {

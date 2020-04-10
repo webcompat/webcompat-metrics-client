@@ -5,8 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import SvgBulb from "../../static/svg/bulb.svg";
-
+import SvgBulb from "./bulb.svg";
 import classes from "./styles.css";
 import Container from "./Container";
 

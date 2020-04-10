@@ -4,8 +4,7 @@
 
 import React from "react";
 
-import SvgDost from "../../static/svg/stats-dots.svg";
-
+import SvgDost from "./stats-dots.svg";
 import classes from "./styles.css";
 import Container from "./Container";
 

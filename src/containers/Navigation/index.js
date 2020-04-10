@@ -13,8 +13,9 @@ import {
 } from "../../components/Ui";
 import Header from "../../components/Header";
 import { Link } from "../../components/Menu";
-import SVGBugdiagnosis from "../../static/svg/Bugdiagnosis.svg";
-import SVGBCard from "../../static/svg/iconmonstr-menu-4.svg";
+
+import SVGBugdiagnosis from "./Bugdiagnosis.svg";
+import SVGBCard from "./iconmonstr-menu-4.svg";
 
 class NavigationContainer extends React.Component {
   constructor(props) {
