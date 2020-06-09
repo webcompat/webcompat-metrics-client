@@ -92,6 +92,12 @@ class NavigationContainer extends React.Component {
             onClick={this.handleResize}
           />
           <Link
+            to="/intervention"
+            text={"Firefox interventions"}
+            icon={<SVGBugdiagnosis />}
+            onClick={this.handleResize}
+          />
+          <Link
             to="/tsci"
             text={"Top Site Compatibility Index"}
             icon={<SVGBugdiagnosis />}
