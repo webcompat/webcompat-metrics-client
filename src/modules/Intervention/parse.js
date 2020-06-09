@@ -2,7 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { isEmptyObject } from "../../libraries";
 import { INTERVENTION_COUNTER_LIST } from "../../constants/Charts";
 
 /**
@@ -11,7 +10,8 @@ import { INTERVENTION_COUNTER_LIST } from "../../constants/Charts";
  * @return {array}
  */
 const parse = (data) => {
-  if (isEmptyObject(data)) {
+  const counterList = JSON.parse(JSON.stringify(INTERVENTION_COUNTER_LIST));
+  if (!Array.isArray(data) && data.length === 0) {
     return [];
   }
 
@@ -22,14 +22,14 @@ const parse = (data) => {
     const counters = stat.counters;
     for (const property in counters) {
       const count = counters[property];
-      if (INTERVENTION_COUNTER_LIST[property]) {
-        INTERVENTION_COUNTER_LIST[property].data.push(count);
+      if (counterList[property]) {
+        counterList[property].data.push(count);
       }
     }
   }
   return {
     dates,
-    counters: Object.values(INTERVENTION_COUNTER_LIST),
+    counters: Object.values(counterList),
   };
 };
 
