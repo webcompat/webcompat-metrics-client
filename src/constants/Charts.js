@@ -18,7 +18,7 @@ export const INTERVENTION_COUNTER_DESKTOP_VALUE = "desktop";
 
 export const INTERVENTION_COUNTER_LIST = {
   [INTERVENTION_COUNTER_ALL_VALUE]: {
-    label: "Number of interventions all platforms",
+    label: "All platforms",
     data: [],
     borderColor: "#EC932F",
     backgroundColor: "#EC932F",
@@ -28,7 +28,7 @@ export const INTERVENTION_COUNTER_LIST = {
     pointHoverBorderColor: "#EC932F",
   },
   [INTERVENTION_COUNTER_ANDROID_VALUE]: {
-    label: "Number of interventions affecting android",
+    label: "Affecting android",
     data: [],
     borderColor: "#36a2eb",
     backgroundColor: "#36a2eb",
@@ -38,7 +38,7 @@ export const INTERVENTION_COUNTER_LIST = {
     pointHoverBorderColor: "#36a2eb",
   },
   [INTERVENTION_COUNTER_DESKTOP_VALUE]: {
-    label: "Number of interventions affecting desktop",
+    label: "Affecting desktop",
     data: [],
     borderColor: "#ff6384",
     backgroundColor: "#ff6384",
