@@ -21,36 +21,56 @@ const Intervention = () => {
       subtitle={
         "Tracking available and deployed WebCompat interventions in Firefox products"
       }
-      normalizeData={(data) => {
-        return interventionParse(data);
-      }}
+      normalizeData={(data) => interventionParse(data)}
       shouldRenderCommonFilters={false}
       renderFilters={(handleChange, filters) => (
         <Filters onChange={handleChange} filters={filters} />
       )}
       injectedFilters={{
-        end: dayjs().format("YYYY-MM-DD"),
         start: dayjs().startOf("year").format("YYYY-MM-DD"),
+        end: dayjs().format("YYYY-MM-DD"),
         distribution: "upstream",
         type: "all",
       }}
+      shouldRenderSimpleStat={false}
+      nameFieldDateTo={"end"}
+      nameFieldDateFrom={"start"}
       renderChart={(data) => (
         <LineChart
-          title={"Firefox Interventions"}
+          title={"Number of interventions"}
           label={""}
           labels={ObjectNested.get(data, "dates", [])}
           legend={{ display: true, position: "bottom" }}
           data={ObjectNested.get(data, "counters", [])}
           multiple={true}
           options={{
+            responsive: true,
+            tooltips: {
+              mode: "index",
+            },
+            hover: {
+              mode: "index",
+            },
             scales: {
               xAxes: [
                 {
+                  scaleLabel: {
+                    display: true,
+                  },
                   type: "time",
                   distribution: "linear",
                   time: {
-                    minUnit: "hour",
+                    minUnit: "month",
                   },
+                  stacked: true,
+                },
+              ],
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                  },
+                  stacked: true,
                 },
               ],
             },
