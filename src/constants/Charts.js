@@ -18,7 +18,7 @@ export const INTERVENTION_COUNTER_DESKTOP_VALUE = "desktop";
 
 export const INTERVENTION_COUNTER_LIST = {
   [INTERVENTION_COUNTER_ALL_VALUE]: {
-    label: "All platforms",
+    label: "Universal",
     data: [],
     borderColor: "#EC932F",
     backgroundColor: "#EC932F",
