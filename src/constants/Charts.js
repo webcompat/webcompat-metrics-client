@@ -26,6 +26,7 @@ export const INTERVENTION_COUNTER_LIST = {
     pointBackgroundColor: "#EC932F",
     pointHoverBackgroundColor: "#EC932F",
     pointHoverBorderColor: "#EC932F",
+    fill: "origin",
   },
   [INTERVENTION_COUNTER_ANDROID_VALUE]: {
     label: "Affecting android",
@@ -36,6 +37,7 @@ export const INTERVENTION_COUNTER_LIST = {
     pointBackgroundColor: "#36a2eb",
     pointHoverBackgroundColor: "#36a2eb",
     pointHoverBorderColor: "#36a2eb",
+    fill: "0",
   },
   [INTERVENTION_COUNTER_DESKTOP_VALUE]: {
     label: "Affecting desktop",
@@ -46,5 +48,6 @@ export const INTERVENTION_COUNTER_LIST = {
     pointBackgroundColor: "#ff6384",
     pointHoverBackgroundColor: "#ff6384",
     pointHoverBorderColor: "#ff6384",
+    fill: "1",
   },
 };
