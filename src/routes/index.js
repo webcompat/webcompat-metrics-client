@@ -47,4 +47,8 @@ routerInstance.defineRoute("/tsci-doc", "tsci-doc", {
   baseUrl: API_BASE_URL,
 });
 
+routerInstance.defineRoute("/firefox-interventions", "firefox-interventions", {
+  baseUrl: API_BASE_URL,
+});
+
 export default routerInstance;

@@ -25,55 +25,70 @@ export const propTypes = {
   data: PropTypes.array.isRequired,
   legend: PropTypes.object,
   options: PropTypes.object,
+  multiple: PropTypes.bool,
 };
 
 export const defaultProps = {
   label: "issues: ",
   fill: false,
   lineTension: 0.1,
-  backgroundColor: "rgba(75,192,192,0.4)",
-  borderColor: "rgba(75,192,192,1)",
   borderCapStyle: "butt",
   borderDash: [],
   borderDashOffset: 0.0,
   borderJoinStyle: "miter",
-  pointBorderColor: "rgba(75,192,192,1)",
-  pointBackgroundColor: "#fff",
   pointBorderWidth: 1,
   pointHoverRadius: 5,
-  pointHoverBackgroundColor: "rgba(75,192,192,1)",
-  pointHoverBorderColor: "rgba(220,220,220,1)",
+  borderColor: "#71B37C",
+  backgroundColor: "#71B37C",
+  pointBorderColor: "#71B37C",
+  pointBackgroundColor: "#71B37C",
+  pointHoverBackgroundColor: "#71B37C",
+  pointHoverBorderColor: "#71B37C",
   pointHoverBorderWidth: 2,
   pointRadius: 0,
   pointHitRadius: 10,
   options: {},
+  multiple: false,
 };
 
 export const hydrateData = (props) => {
   return {
     labels: props.labels,
-    datasets: [
-      {
-        label: props.label,
-        fill: props.fill,
-        lineTension: props.lineTension,
-        backgroundColor: props.backgroundColor,
-        borderColor: props.borderColor,
-        borderCapStyle: props.borderCapStyle,
-        borderDash: props.borderDash,
-        borderDashOffset: props.borderDashOffset,
-        borderJoinStyle: props.borderJoinStyle,
-        pointBorderColor: props.pointBorderColor,
-        pointBackgroundColor: props.pointBackgroundColor,
-        pointBorderWidth: props.pointBorderWidth,
-        pointHoverRadius: props.pointHoverRadius,
-        pointHoverBackgroundColor: props.pointHoverBackgroundColor,
-        pointHoverBorderColor: props.pointHoverBorderColor,
-        pointHoverBorderWidth: props.pointHoverBorderWidth,
-        pointRadius: props.pointRadius,
-        pointHitRadius: props.pointHitRadius,
-        data: props.data,
-      },
-    ],
+    datasets: props.multiple
+      ? props.data.map((dataset) => {
+          return {
+            ...dataset,
+            ...getHydrateOptionList({ ...props, ...dataset }),
+          };
+        })
+      : [
+          {
+            label: props.label,
+            data: props.data,
+            ...getHydrateOptionList(props),
+          },
+        ],
+  };
+};
+
+const getHydrateOptionList = (props) => {
+  return {
+    fill: props.fill,
+    lineTension: props.lineTension,
+    backgroundColor: props.backgroundColor,
+    borderColor: props.borderColor,
+    borderCapStyle: props.borderCapStyle,
+    borderDash: props.borderDash,
+    borderDashOffset: props.borderDashOffset,
+    borderJoinStyle: props.borderJoinStyle,
+    pointBorderColor: props.pointBorderColor,
+    pointBackgroundColor: props.pointBackgroundColor,
+    pointBorderWidth: props.pointBorderWidth,
+    pointHoverRadius: props.pointHoverRadius,
+    pointHoverBackgroundColor: props.pointHoverBackgroundColor,
+    pointHoverBorderColor: props.pointHoverBorderColor,
+    pointHoverBorderWidth: props.pointHoverBorderWidth,
+    pointRadius: props.pointRadius,
+    pointHitRadius: props.pointHitRadius,
   };
 };

@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Component default correctly 1`] = `
+<section>
+  <div
+    className="component"
+    style={Object {}}
+  >
+    <h2
+      className="title"
+    >
+      Firefox WebCompat interventions
+    </h2>
+    <h3
+      className="subtitle"
+    >
+      Tracking available and deployed WebCompat interventions in Firefox products
+    </h3>
+  </div>
+  <header
+    className="header"
+    style={Object {}}
+  >
+    <section>
+      <h3
+        className="headerTitle"
+      >
+        25 April 2018 - 25 May 2018
+      </h3>
+    </section>
+    <section>
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="component"
+          name="start"
+          onChange={[Function]}
+          placeholder="From"
+          type="date"
+          value="2020-01-01"
+        />
+        <input
+          className="component"
+          name="end"
+          onChange={[Function]}
+          placeholder="To"
+          type="date"
+          value="2020-06-12"
+        />
+        <div
+          className="component"
+        >
+          <select
+            className="select"
+            name="distribution"
+            onChange={[Function]}
+            value="upstream"
+          >
+            <option
+              value="upstream"
+            >
+              Upstream
+            </option>
+            <option
+              value="android-components"
+            >
+              Android components
+            </option>
+            <option
+              value="mozilla-central"
+            >
+              Mozilla central
+            </option>
+            <option
+              value="mozilla-beta"
+            >
+              Mozilla beta
+            </option>
+            <option
+              value="mozilla-release"
+            >
+              Mozilla release
+            </option>
+          </select>
+          <div
+            aria-hidden="true"
+            className="arrow"
+          />
+        </div>
+        <div
+          className="component"
+        >
+          <select
+            className="select"
+            name="type"
+            onChange={[Function]}
+            value="all"
+          >
+            <option
+              value="all"
+            >
+              All Interventions
+            </option>
+            <option
+              value="injection"
+            >
+              CSS/JS injections
+            </option>
+            <option
+              value="ua_override"
+            >
+              User-Agent override
+            </option>
+          </select>
+          <div
+            aria-hidden="true"
+            className="arrow"
+          />
+        </div>
+        <button
+          className="component"
+          onBlur={[Function]}
+          onClick={[Function]}
+          style={Object {}}
+          type="submit"
+        >
+          Filtered
+        </button>
+      </form>
+    </section>
+  </header>
+  <article
+    className="container"
+  >
+    <div
+      className="wrapper"
+    >
+      <h3
+        className="title"
+      >
+        Rendering Chart
+      </h3>
+      <div>
+        <div
+          className="fetch"
+        >
+          <svg
+            fill="#58666e"
+            height="7em"
+            viewBox="0 0 32 32"
+            width="7em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              stats-dots
+            </title>
+            <path
+              d="M4 28h28v4H0V0h4zm5-2a3 3 0 1 1 .262-5.988l3.225-5.375a3 3 0 1 1 5.026 0l3.225 5.375a3.238 3.238 0 0 1 .46-.005l5.324-9.316a3 3 0 1 1 2.28 1.302l-5.324 9.316a3 3 0 1 1-4.991.053l-3.225-5.375c-.086.007-.174.012-.262.012s-.176-.005-.262-.012l-3.225 5.375A3 3 0 0 1 9 25.999z"
+            />
+          </svg>
+          <div
+            className="fetchTitle"
+          >
+            Rendering Chart...
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+`;

@@ -15,7 +15,12 @@ const LineChart = (props) => {
 
   return (
     <Container title={props.title} subtitle={props.subtitle}>
-      <Line data={data} options={props.options} legend={props.legend} />
+      <Line
+        data={data}
+        multiple={props.multiple}
+        options={props.options}
+        legend={props.legend}
+      />
     </Container>
   );
 };

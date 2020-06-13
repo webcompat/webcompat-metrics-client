@@ -94,9 +94,10 @@ class MetricsTemplate extends React.Component {
    * @return {string}
    */
   getFormatedDate(filters = {}) {
+    const { nameFieldDateFrom, nameFieldDateTo } = this.props;
     const filterList = [];
-    const from = ObjectNested.get(filters, "from");
-    const to = ObjectNested.get(filters, "to");
+    const from = ObjectNested.get(filters, nameFieldDateFrom);
+    const to = ObjectNested.get(filters, nameFieldDateTo);
     if (from) {
       filterList.push(dayjs(filters.from).format("DD MMMM YYYY"));
     }
@@ -241,6 +242,8 @@ MetricsTemplate.propTypes = {
   normalizeData: PropTypes.func,
   headerTitle: PropTypes.string,
   viewMode: PropTypes.oneOf([VIEW_MODE_FORM, VIEW_MODE_STATIC]),
+  nameFieldDateFrom: PropTypes.string,
+  nameFieldDateTo: PropTypes.string,
 };
 
 MetricsTemplate.defaultProps = {
@@ -252,6 +255,8 @@ MetricsTemplate.defaultProps = {
   injectedFilters: {},
   normalizeData: () => {},
   viewMode: VIEW_MODE_FORM,
+  nameFieldDateFrom: "from",
+  nameFieldDateTo: "to",
 };
 
 export default MetricsTemplate;
