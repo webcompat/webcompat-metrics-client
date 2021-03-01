@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "babel-plugin-inline-react-svg": "^1.1.2",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chart.js": "^2.9.4",
     "dayjs": "^1.10.4",
