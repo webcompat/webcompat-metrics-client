@@ -95,6 +95,8 @@
       "<rootDir>/scripts/__mocks__/userRouter.js",
       "<rootDir>/scripts/__mocks__/dateMock.js"
     ],
+    "transformIgnorePatterns": ["/node_modules/", "/node_modules/(?!uuid)/"],
+
     "testURL": "http://localhost:3001/?from=2018-04-25&to=2018-05-25"
   }
 }
