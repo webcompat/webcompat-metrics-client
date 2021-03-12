@@ -2,13 +2,12 @@
   "env": {
     "node": true,
     "es6": true,
-    "jest": true,
+    "jest": true
   },
   "extends": [
     "eslint:recommended",
     "prettier",
-    "prettier/react",
-    "eslint-config-i-am-meticulous/react",
+    "eslint-config-i-am-meticulous/react"
   ],
   "globals": {
   },
