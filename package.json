@@ -85,7 +85,10 @@
     },
     "testPathIgnorePatterns": [
       "<rootDir>/public/",
-      "<rootDir>/scripts/"
+      "<rootDir>/scripts/",
+      "<rootDir>/docs/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/public/"
     ],
     "setupFiles": [
       "<rootDir>/scripts/test-setup.js",
