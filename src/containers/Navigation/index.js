@@ -97,12 +97,6 @@ class NavigationContainer extends React.Component {
             icon={<SVGBugdiagnosis />}
             onClick={this.handleResize}
           />
-          <Link
-            to="/tsci"
-            text={"Top Site Compatibility Index"}
-            icon={<SVGBugdiagnosis />}
-            onClick={this.handleResize}
-          />
         </PinningMenu>
         <MainView isCollapsed={!this.state.isOpened}>
           {this.props.children}
