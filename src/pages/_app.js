@@ -15,12 +15,19 @@ class App extends NextApp {
     return (
       <React.Fragment>
         <Head>
-          <title>webcompat metrics client</title>
+          <meta charSet="utf-8" />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
           <meta name="author" content="webcompat.com team" />
           <meta
             name="description"
             content="An application to power metrics for webcompat.com"
           />
+          <title>webcompat metrics client</title>
         </Head>
         <Navigation>
           <Component {...pageProps} />
