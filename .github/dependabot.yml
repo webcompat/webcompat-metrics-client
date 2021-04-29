@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "11:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - magsout
+  ignore:
+  - dependency-name: next
+    versions:
+    - 10.0.6
+    - 10.0.7
+    - 10.0.9
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.13.8
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 7.2.0
+  - dependency-name: dotenv-webpack
+    versions:
+    - 6.0.0
+  - dependency-name: stylelint
+    versions:
+    - 13.8.0
+    - 13.9.0
