@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/webcompat/webcompat-metrics-client#readme",
   "engines": {
-    "node": ">=13"
+    "node": ">=14.16"
   },
   "scripts": {
     "build": "next build",
