@@ -2,14 +2,27 @@
   "env": {
     "production": {
       "presets": ["next/babel"],
-      "plugins": ["babel-plugin-inline-react-svg",
+      "plugins": [
         [
-        "babel-plugin-transform-react-remove-prop-types",
-        {
-          "mode": "wrap"
-        }
+            "babel-plugin-inline-react-svg",
+            {
+              "svgo": {
+                "plugins": [
+                  {
+                    "name": "removeViewBox", 
+                    "active": false
+                  }
+                ]
+              }
+            }
+          ],
+          [
+            "babel-plugin-transform-react-remove-prop-types",
+            {
+              "mode": "wrap"
+            }
+          ]
         ]
-      ]
     },
     "development": {
       "presets": ["next/babel"],
