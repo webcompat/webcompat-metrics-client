@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./Chart.module.css";
 
 const Container = ({ children, title, style }) => {
   return (

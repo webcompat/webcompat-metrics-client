@@ -14,7 +14,6 @@ exports[`renders Header default correctly 1`] = `
     >
       <svg
         height="24"
-        viewBox="0 0 24 24"
         width="24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -48,13 +47,9 @@ exports[`renders Header default correctly 1`] = `
         <svg
           height="4em"
           preserveAspectRatio="xMinYMid meet"
-          viewBox="0 0 224 357"
           width="2em"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <title>
-            Lightbulb Logo Black
-          </title>
           <g
             fill="none"
           >

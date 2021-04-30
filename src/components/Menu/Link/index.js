@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 
-import classes from "./styles.css";
+import classes from "./Link.module.css";
 
 const Link = ({ to, text, icon, onClick }) => {
   const router = useRouter();

@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 import { ObjectNested } from "../../libraries";
 
-import classes from "./styles.css";
+import classes from "./SimpleStat.module.css";
 
 const Stat = ({ stat }) => {
   const label = ObjectNested.get(stat, "label");

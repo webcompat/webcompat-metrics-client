@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./Select.module.css";
 
 class Select extends React.Component {
   constructor(props) {

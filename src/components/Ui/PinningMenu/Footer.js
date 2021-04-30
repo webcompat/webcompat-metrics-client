@@ -6,7 +6,7 @@ import React from "react";
 
 import SVGTwitter from "./iconmonstr-twitter-1.svg";
 import SVGGithub from "./iconmonstr-github-1.svg";
-import classes from "./styles.css";
+import classes from "./PinningMenu.module.css";
 
 const Footer = (props) => {
   return (

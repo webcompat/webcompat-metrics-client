@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./PinningHeader.module.css";
 
 const PinningHeader = ({ children }) => {
   return (

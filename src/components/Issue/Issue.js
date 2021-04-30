@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 import { CARD_LAYOUT, CARD_LIST } from "../../constants/View";
 
-import classes from "./styles.css";
+import classes from "./Issue.module.css";
 
 const Issue = ({ issue, mode }) => {
   const { title, number, createdAt, updatedAt, browserList } = issue;
