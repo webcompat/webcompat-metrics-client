@@ -31,7 +31,6 @@ exports[`renders PinningMenu default correctly 1`] = `
           <svg
             fill="#1da1f2"
             height="1.5em"
-            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -50,7 +49,6 @@ exports[`renders PinningMenu default correctly 1`] = `
           <svg
             fill="#c6cbd1"
             height="1.5em"
-            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -103,7 +101,6 @@ exports[`renders PinningMenu mneu not opened correctly 1`] = `
           <svg
             fill="#1da1f2"
             height="1.5em"
-            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -122,7 +119,6 @@ exports[`renders PinningMenu mneu not opened correctly 1`] = `
           <svg
             fill="#c6cbd1"
             height="1.5em"
-            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
