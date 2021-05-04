@@ -8,14 +8,15 @@ import dayjs from "dayjs";
 import BarChart from "../../components/BarChart";
 import MetricsTemplate from "../MetricsTemplate";
 import { ObjectNested } from "../../libraries";
-import { mostAndLeast, normalize } from "../../modules/Chart";
+import { mostAndLeast } from "../../modules/Chart";
+import { weeklyReportsParse } from "../../modules/WeeklyReports";
 import Router from "../../routes";
 
 const handleData = (data) => {
   const localData = ObjectNested.get(data, "timeline", {});
   return {
     globalStats: mostAndLeast(localData),
-    chart: normalize(localData, "newIssues"),
+    chart: weeklyReportsParse(localData, "newIssues"),
   };
 };
 
@@ -35,25 +36,30 @@ const WeeklyReports = () => {
           title={"Issues Reported per Week"}
           fill={true}
           label={""}
-          labels={ObjectNested.get(data, "chart.dates", [])}
+          labels={ObjectNested.get(data, "chart.labels", [])}
           legend={{ display: false }}
           data={ObjectNested.get(data, "chart.newIssues", [])}
           options={{
             tooltips: {
               enabled: false,
             },
+            parsing: {
+              xAxisKey: "timestamp",
+              yAxisKey: "count",
+            },
+            layout: {
+              padding: {
+                left: 20,
+                right: 20,
+                top: 20,
+              },
+            },
             scales: {
-              xAxes: [
-                {
-                  type: "time",
-                  distribution: "series",
-                  time: {
-                    unit: "week",
-                    isoWeekday: true,
-                  },
-                  stacked: true,
+              x: {
+                grid: {
+                  display: false,
                 },
-              ],
+              },
             },
           }}
         />
