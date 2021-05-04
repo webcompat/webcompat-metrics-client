@@ -5,7 +5,7 @@
 import React from "react";
 
 import SvgDost from "./stats-dots.svg";
-import classes from "./styles.css";
+import classes from "./Chart.module.css";
 import Container from "./Container";
 
 const Fetch = (props) => {

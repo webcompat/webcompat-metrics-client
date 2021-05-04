@@ -4,7 +4,7 @@
 
 import { Router } from "../libraries";
 
-const API_BASE_URL = process.env.API_BASE_URL;
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 /*
  * Ochazuke endPoints

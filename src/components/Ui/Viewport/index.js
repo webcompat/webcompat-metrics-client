@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./Viewport.module.css";
 
 const Viewport = ({ children }) => {
   return <div className={classes.component}>{children}</div>;

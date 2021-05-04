@@ -21,7 +21,6 @@ exports[`renders NavigationContainer default correctly 1`] = `
         >
           <svg
             height="24"
-            viewBox="0 0 24 24"
             width="24"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -55,13 +54,9 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <svg
               height="4em"
               preserveAspectRatio="xMinYMid meet"
-              viewBox="0 0 224 357"
               width="2em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>
-                Lightbulb Logo Black
-              </title>
               <g
                 fill="none"
               >
@@ -181,7 +176,6 @@ exports[`renders NavigationContainer default correctly 1`] = `
             >
               <svg
                 height="24"
-                viewBox="0 0 24 24"
                 width="24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -394,7 +388,6 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <svg
               fill="#1da1f2"
               height="1.5em"
-              viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -413,7 +406,6 @@ exports[`renders NavigationContainer default correctly 1`] = `
             <svg
               fill="#c6cbd1"
               height="1.5em"
-              viewBox="0 0 24 24"
               width="24"
               xmlns="http://www.w3.org/2000/svg"
             >

@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 //import Svg from "../Svg";
 import SVGLogo from "./logo.svg";
 import SVGMenu from "./menu.svg";
-import classes from "./styles.css";
+import classes from "./Header.module.css";
 
 class Header extends React.Component {
   constructor(props) {

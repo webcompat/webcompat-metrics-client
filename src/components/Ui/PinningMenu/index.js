@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./PinningMenu.module.css";
 import Links from "./Links";
 import Footer from "./Footer";
 

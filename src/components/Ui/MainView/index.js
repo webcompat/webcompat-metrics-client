@@ -5,7 +5,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import classes from "./styles.css";
+import classes from "./MainView.module.css";
 
 const MainView = ({ children, isCollapsed }) => {
   return (

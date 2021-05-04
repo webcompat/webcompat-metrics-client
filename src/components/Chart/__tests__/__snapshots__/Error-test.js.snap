@@ -19,7 +19,6 @@ exports[`renders Error default correctly 1`] = `
         <svg
           fill="#58666e"
           height="7em"
-          viewBox="0 0 47 65"
           width="7em"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -37,7 +36,7 @@ exports[`renders Error default correctly 1`] = `
               fill="#FFC900"
             />
             <path
-              d="M27.66 43.814l7.145 3.992 1.775 6.511M21.435 48.717l5.695 5.689-.327 6.597M14.568 51.07l1.052 7.527-4.561 4.851"
+              d="m27.66 43.814 7.145 3.992 1.775 6.511M21.435 48.717l5.695 5.689-.327 6.597M14.568 51.07l1.052 7.527-4.561 4.851"
             />
           </g>
         </svg>
@@ -71,7 +70,6 @@ exports[`renders Error default correctly 2`] = `
         <svg
           fill="#58666e"
           height="7em"
-          viewBox="0 0 47 65"
           width="7em"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -89,7 +87,7 @@ exports[`renders Error default correctly 2`] = `
               fill="#FFC900"
             />
             <path
-              d="M27.66 43.814l7.145 3.992 1.775 6.511M21.435 48.717l5.695 5.689-.327 6.597M14.568 51.07l1.052 7.527-4.561 4.851"
+              d="m27.66 43.814 7.145 3.992 1.775 6.511M21.435 48.717l5.695 5.689-.327 6.597M14.568 51.07l1.052 7.527-4.561 4.851"
             />
           </g>
         </svg>

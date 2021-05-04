@@ -40,8 +40,6 @@ npm run start
 
 You can create a `.env` file (or copy `.env.example`) and modify variables, make sure variables are all set.
 
-By default `.env.defaults` is loaded and injected through the [Next.js] configuration.
-
 ### Testing
 
 For testing DOM, React components, and other JavaScript, we use [Jest], [Enzyme] and [Sinon.JS].

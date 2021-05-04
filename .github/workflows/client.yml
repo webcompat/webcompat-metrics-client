@@ -1,0 +1,32 @@
+name: Client
+
+on:
+  pull_request:
+
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: client-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.16.0
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: v1-npm-deps-
+      - name: Install dependencies
+        run: npm ci
+      - name: run tests
+        run: npm run test
+      - name: run build
+        run: npm run build

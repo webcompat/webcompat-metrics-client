@@ -6,7 +6,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import SvgBulb from "./bulb.svg";
-import classes from "./styles.css";
+import classes from "./Chart.module.css";
 import Container from "./Container";
 
 const Error = (props) => {
