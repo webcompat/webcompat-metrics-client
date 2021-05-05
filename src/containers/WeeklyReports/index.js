@@ -40,9 +40,6 @@ const WeeklyReports = () => {
           legend={{ display: false }}
           data={ObjectNested.get(data, "chart.newIssues", [])}
           options={{
-            tooltips: {
-              enabled: false,
-            },
             parsing: {
               xAxisKey: "timestamp",
               yAxisKey: "count",
@@ -55,11 +52,20 @@ const WeeklyReports = () => {
               },
             },
             scales: {
-              x: {
-                grid: {
-                  display: false,
+              xAxes: [
+                {
+                  grid: {
+                    display: false,
+                  },
                 },
-              },
+              ],
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
             },
           }}
         />
