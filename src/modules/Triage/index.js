@@ -4,7 +4,7 @@
 
 import dayjs from "dayjs";
 
-import { isEmptyObject, ObjectNested } from "../../libraries";
+import { isEmptyObject } from "../../libraries";
 
 /**
  * Normalize data relay on API and Triage
@@ -114,17 +114,17 @@ function hasIncludeData(issue = {}, filterList = {}) {
   }
 
   //browser
-  const browser = ObjectNested.get(filterList, "browserList");
+  const browser = filterList?.browserList;
   if (browser) {
     isIncluded =
       undefined !==
-      ObjectNested.get(issue, "browserList", []).find((currentBrowser) => {
+      (issue?.browserList ?? []).find((currentBrowser) => {
         return browser.includes(currentBrowser);
       });
   }
 
   // status
-  const status = ObjectNested.get(filterList, "status");
+  const status = filterList?.status;
   if (status && isIncluded) {
     isIncluded = issue[status];
   }

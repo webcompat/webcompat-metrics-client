@@ -8,7 +8,6 @@ import MetricsTemplate from "../MetricsTemplate";
 import Select from "../../components/Select";
 import { Container } from "../../components/Chart";
 import { Container as ContainerIssue, Issue } from "../../components/Issue";
-import { ObjectNested } from "../../libraries";
 import { parse } from "../../modules/Triage";
 import { CARD_LAYOUT } from "../../constants/View";
 import Router from "../../routes";
@@ -32,12 +31,10 @@ class Triage extends React.PureComponent {
    */
   parseData(data, filters) {
     // saved view pref
-    this.savedViewPrefOnLocalStorage(
-      ObjectNested.get(filters, "view", CARD_LAYOUT),
-    );
+    this.savedViewPrefOnLocalStorage(filters?.view ?? CARD_LAYOUT);
     //
     this.setState({
-      viewMode: ObjectNested.get(filters, "view", CARD_LAYOUT),
+      viewMode: filters?.view ?? CARD_LAYOUT,
     });
     return {
       ...parse(data, filters),
@@ -82,7 +79,7 @@ class Triage extends React.PureComponent {
           <React.Fragment>
             <Select
               name="browserList"
-              value={ObjectNested.get(filters, "browserList", "")}
+              value={filters?.browserList ?? ""}
               onChange={handleChange}
               optionList={[
                 { label: "All browsers" },
@@ -95,7 +92,7 @@ class Triage extends React.PureComponent {
             />
             <Select
               name="status"
-              value={ObjectNested.get(filters, "status", "priority")}
+              value={filters?.status ?? "priority"}
               onChange={handleChange}
               optionList={[
                 { label: "⏰ 48+ hours", value: "isOlder" },
@@ -104,7 +101,7 @@ class Triage extends React.PureComponent {
             />
             <Select
               name="direction"
-              value={ObjectNested.get(filters, "direction", "asc")}
+              value={filters?.direction ?? "asc"}
               onChange={handleChange}
               optionList={[
                 { label: "Newest", value: "desc" },
@@ -113,7 +110,7 @@ class Triage extends React.PureComponent {
             />
             <Select
               name="view"
-              value={ObjectNested.get(filters, "view", "card")}
+              value={filters?.view ?? "card"}
               onChange={handleChange}
               optionList={[
                 { label: "Card", value: "card" },
@@ -125,7 +122,7 @@ class Triage extends React.PureComponent {
         renderChart={(data) => (
           <Container title={"Open issues in needstriage milestone"}>
             <ContainerIssue mode={this.state.viewMode}>
-              {ObjectNested.get(data, "data", []).map((issue, key) => {
+              {(data?.data ?? []).map((issue, key) => {
                 return (
                   <Issue mode={this.state.viewMode} issue={issue} key={key} />
                 );

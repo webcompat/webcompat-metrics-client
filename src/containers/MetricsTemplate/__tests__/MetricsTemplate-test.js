@@ -5,7 +5,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
 
-import { ObjectNested } from "../../../libraries";
 import { mostAndLeast, normalize } from "../../../modules/Chart";
 import LineChart from "../../../components/LineChart";
 import Component from "..";
@@ -54,9 +53,9 @@ it("renders Component default correctly", () => {
           title={"Issues Reported per Week"}
           fill={true}
           label={""}
-          labels={ObjectNested.get(data, "chart.dates", [])}
+          labels={data?.chart?.dates ?? []}
           legend={{ display: false }}
-          data={ObjectNested.get(data, "chart.newIssues", [])}
+          data={data?.chart?.newIssues ?? []}
           options={{
             scales: {
               xAxes: [
@@ -122,9 +121,9 @@ it("renders Component with custom props", () => {
             title={"Issues Reported per Week"}
             fill={true}
             label={""}
-            labels={ObjectNested.get(data, "chart.dates", [])}
+            labels={data?.chart?.dates ?? []}
             legend={{ display: false }}
-            data={ObjectNested.get(data, "chart.newIssues", [])}
+            data={data?.chart?.newIssues ?? []}
             options={{
               scales: {
                 xAxes: [

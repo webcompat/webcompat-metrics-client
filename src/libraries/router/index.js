@@ -2,7 +2,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { ObjectNested, isEmptyObject } from "..";
+import { isEmptyObject } from "..";
 
 class Router {
   constructor() {
@@ -40,17 +40,17 @@ class Router {
     }
 
     /* on récupére la config du slug */
-    const currentRoute = ObjectNested.get(this.routes, slug, {});
+    const currentRoute = this.routes?.[slug] ?? {};
     if (isEmptyObject(currentRoute)) {
       console.warn("no configuration found for this slug");
       return "";
     }
 
     /* get url*/
-    const url = ObjectNested.get(currentRoute, "url");
+    const url = currentRoute?.url;
 
     /* get baseUrl */
-    const baseUrl = ObjectNested.get(currentRoute, "baseUrl");
+    const baseUrl = currentRoute?.baseUrl;
 
     if (isEmptyObject(params)) {
       return this.buildUrl(baseUrl, url);

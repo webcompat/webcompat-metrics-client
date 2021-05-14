@@ -7,7 +7,6 @@ import dayjs from "dayjs";
 
 import LineChart from "../../components/LineChart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested } from "../../libraries";
 import { interventionParse } from "../../modules/Intervention";
 import Router from "../../routes";
 
@@ -39,9 +38,9 @@ const Intervention = () => {
         <LineChart
           title={"Number of interventions"}
           label={""}
-          labels={ObjectNested.get(data, "dates", [])}
+          labels={data?.dates ?? []}
           legend={{ display: true, position: "bottom" }}
-          data={ObjectNested.get(data, "counters", [])}
+          data={data?.counters ?? []}
           multiple={true}
           options={{
             responsive: true,

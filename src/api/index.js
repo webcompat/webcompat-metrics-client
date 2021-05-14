@@ -4,7 +4,7 @@
 
 import jsonFetch from "simple-json-fetch";
 
-import { isEmptyObject, toQueryString, ObjectNested } from "../libraries";
+import { isEmptyObject, toQueryString } from "../libraries";
 import { CONFIG_API, GET, CALLBACK_API, METHODS, POST } from "../constants/Api";
 
 /**
@@ -27,7 +27,7 @@ const request = (args = {}, callback = CALLBACK_API) => {
     ...CONFIG_API,
     ...config,
   };
-  const method = ObjectNested.get(config, "method");
+  const method = config?.method;
 
   /* methods : get or post */
   if ("string" !== typeof method) {

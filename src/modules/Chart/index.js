@@ -4,7 +4,7 @@
 
 import dayjs from "dayjs";
 
-import { ObjectNested, isEmptyObject } from "../../libraries";
+import { isEmptyObject } from "../../libraries";
 
 /**
  * Normalize data relay on API and CHART
@@ -53,8 +53,8 @@ export const mostAndLeast = (stats = {}) => {
   for (const index in stats) {
     const stat = stats[index];
     const date = dayjs(new Date(stat.timestamp));
-    const mostCount = ObjectNested.get(most, "count");
-    const leastCount = ObjectNested.get(least, "count");
+    const mostCount = most?.count;
+    const leastCount = least?.count;
 
     /*
      * most
