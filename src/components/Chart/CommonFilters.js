@@ -6,7 +6,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Input from "../Input";
-import { ObjectNested } from "../../libraries";
 
 const CommonFilters = ({ onChange, filters, minFrom, minTo }) => {
   return (
@@ -16,7 +15,7 @@ const CommonFilters = ({ onChange, filters, minFrom, minTo }) => {
         name="from"
         placeholder="From"
         min={minFrom}
-        value={ObjectNested.get(filters, "from", "")}
+        value={filters?.from ?? ""}
         onChange={onChange}
       />
       <Input
@@ -24,7 +23,7 @@ const CommonFilters = ({ onChange, filters, minFrom, minTo }) => {
         name="to"
         placeholder="To"
         min={minTo}
-        value={ObjectNested.get(filters, "to", "")}
+        value={filters?.to ?? ""}
         onChange={onChange}
       />
     </React.Fragment>

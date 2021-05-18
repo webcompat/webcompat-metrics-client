@@ -8,7 +8,6 @@ import React from "react";
 import LineChart from "../../components/LineChart";
 import { CommonFilters } from "../../components/Chart";
 import MetricsTemplate from "../MetricsTemplate";
-import { ObjectNested } from "../../libraries";
 import {
   mostAndLeast,
   normalize,
@@ -18,7 +17,7 @@ import { TEMP_MIN_DATE } from "../../constants/Charts";
 import Router from "../../routes";
 
 const handleData = (data) => {
-  const localData = ObjectNested.get(data, "timeline", {});
+  const localData = data?.timeline ?? {};
   return {
     globalStats: mostAndLeast(localData),
     chart: normalize(localData, "openIssues"),
@@ -46,9 +45,9 @@ const ContactReady = () => {
         <LineChart
           title={"Open issues in contactready milestone"}
           label={""}
-          labels={ObjectNested.get(data, "chart.dates", [])}
+          labels={data?.chart?.dates ?? []}
           legend={{ display: false }}
-          data={ObjectNested.get(data, "chart.openIssues", [])}
+          data={data?.chart?.openIssues ?? []}
           options={{
             scales: {
               xAxes: [

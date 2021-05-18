@@ -8,7 +8,6 @@ import PropTypes from "prop-types";
 
 import request from "../../api";
 import {
-  ObjectNested,
   getFiltersFromUrl,
   toQueryObject,
   pushFiltersToUrl,
@@ -96,8 +95,8 @@ class MetricsTemplate extends React.Component {
   getFormatedDate(filters = {}) {
     const { nameFieldDateFrom, nameFieldDateTo } = this.props;
     const filterList = [];
-    const from = ObjectNested.get(filters, nameFieldDateFrom);
-    const to = ObjectNested.get(filters, nameFieldDateTo);
+    const from = filters?.[nameFieldDateFrom];
+    const to = filters?.[nameFieldDateTo];
     if (from) {
       filterList.push(dayjs(filters.from).format("DD MMMM YYYY"));
     }
@@ -154,9 +153,9 @@ class MetricsTemplate extends React.Component {
     this.setState({
       isFetching: false,
       error: {
-        message: ObjectNested.get(payload, "message", "Error"),
-        errors: ObjectNested.get(payload, "errors", []),
-        code: ObjectNested.get(payload, "code"),
+        message: payload?.message ?? "Error",
+        errors: payload?.errors ?? [],
+        code: payload?.code,
       },
     });
   }
@@ -190,7 +189,7 @@ class MetricsTemplate extends React.Component {
 
   render() {
     const { filters, data } = this.state;
-    const globalStats = ObjectNested.get(data, "globalStats", []);
+    const globalStats = data?.globalStats ?? [];
     return (
       <section>
         {this.props.shouldRenderJumbotron && (

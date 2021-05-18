@@ -5,14 +5,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { ObjectNested } from "../../libraries";
-
 import classes from "./SimpleStat.module.css";
 
 const Stat = ({ stat }) => {
-  const label = ObjectNested.get(stat, "label");
-  const count = ObjectNested.get(stat, "count");
-  const style = ObjectNested.get(stat, "style");
+  const label = stat?.label;
+  const count = stat?.count;
+  const style = stat?.style;
 
   return (
     <div {...(style ? { style } : undefined)} className={classes.stat}>

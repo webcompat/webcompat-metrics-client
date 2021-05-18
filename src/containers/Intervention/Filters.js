@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 
 import Input from "../../components/Input";
 import Select from "../../components/Select";
-import { ObjectNested } from "../../libraries";
 
 const Filters = ({ onChange, filters }) => {
   return (
@@ -16,19 +15,19 @@ const Filters = ({ onChange, filters }) => {
         type="date"
         name="start"
         placeholder="From"
-        value={ObjectNested.get(filters, "start", "")}
+        value={filters?.start ?? ""}
         onChange={onChange}
       />
       <Input
         type="date"
         name="end"
         placeholder="To"
-        value={ObjectNested.get(filters, "end", "")}
+        value={filters?.end ?? ""}
         onChange={onChange}
       />
       <Select
         name="distribution"
-        value={ObjectNested.get(filters, "distribution", "upstream")}
+        value={filters?.distribution}
         onChange={onChange}
         optionList={[
           { label: "Upstream", value: "upstream" },
@@ -40,7 +39,7 @@ const Filters = ({ onChange, filters }) => {
       />
       <Select
         name="type"
-        value={ObjectNested.get(filters, "type", "all")}
+        value={filters?.type}
         onChange={onChange}
         optionList={[
           { label: "All Interventions", value: "all" },
@@ -57,6 +56,8 @@ Filters.propTypes = {
   filters: PropTypes.shape({
     start: PropTypes.string,
     end: PropTypes.string,
+    distribution: PropTypes.string,
+    type: PropTypes.string,
   }),
 };
 
@@ -64,6 +65,8 @@ Filters.defaultProps = {
   filters: {
     start: "",
     end: "",
+    distribution: "upstream",
+    type: "all",
   },
 };
 
