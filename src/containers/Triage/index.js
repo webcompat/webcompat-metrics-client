@@ -19,9 +19,8 @@ class Triage extends React.PureComponent {
       viewMode: CARD_LAYOUT,
     };
     this.parseData = this.parseData.bind(this);
-    this.getViewPrefRelayOnLocalStorage = this.getViewPrefRelayOnLocalStorage.bind(
-      this,
-    );
+    this.getViewPrefRelayOnLocalStorage =
+      this.getViewPrefRelayOnLocalStorage.bind(this);
   }
 
   /**
