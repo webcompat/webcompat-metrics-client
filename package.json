@@ -34,7 +34,7 @@
     "babel-plugin-inline-react-svg": "^2.0.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chart.js": "^2.9.4",
-    "dayjs": "^1.10.5",
+    "dayjs": "^1.10.6",
     "next": "^10.2.3",
     "postcss": "^8.3.5",
     "postcss-preset-env": "^6.7.0",
