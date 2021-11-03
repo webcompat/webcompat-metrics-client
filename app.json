@@ -2,7 +2,7 @@
   "name": "webcompat-metrics",
   "description": "An application to power metrics for webcompat.com",
   "engines": {
-    "node": ">=13"
+    "node": "16.13.0"
   },
   "buildpacks": [
     {
