@@ -16,9 +16,6 @@ git clone https://github.com/webcompat/webcompat-metrics-client.git
 
 cd webcompat-metrics-client
 
-yarn
-yarn dev
-# or
 npm install
 npm run dev
 # Go to http://localhost:3001
@@ -27,9 +24,6 @@ npm run dev
 ### Production
 
 ```bash
-yarn build
-yarn start
-# or
 npm run build
 npm run start
 # Go to http://localhost:3001
@@ -55,16 +49,10 @@ You can test the full application locally with:
 ```bash
 # for all tests
 npm run test
-# or
-yarn test
 # only do linting:
 npm run lint
-# or
-yarn lint
 # only run DOM/React tests:
 npm run test:jest
-# or
-yarn test:jest
 ```
 
 If your changes will alter the appearance of any views, be sure to update the [Jest] snapshots before running tests:
