@@ -35,7 +35,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chart.js": "^2.9.4",
     "dayjs": "^1.10.7",
-    "next": "^12.0.7",
+    "next": "^12.0.9",
     "postcss": "^8.4.5",
     "postcss-preset-env": "^7.2.0",
     "prop-types": "^15.8.0",
