@@ -37,7 +37,7 @@
     "dayjs": "^1.10.7",
     "next": "^12.0.9",
     "postcss": "^8.4.5",
-    "postcss-preset-env": "^7.2.0",
+    "postcss-preset-env": "^7.3.0",
     "prop-types": "^15.8.0",
     "react": "^16.14.0",
     "react-chartjs-2": "^2.11.2",
