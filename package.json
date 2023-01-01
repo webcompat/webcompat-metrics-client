@@ -64,7 +64,7 @@
     "jest-fetch-mock": "^3.0.1",
     "prettier": "^2.6.2",
     "react-test-renderer": "^16.14.0",
-    "sinon": "^13.0.2",
+    "sinon": "^15.0.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0"
   },
